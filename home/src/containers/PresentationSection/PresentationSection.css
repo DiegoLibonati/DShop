@@ -81,6 +81,7 @@
 
 .presentation-illustration__vectors {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
 }
