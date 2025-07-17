@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 
 import { App } from "@src/App";
 
+import "@src/index.css";
+
 const mount = (el: HTMLDivElement) => {
   const root = createRoot(el);
 
@@ -11,7 +13,7 @@ const mount = (el: HTMLDivElement) => {
 
 // Dev
 if (process.env.NODE_ENV === "development") {
-  const devRoot = document.getElementById("#_home-dev-root") as HTMLDivElement;
+  const devRoot = document.getElementById("_home-dev-root") as HTMLDivElement;
 
   if (devRoot) {
     mount(devRoot);

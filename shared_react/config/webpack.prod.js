@@ -8,16 +8,15 @@ module.exports = merge(commonConfig, {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "/home/latest/",
+    publicPath: "/shared_react/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "home",
+      name: "shared_react",
       filename: "remoteEntry.js",
       exposes: {
-        "./HomeApp": "./src/bootstrap",
+        "./SharedReact": "./src/bootstrap",
       },
-      remotes: {},
       shared: packageJson.dependencies,
     }),
   ],

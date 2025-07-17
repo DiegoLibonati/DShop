@@ -15,6 +15,8 @@ module.exports = merge(commonConfig, {
     historyApiFallback: {
       index: "/index.html",
     },
+    hot: false,
+    liveReload: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -25,6 +27,9 @@ module.exports = merge(commonConfig, {
       filename: "remoteEntry.js",
       exposes: {
         "./HomeApp": "./src/bootstrap.tsx",
+      },
+      remotes: {
+        shared_react: "shared_react@http://localhost:8082/remoteEntry.js",
       },
       shared: packageJson.dependencies,
     }),

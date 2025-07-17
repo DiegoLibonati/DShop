@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const commonConfig = require("./webpack.common");
@@ -7,21 +8,24 @@ const packageJson = require("../package.json");
 module.exports = merge(commonConfig, {
   mode: "development",
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8082/",
   },
   devServer: {
-    port: 8080,
-    historyApiFallback: {
-      index: "/index.html",
-    },
-    hot: false,
+    port: 8082,
     liveReload: true,
+    hot: false,
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
     new ModuleFederationPlugin({
-      name: "container",
-      remotes: {
-        home: "home@http://localhost:8081/remoteEntry.js",
+      name: "shared_react",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./SharedReact": "./src/bootstrap.tsx",
+        "./SharedReactEnums": "./src/entities/enum.d.ts",
+        "./SharedReactProps": "./src/entities/props.d.ts",
       },
       shared: packageJson.dependencies,
     }),
