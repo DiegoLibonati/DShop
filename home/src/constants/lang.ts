@@ -1,12 +1,15 @@
-export const lang = {
-    en: {
-        presentation: {
-            title: "FIND CLOTHES THAT MATCHES YOUR STYLE",
-            description: "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
-            button_shop_now: "Shop Now",
-            international_brands: "International Brands",
-            high_quality_products: "High-Quality Products",
-            happy_customers: "Happy Customers",
-        }
-    }
-}
+import { LangC } from "@src/entities/constants";
+
+export const lang: LangC = {
+  en: {
+    presentation: {
+      title: "FIND CLOTHES THAT MATCHES YOUR STYLE",
+      description:
+        "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+      button_shop_now: "Shop Now",
+      international_brands: "International Brands",
+      high_quality_products: "High-Quality Products",
+      happy_customers: "Happy Customers",
+    },
+  },
+};
