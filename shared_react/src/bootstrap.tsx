@@ -11,8 +11,8 @@ export const getComponentById = (
   props: Record<string, unknown>
 ): React.ReactNode => {
   return {
-    "button-black": <ButtonBlack {...props} />,
-    "app-test": <App {...props} />,
+    [Component.ButtonBlack]: <ButtonBlack {...props} />,
+    [Component.AppTest]: <App {...props} />,
   }[idComponent];
 };
 
