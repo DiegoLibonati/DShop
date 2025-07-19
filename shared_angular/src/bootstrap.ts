@@ -38,6 +38,7 @@ export const mountComponent = async (
   Object.assign(compRef.instance, props);
 
   appRef!.attachView(compRef.hostView);
+  (compRef.changeDetectorRef as any).detectChanges();
 
   const domElem = (compRef.hostView as any).rootNodes[0] as HTMLElement;
   el.innerHTML = "";

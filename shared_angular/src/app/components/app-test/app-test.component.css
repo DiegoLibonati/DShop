@@ -1,3 +1,21 @@
 .test-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 2rem;
+}
+
+.test-container__title {
+  font-size: 3rem;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.component__title {
+  font-size: 1.5rem;
+  text-decoration: underline;
 }

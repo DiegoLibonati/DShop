@@ -11,16 +11,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        type: "asset/source",
+        oneOf: [
+          {
+            issuer: /\.component\.ts$/,
+            type: "asset/source",
+          },
+          {
+            use: ["style-loader", "css-loader"],
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-        test: /\.html$/,
-        use: "html-loader",
-        exclude: [path.resolve(__dirname, "../public/index.html")],
+        test: /\.html$/i,
+        loader: "html-loader",
       },
     ],
   },

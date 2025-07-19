@@ -25,6 +25,7 @@ module.exports = merge(commonConfig, {
       filename: "remoteEntry.js",
       exposes: {
         "./SharedAngular": "./src/bootstrap.ts",
+        "./SharedAngularEnums": "./src/app/entities/enum.ts",
       },
       shared: {
         ...packageJson.dependencies,
