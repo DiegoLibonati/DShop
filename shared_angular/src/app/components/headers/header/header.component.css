@@ -16,7 +16,7 @@
   left: 1.25rem;
   right: 1.25rem;
   height: 0.1rem;
-  background-color: var(--black-color-10);
+  background-color: var(--sa-black-color-10);
 }
 
 .header__btn {
@@ -110,7 +110,7 @@
     justify-content: center;
     width: 15%;
     height: 100%;
-    background-color: var(--light-gray);
+    background-color: var(--sa-light-gray);
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
   }
@@ -121,14 +121,14 @@
   }
 
   :host ::ng-deep .header__search-btn-icon path {
-    stroke: var(--black-color-40);
+    stroke: var(--sa-black-color-40);
   }
 
   .header__search-input {
     width: 85%;
     font-size: 1rem;
-    color: var(--black-color-40);
-    background-color: var(--light-gray);
+    color: var(--sa-black-color-40);
+    background-color: var(--sa-light-gray);
     outline: none;
     border: none;
     border-top-right-radius: 2rem;
@@ -137,6 +137,6 @@
 
   .header__search-input::placeholder {
     font-size: 1rem;
-    color: var(--black-color-40);
+    color: var(--sa-black-color-40);
   }
 }

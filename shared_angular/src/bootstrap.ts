@@ -12,8 +12,6 @@ import { AppTestComponent } from "@src/app/components/app-test/app-test.componen
 
 import { IS_DEV } from "@src/app/constants/envs.constants";
 
-import "@src/index.css";
-
 // TODO: Cambiar los Any.
 
 let ngModuleRef: NgModuleRef<any> | null = null;

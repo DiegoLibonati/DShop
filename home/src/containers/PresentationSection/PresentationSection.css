@@ -5,7 +5,7 @@
   width: 100%;
   height: auto;
   padding-top: 2.5rem; /* 40px */
-  background-color: var(--light-gray);
+  background-color: var(--ho-light-gray);
 }
 
 .presentation-information {

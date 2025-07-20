@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 
 import { App } from "@src/App";
 
-import "@src/index.css";
-
 const mount = (el: HTMLDivElement) => {
   const root = createRoot(el);
 

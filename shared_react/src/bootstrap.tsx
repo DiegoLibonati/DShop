@@ -8,8 +8,6 @@ import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 
 import { IS_DEV } from "@src/constants/envs";
 
-import "@src/index.css";
-
 export const getComponentById = (
   idComponent: Component,
   props: Record<string, unknown>

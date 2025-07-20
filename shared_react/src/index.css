@@ -7,8 +7,9 @@
   --secondary-color: #246a73; */
   --white-color: #ffffff;
   --black-color: #000000;
-  --black-color-10: #00000010;
-  --black-color-40: #00000040;
+
+  --sr-black-color-10: #00000010;
+  --sr-black-color-40: #00000040;
 }
 
 * {
