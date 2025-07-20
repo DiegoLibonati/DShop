@@ -1,3 +1,5 @@
+import "zone.js";
+
 import { ApplicationRef, ComponentRef, NgModuleRef } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
@@ -9,6 +11,8 @@ import { HeaderComponent } from "@src/app/components/headers/header/header.compo
 import { AppTestComponent } from "@src/app/components/app-test/app-test.component";
 
 import { IS_DEV } from "@src/app/constants/envs.constants";
+
+import "@src/index.css";
 
 // TODO: Cambiar los Any.
 
@@ -25,7 +29,7 @@ const getComponentById = (idComponent: Component): any => {
 export const mountComponent = async (
   el: HTMLElement,
   id: Component,
-  props: Record<string, any> = {}
+  props: Record<string, unknown> = {}
 ) => {
   if (!ngModuleRef) {
     ngModuleRef = await platformBrowserDynamic().bootstrapModule(AppModule);

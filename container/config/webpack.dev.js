@@ -22,6 +22,7 @@ module.exports = merge(commonConfig, {
       name: "container",
       remotes: {
         home: "home@http://localhost:8081/remoteEntry.js",
+        shared_angular: "shared_angular@http://localhost:8083/remoteEntry.js",
       },
       shared: packageJson.dependencies,
     }),

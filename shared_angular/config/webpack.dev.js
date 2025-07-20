@@ -27,10 +27,15 @@ module.exports = merge(commonConfig, {
         "./SharedAngular": "./src/bootstrap.ts",
         "./SharedAngularEnums": "./src/app/entities/enum.ts",
         "./SharedAngularProps": "./src/app/entities/props.ts",
+        "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       shared: {
         ...packageJson.dependencies,
-        "zone.js": { singleton: false, eager: true, requiredVersion: false },
+        "zone.js": {
+          singleton: false,
+          eager: true,
+          requiredVersion: packageJson.dependencies["zone.js"],
+        },
       },
     }),
   ],
