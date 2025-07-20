@@ -5,8 +5,10 @@ import { Component } from "@src/app/entities/enum";
 
 import { AppModule } from "@src/app/app.module";
 
-import { HeaderComponent } from "@src/app/components/header/header.component";
+import { HeaderComponent } from "@src/app/components/headers/header/header.component";
 import { AppTestComponent } from "@src/app/components/app-test/app-test.component";
+
+import { IS_DEV } from "@src/app/constants/envs.constants";
 
 // TODO: Cambiar los Any.
 
@@ -46,7 +48,7 @@ export const mountComponent = async (
 };
 
 // Dev
-if (process.env.NODE_ENV === "development") {
+if (IS_DEV === "development") {
   const devRoot = document.getElementById(
     "_shared-angular-dev-root"
   ) as HTMLDivElement;

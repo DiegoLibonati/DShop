@@ -3,6 +3,14 @@
 
   <div class="component">
     <h2 class="component__title">App-Header</h2>
-    <app-header [className]="'test-class'">322</app-header>
+    <app-header
+      [name]="headerProps.name"
+      [className]="headerProps.className"
+      [options]="headerProps.options"
+      [onClickMenu]="headerProps.onClickMenu"
+      [onSubmitSearch]="headerProps.onSubmitSearch"
+      [onClickSearch]="headerProps.onClickSearch"
+      [onClickCart]="headerProps.onClickCart"
+    ></app-header>
   </div>
 </div>

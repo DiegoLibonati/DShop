@@ -26,6 +26,7 @@ module.exports = merge(commonConfig, {
       exposes: {
         "./SharedAngular": "./src/bootstrap.ts",
         "./SharedAngularEnums": "./src/app/entities/enum.ts",
+        "./SharedAngularProps": "./src/app/entities/props.ts",
       },
       shared: {
         ...packageJson.dependencies,
