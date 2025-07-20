@@ -1,8 +1,8 @@
 // ### GENERALES ###
 
 // TODO: HACER | Ver en internet el tema de declarar modulos en TS compartidos por MODULE FEDERATION. Se repite mucho
-// TODO: HACER | Un index.css con las vars
 // TODO: HACER | TESTS DE COMPONENTES
+// TODO: HACER | Ver orden de hojas estilos globales
 
 // ### PARTICULARES ###
 
@@ -16,3 +16,4 @@
 
 // ### NEWS ###
 // TODO: HACER MFE SVGS
+// TODO: HACER MFE index.css??
