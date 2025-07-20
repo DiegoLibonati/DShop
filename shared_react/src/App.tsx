@@ -2,15 +2,17 @@ import React from "react";
 
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 
+import "@src/App.css";
+
 export const App = () => {
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>Component Showcase</h1>
-      <h2>Black Button</h2>
-      <ButtonBlack rounded={true}>Button Black</ButtonBlack>
+    <div className="test-container">
+      <h1 className="test-container__title">Component Showcase</h1>
 
-      {/* <h2>White Button</h2>
-        <ButtonWhite label="Preview White Button" /> */}
+      <div className="component">
+        <h2 className="component__title">Button Black</h2>
+        <ButtonBlack rounded={true}>Button Black</ButtonBlack>
+      </div>
 
       {/* Podés agregar más componentes aquí */}
     </div>

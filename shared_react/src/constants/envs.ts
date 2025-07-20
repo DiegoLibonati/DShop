@@ -1,0 +1,1 @@
+export const IS_DEV: string | undefined = process.env.NODE_ENV

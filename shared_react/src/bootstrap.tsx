@@ -6,6 +6,10 @@ import { Component } from "@src/entities/enum.d";
 import { App } from "@src/App";
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 
+import { IS_DEV } from "@src/constants/envs";
+
+import "@src/index.css";
+
 export const getComponentById = (
   idComponent: Component,
   props: Record<string, unknown>
@@ -33,7 +37,7 @@ const mountComponent = (
 };
 
 // Dev
-if (process.env.NODE_ENV === "development") {
+if (IS_DEV === "development") {
   const devRoot = document.getElementById(
     "_shared-react-dev-root"
   ) as HTMLDivElement;
