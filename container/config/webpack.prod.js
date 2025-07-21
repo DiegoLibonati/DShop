@@ -13,7 +13,11 @@ module.exports = merge(commonConfig, {
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
-      remotes: {},
+      remotes: {
+        home: `home@/home/latest/remoteEntry.js`,
+        shared_react: `shared_react@/shared_react/latest/remoteEntry.js`,
+        shared_angular: `shared_angular@/shared_angular/latest/remoteEntry.js`,
+      },
       shared: packageJson.dependencies,
     }),
   ],

@@ -1,8 +1,9 @@
+const path = require("path");
 const { merge } = require("webpack-merge");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const common = require("./webpack.common");
-const packageJson = require("./package.json");
+const packageJson = require(path.resolve(__dirname, "../package.json"));
 
 module.exports = merge(common, {
   mode: "production",
@@ -17,10 +18,17 @@ module.exports = merge(common, {
       filename: "remoteEntry.js",
       exposes: {
         "./SharedAngular": "./src/bootstrap.ts",
+        "./SharedAngularEnums": "./src/app/entities/enum.ts",
+        "./SharedAngularProps": "./src/app/entities/props.ts",
+        "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       shared: {
         ...packageJson.dependencies,
-        "zone.js": { singleton: false, eager: true, requiredVersion: false },
+        "zone.js": {
+          singleton: false,
+          eager: true,
+          requiredVersion: packageJson.dependencies["zone.js"],
+        },
       },
     }),
   ],

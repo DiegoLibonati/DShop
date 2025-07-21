@@ -17,7 +17,9 @@ module.exports = merge(commonConfig, {
       exposes: {
         "./HomeApp": "./src/bootstrap",
       },
-      remotes: {},
+      remotes: {
+        shared_react: `shared_react@/shared_react/latest/remoteEntry.js`,
+      },
       shared: packageJson.dependencies,
     }),
   ],

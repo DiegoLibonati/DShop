@@ -1,0 +1,68 @@
+name: dshop-dev
+services:
+  dshop-container:
+    build:
+      context: ./container
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./container/.env
+    volumes:
+      - ./container/src:/home/app/src
+    ports:
+      - 8080:8080
+    depends_on:
+      dshop-home:
+        condition: service_started
+    networks:
+      - dshop-dev-net
+
+  dshop-home:
+    build:
+      context: ./home
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./home/.env
+    volumes:
+      - ./home/src:/home/app/src
+    ports:
+      - 8081:8081
+    depends_on:
+      dshop-shared-react:
+        condition: service_started
+      dshop-shared-angular:
+        condition: service_started
+    networks:
+      - dshop-dev-net
+
+  dshop-shared-react:
+    build:
+      context: ./shared_react
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./shared_react/.env
+    volumes:
+      - ./shared_react/src:/home/app/src
+    ports:
+      - 8082:8082
+    networks:
+      - dshop-dev-net
+
+  dshop-shared-angular:
+    build:
+      context: ./shared_angular
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./shared_angular/.env
+    volumes:
+      - ./shared_angular/src:/home/app/src
+    ports:
+      - 8083:8083
+    networks:
+      - dshop-dev-net
+
+networks:
+  dshop-dev-net:
