@@ -5,13 +5,10 @@ import { HeaderProps } from "@src/app/entities/props";
 import template from "@src/app/components/headers/header/header.component.html";
 import styles from "@src/app/components/headers/header/header.component.css";
 
-// TODO: Pasar iconos por props.
-
 @Component({
   selector: "app-header",
   template: template,
   styles: [styles],
-  imports: [],
 })
 export class HeaderComponent implements OnInit {
   @Input() name: HeaderProps["name"] = "";

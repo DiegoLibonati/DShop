@@ -4,7 +4,7 @@ import { mountComponent } from "shared_angular/SharedAngular";
 import { Component } from "shared_angular/SharedAngularEnums";
 import { HeaderProps } from "shared_angular/SharedAngularProps";
 
-const Header = ({
+export const Header = ({
   name,
   options,
   className,

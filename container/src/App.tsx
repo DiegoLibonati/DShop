@@ -3,7 +3,7 @@ import React, { lazy, Suspense } from "react";
 import { HEADER_OPTIONS } from "@src/constants/components";
 
 const HeaderLazy = lazy(() => import("@src/components/headers/Header/Header"));
-const HomeLazy = lazy(() => import("@src/components/apps/HomeApp/HomeApp"));
+const HomeLazy = lazy(() => import("@src/components/apps/AppHome/AppHome"));
 
 export const App = () => {
   return (

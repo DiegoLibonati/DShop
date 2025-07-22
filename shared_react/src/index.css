@@ -10,6 +10,9 @@
 
   --sr-black-color-10: #00000010;
   --sr-black-color-40: #00000040;
+  --sr-light-gray-color: #f0eeed;
+  --sr-red-color: #ff3333;
+  --sr-red-color-10: #ff333310;
 }
 
 * {

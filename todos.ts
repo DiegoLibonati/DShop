@@ -11,7 +11,6 @@
 
 // ### SHARED REACT MFE ###
 // TODO: Si estas en prod y queres acceder app-test throw error
-// TODO: Button Black -> Aria Label props
 
 // ### NEWS ###
 // TODO: HACER MFE SVGS

@@ -17,7 +17,7 @@ declare module "shared_react/SharedReactEnums" {
 declare module "shared_react/SharedReactProps" {
   import React from "react";
 
-  export interface BlackButtonProps {
+  export interface ButtonBlackProps {
     rounded?: boolean;
     children?: React.ReactNode;
     className?: string;

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { HeaderProps } from "@src/app/entities/props";
+import { ButtonWhiteProps, HeaderProps } from "@src/app/entities/props";
 
 import template from "@src/app/components/app-test/app-test.component.html";
 import styles from "@src/app/components/app-test/app-test.component.css";
@@ -21,6 +21,14 @@ export class AppTestComponent {
     onSubmitSearch: this.onHeaderDefaultSubmitSearch.bind(this),
     onClickSearch: this.onHeaderDefaultClickSearch.bind(this),
     onClickCart: this.onHeaderDefaultClickCart.bind(this),
+  };
+
+  public buttonWhiteProps: ButtonWhiteProps = {
+    ariaLabel: "view all",
+    className: "button-white-test",
+    rounded: true,
+    borderGray: true,
+    onClick: this.onButtonWhiteDefaultClick.bind(this),
   };
 
   private componentName: string = "app-test";
@@ -60,5 +68,10 @@ export class AppTestComponent {
       this.componentName,
       e
     );
+  }
+
+  // BUTTON WHITE COMPONENT
+  onButtonWhiteDefaultClick(e: MouseEvent): void {
+    console.log("Executed in shared_angular - Click: ", this.componentName, e);
   }
 }

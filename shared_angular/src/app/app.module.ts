@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { HeaderComponent } from "@src/app/components/headers/header/header.component";
 import { AppTestComponent } from "@src/app/components/app-test/app-test.component";
+import { ButtonWhiteComponent } from "@src/app/components/buttons/button-white/button-white.component";
 
 import { SvgSearchComponent } from "@src/app/components/svgs/svg-search/svg-search.component";
 import { SvgCartShoppingComponent } from "@src/app/components/svgs/svg-cart-shopping/svg-cart-shopping.component";
@@ -14,6 +15,7 @@ import { SvgChevronUpComponent } from "@src/app/components/svgs/svg-chevron-up/s
   declarations: [
     HeaderComponent,
     AppTestComponent,
+    ButtonWhiteComponent,
     SvgSearchComponent,
     SvgCartShoppingComponent,
     SvgHamburgerMenuComponent,
@@ -24,6 +26,7 @@ import { SvgChevronUpComponent } from "@src/app/components/svgs/svg-chevron-up/s
   exports: [
     HeaderComponent,
     AppTestComponent,
+    ButtonWhiteComponent,
     SvgSearchComponent,
     SvgCartShoppingComponent,
     SvgHamburgerMenuComponent,

@@ -1,0 +1,11 @@
+.rate-stars {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: auto;
+}
+
+.rate-stars__star {
+  width: 1.125rem;
+  height: 1.125rem;
+}

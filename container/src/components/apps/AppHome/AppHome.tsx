@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 import { mount } from "home/HomeApp";
 
-const HomeApp = () => {
+const AppHome = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
@@ -14,4 +14,4 @@ const HomeApp = () => {
   return <div ref={ref}></div>;
 };
 
-export default HomeApp;
+export default AppHome;

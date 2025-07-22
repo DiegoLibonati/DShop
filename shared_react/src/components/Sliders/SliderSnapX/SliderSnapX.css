@@ -1,0 +1,18 @@
+.slider-snap-x {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-padding: 1rem;
+}
+
+.slider-snap-x::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-snap-x > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
-import BlackButton from "@src/components/Buttons/BlackButton/BlackButton";
-import { StarSvg } from "@src/components/Svgs/StarSvg/StarSvg";
+import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/BlackButton";
+import { SvgStar } from "@src/components/Svgs/SvgStar/SvgStar";
 
 import { lang } from "@src/constants/lang";
 
@@ -20,12 +20,12 @@ export const PresentationSection = () => {
         <p className="presentation-information__description">
           {lang["en"].presentation.description}
         </p>
-        <BlackButton
+        <ButtonBlack
           className="presentation-information__shop-now"
           rounded={true}
         >
           {lang["en"].presentation.button_shop_now}
-        </BlackButton>
+        </ButtonBlack>
 
         <div className="presentation-information__counts">
           <div className="presentation-information__counts-single">
@@ -65,16 +65,16 @@ export const PresentationSection = () => {
         ></img>
 
         <div className="presentation-illustration__vectors">
-          <StarSvg
+          <SvgStar
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-          ></StarSvg>
-          <StarSvg
+          ></SvgStar>
+          <SvgStar
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-          ></StarSvg>
+          ></SvgStar>
         </div>
       </article>
 
@@ -86,16 +86,16 @@ export const PresentationSection = () => {
         ></img>
 
         <div className="presentation-illustration__vectors">
-          <StarSvg
+          <SvgStar
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-          ></StarSvg>
-          <StarSvg
+          ></SvgStar>
+          <SvgStar
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-          ></StarSvg>
+          ></SvgStar>
         </div>
       </article>
     </section>

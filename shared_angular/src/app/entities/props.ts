@@ -13,6 +13,13 @@ export interface HeaderProps extends DefaultProps {
   onClickCart: (e: MouseEvent) => void;
 }
 
+export interface ButtonWhiteProps extends DefaultProps {
+  ariaLabel: string;
+  rounded?: boolean;
+  borderGray?: boolean;
+  onClick?: (e: MouseEvent) => void;
+}
+
 export interface SvgSearchProps extends DefaultProps {}
 
 export interface SvgCartShoppingProps extends DefaultProps {}
