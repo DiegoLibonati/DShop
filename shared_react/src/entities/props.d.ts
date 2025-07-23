@@ -1,6 +1,7 @@
 import { SVGProps } from "react";
 
 export interface DefaultProps {
+  idRoot?: string;
   className?: string;
   children?: React.ReactNode;
 }

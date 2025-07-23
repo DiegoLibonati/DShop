@@ -11,5 +11,13 @@ export const lang: LangC = {
       high_quality_products: "High-Quality Products",
       happy_customers: "Happy Customers",
     },
+    new_arrivals: {
+      title: "NEW ARRIVALS",
+      button_view_all: "View All",
+    },
+    top_selling: {
+      title: "TOP SELLING",
+      button_view_all: "View All",
+    },
   },
 };

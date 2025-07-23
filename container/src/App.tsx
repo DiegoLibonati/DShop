@@ -10,6 +10,7 @@ export const App = () => {
     <div>
       <Suspense fallback={<div>Cargando Header</div>}>
         <HeaderLazy
+          idRoot="header-dshop"
           name="DShop"
           options={HEADER_OPTIONS}
           onClickCart={(e) => {

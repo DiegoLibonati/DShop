@@ -28,6 +28,7 @@ export class AppTestComponent {
     className: "button-white-test",
     rounded: true,
     borderGray: true,
+    textContent: "pepe",
     onClick: this.onButtonWhiteDefaultClick.bind(this),
   };
 

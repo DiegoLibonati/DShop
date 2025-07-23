@@ -7,7 +7,19 @@
   --secondary-color: #246a73; */
   --white-color: #ffffff;
   --black-color: #000000;
+
   --ho-light-gray: #f2f0f1;
+  --ho-black-color-10: #00000010;
+
+  --sa-black-color-10: #00000010;
+  --sa-black-color-40: #00000040;
+  --sa-light-gray: #f0f0f0;
+
+  --sr-black-color-10: #00000010;
+  --sr-black-color-40: #00000040;
+  --sr-light-gray-color: #f0eeed;
+  --sr-red-color: #ff3333;
+  --sr-red-color-10: #ff333310;
 }
 
 * {

@@ -1,6 +1,7 @@
 import { HeaderOption } from "@src/app/entities/entities";
 
 interface DefaultProps {
+  idRoot?: string;
   className?: string;
 }
 
@@ -17,6 +18,7 @@ export interface ButtonWhiteProps extends DefaultProps {
   ariaLabel: string;
   rounded?: boolean;
   borderGray?: boolean;
+  textContent?: string;
   onClick?: (e: MouseEvent) => void;
 }
 

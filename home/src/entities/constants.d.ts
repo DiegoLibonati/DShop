@@ -1,6 +1,8 @@
 export type LangC = {
   en: {
     presentation: LangPresentation;
+    new_arrivals: LangNewArrivals;
+    top_selling: LangTopSelling;
   };
 };
 
@@ -11,4 +13,14 @@ export type LangPresentation = {
   international_brands: string;
   high_quality_products: string;
   happy_customers: string;
+};
+
+export type LangNewArrivals = {
+  title: string;
+  button_view_all: string;
+};
+
+export type LangTopSelling = {
+  title: string;
+  button_view_all: string;
 };

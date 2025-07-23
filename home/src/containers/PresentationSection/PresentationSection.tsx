@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/BlackButton";
+import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 import { SvgStar } from "@src/components/Svgs/SvgStar/SvgStar";
 
 import { lang } from "@src/constants/lang";
@@ -21,6 +21,7 @@ export const PresentationSection = () => {
           {lang["en"].presentation.description}
         </p>
         <ButtonBlack
+          idRoot={"button-black-presentation-information__shop-now"}
           className="presentation-information__shop-now"
           rounded={true}
         >

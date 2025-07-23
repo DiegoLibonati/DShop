@@ -1,0 +1,29 @@
+.top-sellings__slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.top-sellings__slider {
+  gap: 1rem;
+}
+
+.top-sellings__clothes {
+  display: none;
+}
+
+@media screen and (width >= 1024px) {
+  .top-sellings__slider-wrapper {
+    display: none;
+  }
+
+  .top-sellings__clothes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    width: 100%;
+    height: auto;
+  }
+}

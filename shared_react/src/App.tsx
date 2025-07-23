@@ -14,7 +14,10 @@ export const App = () => {
 
       <div className="component">
         <h2 className="component__title">Button Black</h2>
-        <ButtonBlack rounded={true} ariaLabel="Button black">
+        <ButtonBlack
+          rounded={true}
+          ariaLabel="Button black"
+        >
           Button Black
         </ButtonBlack>
       </div>
@@ -44,6 +47,7 @@ export const App = () => {
         <h2 className="component__title">Slider Snap X</h2>
         <SliderSnapX>
           {[...Array(15)].map((_, i) => {
+            const index = i + 1;
             return (
               <ItemClothes
                 key={`slider_snap_x_item_${i}`}

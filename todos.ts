@@ -11,6 +11,10 @@
 
 // ### SHARED REACT MFE ###
 // TODO: Si estas en prod y queres acceder app-test throw error
+// TODO: Unmount
+
+// ### SHARED ANGULAR MFE ###
+// TODO: Unmount
 
 // ### NEWS ###
 // TODO: HACER MFE SVGS

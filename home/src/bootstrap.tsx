@@ -1,10 +1,14 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, Root } from "react-dom/client";
 
 import { App } from "@src/App";
 
+let root: Root | null = null;
+
 const mount = (el: HTMLDivElement) => {
-  const root = createRoot(el);
+  if (!root) {
+    root = createRoot(el);
+  }
 
   root.render(<App />);
 };

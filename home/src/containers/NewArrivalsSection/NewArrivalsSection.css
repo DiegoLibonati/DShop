@@ -1,0 +1,29 @@
+.new-arrivals__slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.new-arrivals__slider {
+  gap: 1rem;
+}
+
+.new-arrivals__clothes {
+  display: none;
+}
+
+@media screen and (width >= 1024px) {
+  .new-arrivals__slider-wrapper {
+    display: none;
+  }
+
+  .new-arrivals__clothes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    width: 100%;
+    height: auto;
+  }
+}

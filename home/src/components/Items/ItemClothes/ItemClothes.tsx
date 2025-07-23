@@ -2,20 +2,32 @@ import React, { useRef, useEffect } from "react";
 
 import { mountComponent } from "shared_react/SharedReact";
 import { Component } from "shared_react/SharedReactEnums";
-import { ButtonBlackProps } from "shared_react/SharedReactProps";
+import { ItemClothesProps } from "shared_react/SharedReactProps";
 
-export const ButtonBlack = ({
+export const ItemClothes = ({
+  idRoot,
+  discount,
+  name,
+  price,
+  rate,
+  src,
   children,
-  rounded,
   className,
-}: ButtonBlackProps) => {
+  onClick,
+}: ItemClothesProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.ButtonBlack, {
+    mountComponent(ref.current!, Component.ItemClothes, {
+      idRoot: idRoot,
+      discount: discount,
+      name: name,
+      price: price,
+      rate: rate,
+      src: src,
       children: children,
-      rounded: rounded,
       className: className,
+      onClick: onClick,
     });
   };
 

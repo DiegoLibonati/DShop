@@ -14,6 +14,7 @@ export class ButtonWhiteComponent implements OnInit {
   @Input() rounded: ButtonWhiteProps["rounded"] = false;
   @Input() borderGray: ButtonWhiteProps["borderGray"] = false;
   @Input() ariaLabel: ButtonWhiteProps["ariaLabel"] = "";
+  @Input() textContent: ButtonWhiteProps["textContent"] = "";
   @Input() className: ButtonWhiteProps["className"] = "";
 
   @Input() onClick: ButtonWhiteProps["onClick"] =
@@ -30,6 +31,7 @@ export class ButtonWhiteComponent implements OnInit {
       - rounded: ${this.rounded}
       - borderGray: ${this.borderGray}
       - ariaLabel: ${this.ariaLabel}
+      - textContent: ${this.textContent}
       - className: ${this.className}
       - onClick: ${this.onClick}`);
   }

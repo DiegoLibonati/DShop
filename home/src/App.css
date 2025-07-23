@@ -4,3 +4,17 @@
   width: 100%;
   height: auto;
 }
+
+.hr-home {
+  height: 0.1rem;
+  width: calc(100% - 2rem);
+  background-color: var(--ho-black-color-10);
+  margin: auto;
+  border: none;
+}
+
+@media screen and (width >= 1024px) {
+  .hr-home {
+    width: calc(100% - 13rem);
+  }
+}

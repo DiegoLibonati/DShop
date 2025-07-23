@@ -21,10 +21,14 @@ declare module "shared_angular/SharedAngularEnums" {
 declare module "shared_angular/SharedAngularProps" {
   import { HeaderOption } from "shared_angular/SharedAngularEntities";
 
-  export interface HeaderProps {
+  export interface DefaultProps {
+    idRoot: string;
+    className?: string;
+  }
+
+  export interface HeaderProps extends DefaultProps {
     name: string;
     options: HeaderOption[];
-    className?: string;
     onClickMenu: (e: MouseEvent) => void;
     onSubmitSearch: (e: Event, searchInputValue: string) => void;
     onClickSearch: (e: MouseEvent) => void;

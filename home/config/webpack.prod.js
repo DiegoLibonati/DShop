@@ -19,6 +19,7 @@ module.exports = merge(commonConfig, {
       },
       remotes: {
         shared_react: `shared_react@/shared_react/latest/remoteEntry.js`,
+        shared_angular: `shared_angular@/shared_angular/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

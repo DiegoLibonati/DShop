@@ -5,6 +5,7 @@ import { Component } from "shared_angular/SharedAngularEnums";
 import { HeaderProps } from "shared_angular/SharedAngularProps";
 
 export const Header = ({
+  idRoot,
   name,
   options,
   className,
@@ -17,6 +18,7 @@ export const Header = ({
 
   const onInit = () => {
     mountComponent(ref.current!, Component.Header, {
+      idRoot: idRoot,
       name: name,
       options: options,
       className: className,
