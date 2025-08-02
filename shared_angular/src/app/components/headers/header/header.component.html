@@ -7,6 +7,7 @@
       (click)="onClickMenu($event)"
     >
       <svg-hamburger-menu
+        [idRoot]="rootIds[0]"
         [className]="'header__logo-open-icon'"
       ></svg-hamburger-menu>
     </button>
@@ -24,10 +25,12 @@
     >
       <p class="header__option-text">{{ option.name }}</p>
       <svg-chevron-down
+        [idRoot]="rootIds[1]"
         [className]="'header__option-icon'"
         *ngIf="option.isMenu && !option.open"
       ></svg-chevron-down>
       <svg-chevron-up
+        [idRoot]="rootIds[2]"
         [className]="'header__option-icon'"
         *ngIf="option.isMenu && option.open"
       ></svg-chevron-up>
@@ -43,7 +46,10 @@
       aria-label="search button"
       class="header__btn header__search-btn"
     >
-      <svg-search [className]="'header__search-btn-icon'"></svg-search>
+      <svg-search
+        [idRoot]="rootIds[3]"
+        [className]="'header__search-btn-icon'"
+      ></svg-search>
     </button>
     <input
       id="search-input"
@@ -63,7 +69,10 @@
       class="header__btn header__action-search"
       (click)="onClickSearch($event)"
     >
-      <svg-search [className]="'header__action-search-icon'"></svg-search>
+      <svg-search
+        [idRoot]="rootIds[4]"
+        [className]="'header__action-search-icon'"
+      ></svg-search>
     </button>
 
     <button
@@ -73,6 +82,7 @@
       (click)="onClickCart($event)"
     >
       <svg-cart-shopping
+        [idRoot]="rootIds[5]"
         [className]="'header__action-cart-icon'"
       ></svg-cart-shopping>
     </button>

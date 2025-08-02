@@ -4,7 +4,7 @@ import { ItemClothesProps } from "@src/entities/props";
 
 import { RateStars } from "@src/components/Ratings/RateStars/RateStars";
 
-import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
+import { getFinalPriceByDiscount } from "shared_utils/SharedUtils";
 
 import "@src/components/Items/ItemClothes/ItemClothes.css";
 

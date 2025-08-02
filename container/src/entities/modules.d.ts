@@ -45,3 +45,9 @@ declare module "shared_angular/SharedAngularEntities" {
     open?: boolean;
   };
 }
+
+declare module "shared_utils/SharedUtils" {
+  export const getIdsByLength: (length: number) => string[];
+}
+
+declare module "shared_utils/SharedUtilsStyles";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 
 import { Clothes } from "@src/entities/entities";
 
@@ -10,20 +10,44 @@ import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GalleryS
 import { lang } from "@src/constants/lang";
 import { clothesList } from "@src/constants/clothes";
 
+import { getIdsByLength } from "shared_utils/SharedUtils";
+
 import "@src/containers/NewArrivalsSection/NewArrivalsSection.css";
 
 export const NewArrivalsSection = () => {
   const [newArrivals, setNewArrivals] = useState<Clothes[] | null>(null);
 
+  const [idsClothesMobile, setIdsClothesMobile] = useState<string[]>([]);
+  const [idsClothesDesktop, setIdsClothesDesktop] = useState<string[]>([]);
+
+  const idArrivalSlider = useRef<string[]>(getIdsByLength(1));
+
   const handleClickViewAll = () => {
     console.log("View All New Arrivals");
+  };
+
+  const clearIdsRoot = () => {
+    setIdsClothesMobile([]);
+    setIdsClothesDesktop([]);
   };
 
   const onInit = () => {
     setNewArrivals(clothesList);
   };
 
+  const onNewArrivalsChange = () => {
+    if (newArrivals?.length === 0 || !newArrivals) return;
+
+    if (idsClothesMobile.length > 0 || idsClothesDesktop.length > 0) {
+      clearIdsRoot();
+    }
+
+    setIdsClothesMobile(getIdsByLength(newArrivals!.length));
+    setIdsClothesDesktop(getIdsByLength(newArrivals!.length));
+  };
+
   useEffect(onInit, []);
+  useEffect(onNewArrivalsChange, [newArrivals]);
 
   return (
     <GallerySectionLayout
@@ -31,43 +55,43 @@ export const NewArrivalsSection = () => {
       btnText={lang["en"].new_arrivals.button_view_all}
       onClick={handleClickViewAll}
     >
-      <SliderSnapX
-        idRoot={"new-arrivals__slider"}
-        className="new-arrivals__slider"
-      >
-        {newArrivals?.map((c, i) => {
-          const index = i + 1;
-
-          return (
-            <ItemClothes
-              key={`new-arrivals-item_clothes_${c.name}-${index}`}
-              idRoot={`new-arrivals-item_clothes_${c.name}-${index}`}
-              src={c.src}
-              discount={c.discount}
-              name={c.name}
-              price={c.price}
-              rate={c.rate}
-            ></ItemClothes>
-          );
-        })}
-      </SliderSnapX>
+      {idArrivalSlider.current.length > 0 && (
+        <SliderSnapX
+          idRoot={idArrivalSlider.current[0]}
+          className="new-arrivals__slider"
+        >
+          {idsClothesMobile.length > 0 &&
+            newArrivals?.map((c, i) => {
+              return (
+                <ItemClothes
+                  key={idsClothesMobile[i]}
+                  idRoot={idsClothesMobile[i]}
+                  src={c.src}
+                  discount={c.discount}
+                  name={c.name}
+                  price={c.price}
+                  rate={c.rate}
+                ></ItemClothes>
+              );
+            })}
+        </SliderSnapX>
+      )}
 
       <article className="new-arrivals__clothes">
-        {newArrivals?.slice(0, 4)?.map((c, i) => {
-          const index = i + 1;
-
-          return (
-            <ItemClothes
-              key={`new-arrivals-item_clothes_${c.name}-${index * 100}`}
-              idRoot={`new-arrivals-item_clothes_${c.name}-${index * 100}`}
-              src={c.src}
-              discount={c.discount}
-              name={c.name}
-              price={c.price}
-              rate={c.rate}
-            ></ItemClothes>
-          );
-        })}
+        {idsClothesDesktop.length > 0 &&
+          newArrivals?.slice(0, 4)?.map((c, i) => {
+            return (
+              <ItemClothes
+                key={idsClothesDesktop[i]}
+                idRoot={idsClothesDesktop[i]}
+                src={c.src}
+                discount={c.discount}
+                name={c.name}
+                price={c.price}
+                rate={c.rate}
+              ></ItemClothes>
+            );
+          })}
       </article>
     </GallerySectionLayout>
   );

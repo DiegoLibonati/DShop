@@ -27,6 +27,9 @@ module.exports = merge(commonConfig, {
         "./SharedReactEnums": "./src/entities/enum.d.ts",
         "./SharedReactProps": "./src/entities/props.d.ts",
       },
+      remotes: {
+        shared_utils: "shared_utils@http://localhost:8084/remoteEntry.js",
+      },
       shared: packageJson.dependencies,
     }),
   ],

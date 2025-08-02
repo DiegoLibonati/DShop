@@ -1,16 +1,20 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useRef } from "react";
 
 import { HEADER_OPTIONS } from "@src/constants/components";
+
+import { getIdsByLength } from "shared_utils/SharedUtils";
 
 const HeaderLazy = lazy(() => import("@src/components/headers/Header/Header"));
 const HomeLazy = lazy(() => import("@src/components/apps/AppHome/AppHome"));
 
 export const App = () => {
+  const idHeader = useRef<string[]>(getIdsByLength(1));
+
   return (
     <div>
       <Suspense fallback={<div>Cargando Header</div>}>
         <HeaderLazy
-          idRoot="header-dshop"
+          idRoot={idHeader.current[0]}
           name="DShop"
           options={HEADER_OPTIONS}
           onClickCart={(e) => {

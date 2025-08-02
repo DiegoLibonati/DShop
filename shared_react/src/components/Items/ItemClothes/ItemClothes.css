@@ -12,7 +12,7 @@
 .item-clothes__wrapper-img {
   width: 100%;
   height: 12.5rem;
-  background-color: var(--sr-light-gray-color);
+  background-color: var(--light-gray-cool);
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -71,16 +71,16 @@
 .item-clothes__information-price-current {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--sr-black-color);
+  color: var(--black);
 }
 
 .item-clothes__information-price-current {
   text-decoration: line-through;
-  color: var(--sr-black-color-40);
+  color: var(--black-40);
 }
 
 .item-clothes__information-price-wrapper-discount {
-  background-color: var(--sr-red-color-10);
+  background-color: var(--red-bright-10);
   padding: 0.188rem 0.5rem 0.188rem 0.5rem;
   border-radius: 1rem;
 }
@@ -88,7 +88,7 @@
 .item-clothes__information-price-discount {
   font-size: 0.625rem;
   font-weight: 500;
-  color: var(--sr-red-color);
+  color: var(--red-bright);
 }
 
 @media screen and (width >= 1024px) {

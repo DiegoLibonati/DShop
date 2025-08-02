@@ -17,7 +17,7 @@ declare module "shared_react/SharedReactEnums" {
 }
 
 declare module "shared_react/SharedReactProps" {
-  import React from "react";
+  import React, { SVGProps } from "react";
 
   export interface DefaultProps {
     idRoot: string;
@@ -71,6 +71,75 @@ declare module "shared_angular/SharedAngularProps" {
     onClick?: (e: MouseEvent) => void;
   }
 }
+
+declare module "shared_utils/SharedUtils" {
+  import { Component } from "shared_utils/SharedUtilsEnums";
+
+  export const mountComponent: (
+    el: HTMLDivElement,
+    idComponent: Component,
+    props?: Record<string, unknown>
+  ) => void;
+  export const unMountComponent: (idRoot: string) => void;
+  export const getIdsByLength: (length: number) => string[];
+}
+
+declare module "shared_utils/SharedUtilsEnums" {
+  export enum Component {
+    SvgStarToFill = "svg-star-to-fill",
+    SvgCartShopping = "svg-cart-shopping",
+    SvgChevronDown = "svg-chevron-down",
+    SvgChevronUp = "svg-chevron-up",
+    SvgHamburgerMenu = "svg-hamburger-menu",
+    SvgSearch = "svg-search",
+    SvgSkyStar = "svg-sky-star",
+  }
+}
+
+declare module "shared_utils/SharedUtilsProps" {
+  import { SVGProps } from "react";
+
+  export interface DefaultProps {
+    idRoot: string;
+    className?: string;
+  }
+
+  export interface SvgStarToFillProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {
+    outColor: string;
+    inColor: string;
+    fill: number;
+  }
+
+  export interface SvgSearchProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgHamburgerMenuProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgChevronUpProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgChevronDownProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgCartShoppingProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgSkyStarProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {
+    wrapperClass: string;
+  }
+}
+
+declare module "shared_utils/SharedUtilsStyles";
 
 declare module "*.png";
 declare module "*.svg";

@@ -64,5 +64,19 @@ services:
     networks:
       - dshop-dev-net
 
+  dshop-shared-utils:
+    build:
+      context: ./shared_utils
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./shared_utils/.env
+    volumes:
+      - ./shared_utils/src:/home/app/src
+    ports:
+      - 8084:8084
+    networks:
+      - dshop-dev-net
+
 networks:
   dshop-dev-net:

@@ -5,6 +5,8 @@ import { HeaderProps } from "@src/app/entities/props";
 import template from "@src/app/components/headers/header/header.component.html";
 import styles from "@src/app/components/headers/header/header.component.css";
 
+import { getIdsByLength } from "shared_utils/SharedUtils";
+
 @Component({
   selector: "app-header",
   template: template,
@@ -27,6 +29,8 @@ export class HeaderComponent implements OnInit {
   private componentName: string = "header";
 
   public searchInputValue: string = "";
+
+  public rootIds = getIdsByLength(6);
 
   ngOnInit(): void {
     // this.viewProps();

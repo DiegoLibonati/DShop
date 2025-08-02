@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
-import { SvgStar } from "@src/components/Svgs/SvgStar/SvgStar";
+import { SvgSkyStar } from "@src/components/Svgs/SvgSkyStar/SvgSkyStar";
 
 import { lang } from "@src/constants/lang";
 
 import PresentationMobile from "@src/assets/presentation-mobile.png";
 import PresentationDesktop from "@src/assets/presentation-desktop.png";
 
+import { getIdsByLength } from "shared_utils/SharedUtils";
+
 import "@src/containers/PresentationSection/PresentationSection.css";
 
 export const PresentationSection = () => {
+  const idsPresentation = useRef<string[]>(getIdsByLength(5));
+
   return (
     <section className="presentation">
       <article className="presentation-information">
@@ -21,7 +25,7 @@ export const PresentationSection = () => {
           {lang["en"].presentation.description}
         </p>
         <ButtonBlack
-          idRoot={"button-black-presentation-information__shop-now"}
+          idRoot={idsPresentation.current[0]}
           className="presentation-information__shop-now"
           rounded={true}
         >
@@ -66,16 +70,20 @@ export const PresentationSection = () => {
         ></img>
 
         <div className="presentation-illustration__vectors">
-          <SvgStar
+          <SvgSkyStar
+            idRoot={idsPresentation.current[1]}
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-          ></SvgStar>
-          <SvgStar
+            wrapperClass="presentation-illustration__vector-wrapper"
+          ></SvgSkyStar>
+          <SvgSkyStar
+            idRoot={idsPresentation.current[2]}
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-          ></SvgStar>
+            wrapperClass="presentation-illustration__vector-wrapper"
+          ></SvgSkyStar>
         </div>
       </article>
 
@@ -87,16 +95,20 @@ export const PresentationSection = () => {
         ></img>
 
         <div className="presentation-illustration__vectors">
-          <SvgStar
+          <SvgSkyStar
+            idRoot={idsPresentation.current[3]}
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-          ></SvgStar>
-          <SvgStar
+            wrapperClass="presentation-illustration__vector-wrapper"
+          ></SvgSkyStar>
+          <SvgSkyStar
+            idRoot={idsPresentation.current[4]}
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-          ></SvgStar>
+            wrapperClass="presentation-illustration__vector-wrapper"
+          ></SvgSkyStar>
         </div>
       </article>
     </section>

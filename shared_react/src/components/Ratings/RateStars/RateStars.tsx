@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { RateStarsProps } from "@src/entities/props";
 
 import { SvgStarToFill } from "@src/components/Svgs/SvgStarToFill/SvgStarToFill";
+
+import { getIdsByLength } from "shared_utils/SharedUtils";
 
 import "@src/components/Ratings/RateStars/RateStars.css";
 
@@ -13,6 +15,8 @@ export const RateStars = ({
   outColor,
   className,
 }: RateStarsProps) => {
+  const uuidsRef = useRef<string[]>(getIdsByLength(max));
+
   return (
     <div className="rate-stars">
       {[...Array(max)].map((_, i) => {
@@ -22,6 +26,7 @@ export const RateStars = ({
 
         return (
           <SvgStarToFill
+            idRoot={uuidsRef.current[i]}
             key={`star_${i}_ratestars`}
             className={`rate-stars__star ${className}`}
             fill={fillPercentage}

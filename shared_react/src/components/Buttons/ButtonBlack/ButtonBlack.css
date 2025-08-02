@@ -1,7 +1,7 @@
 .button-black {
   width: fit-content;
-  background-color: var(--black-color);
-  color: var(--white-color);
+  background-color: var(--black);
+  color: var(--white);
   cursor: pointer;
   padding: 0.938rem 0 0.938rem 0;
   border: none;

@@ -14,10 +14,7 @@ export const App = () => {
 
       <div className="component">
         <h2 className="component__title">Button Black</h2>
-        <ButtonBlack
-          rounded={true}
-          ariaLabel="Button black"
-        >
+        <ButtonBlack rounded={true} ariaLabel="Button black">
           Button Black
         </ButtonBlack>
       </div>
@@ -36,6 +33,7 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">Rate Stars</h2>
         <RateStars
+          className="rate-stars-app-test"
           max={5}
           value={4.5}
           outColor={"#FFFFFF"}

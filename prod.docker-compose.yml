@@ -41,6 +41,9 @@ services:
       - ./shared_react/.env
     ports:
       - 8082:80
+    depends_on:
+      dshop-shared-utils:
+        condition: service_started
     networks:
       - dshop-prod-net
 
@@ -53,9 +56,23 @@ services:
       - ./shared_angular/.env
     ports:
       - 8083:80
+    depends_on:
+      dshop-shared-utils:
+        condition: service_started
     networks:
       - dshop-prod-net
 
+  dshop-shared-utils:
+    build:
+      context: ./shared_utils
+      dockerfile: Dockerfile.production
+    restart: always
+    env_file:
+      - ./shared_utils/.env
+    ports:
+      - 8084:80
+    networks:
+      - dshop-prod-net
 
 networks:
   dshop-prod-net:

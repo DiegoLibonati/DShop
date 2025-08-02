@@ -29,9 +29,3 @@ export interface RateStarsProps extends DefaultProps {
 }
 
 export interface SliderSnapXProps extends DefaultProps {}
-
-export interface SvgStarToFillProps extends SVGProps<SVGElement> {
-  outColor: string;
-  inColor: string;
-  fill: number;
-}
