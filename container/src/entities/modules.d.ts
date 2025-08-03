@@ -1,5 +1,6 @@
 declare module "home/HomeApp" {
   export const mount: (el: HTMLElement) => void;
+  export const unMount: (debug: boolean = false) => void;
 }
 
 declare module "shared_angular/SharedAngular" {

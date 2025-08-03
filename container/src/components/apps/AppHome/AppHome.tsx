@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { mount } from "home/HomeApp";
+import { mount, unMount } from "home/HomeApp";
 
 const AppHome = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -9,7 +9,17 @@ const AppHome = () => {
     mount(ref.current!);
   };
 
-  useEffect(onInit, []);
+  const onDestroy = () => {
+    unMount();
+  };
+
+  useEffect(() => {
+    onInit();
+
+    return () => {
+      onDestroy();
+    };
+  }, []);
 
   return <div ref={ref}></div>;
 };
