@@ -1,9 +1,12 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 import { HeaderProps } from "@src/app/entities/props";
+import { LangHeader } from "@src/app/entities/constants";
 
 import template from "@src/app/components/headers/header/header.component.html";
 import styles from "@src/app/components/headers/header/header.component.css";
+
+import { lang } from "@src/app/constants/lang.constants";
 
 import { getIdsByLength } from "shared_utils/SharedUtils";
 
@@ -16,6 +19,7 @@ export class HeaderComponent implements OnInit {
   @Input() name: HeaderProps["name"] = "";
   @Input() options: HeaderProps["options"] = [];
   @Input() className: HeaderProps["className"] = "";
+  @Input() language: HeaderProps["language"] = "en";
 
   @Input() onClickMenu: HeaderProps["onClickMenu"] =
     this.onDefaultClickMenu.bind(this);
@@ -29,6 +33,7 @@ export class HeaderComponent implements OnInit {
   private componentName: string = "header";
 
   public searchInputValue: string = "";
+  public texts: LangHeader = lang[this.language!].header;
 
   public rootIds = getIdsByLength(6);
 

@@ -57,7 +57,7 @@
       name="search-input"
       [value]="searchInputValue"
       class="header__search-input"
-      placeholder="Search for products..."
+      [placeholder]="texts.inputPlaceholder"
       (input)="onSearchInputChange($event)"
     />
   </form>

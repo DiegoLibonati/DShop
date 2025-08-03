@@ -10,6 +10,7 @@ declare module "shared_angular/SharedAngular" {
     id: Component,
     props: Record<string, unknown> = {}
   ) => void;
+  export const unMountComponent: (idRoot: string) => void;
 }
 
 declare module "shared_angular/SharedAngularEnums" {

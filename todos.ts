@@ -22,9 +22,6 @@
 // TODO: IMplementar unmount
 
 // ### SHARED ANGULAR MFE ###
-// TODO: De paso ver temas en los componentes de langs.
-// TODO: Unmount -> Unicamente un id pasar por param. Se hace el unmount en el componente que se llama el mount
-// TODO: IMplementar unmount
 
 // ### SHARED UTILS MFE ###
 

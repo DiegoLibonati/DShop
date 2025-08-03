@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { mountComponent } from "shared_angular/SharedAngular";
+import { mountComponent, unMountComponent } from "shared_angular/SharedAngular";
 import { Component } from "shared_angular/SharedAngularEnums";
 import { HeaderProps } from "shared_angular/SharedAngularProps";
 
@@ -29,7 +29,17 @@ export const Header = ({
     });
   };
 
-  useEffect(onInit, []);
+  const onDestroy = () => {
+    unMountComponent(idRoot);
+  };
+
+  useEffect(() => {
+    onInit();
+
+    return () => {
+      onDestroy();
+    };
+  }, []);
 
   return <div ref={ref}></div>;
 };

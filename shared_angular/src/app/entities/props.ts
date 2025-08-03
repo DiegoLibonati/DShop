@@ -1,8 +1,9 @@
-import { HeaderOption } from "@src/app/entities/entities";
+import { HeaderOption, Language } from "@src/app/entities/entities";
 
 interface DefaultProps {
   idRoot?: string;
   className?: string;
+  language?: Language;
 }
 
 export interface HeaderProps extends DefaultProps {

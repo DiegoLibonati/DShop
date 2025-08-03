@@ -5,3 +5,5 @@ export type HeaderOption = {
   isMenu?: boolean;
   open?: boolean;
 };
+
+export type Language = "en";

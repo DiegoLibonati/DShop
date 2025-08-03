@@ -1,6 +1,14 @@
 import "zone.js";
 
-import { ApplicationRef, ComponentRef, NgModuleRef } from "@angular/core";
+import {
+  ApplicationRef,
+  ComponentRef,
+  createComponent,
+  EmbeddedViewRef,
+  EnvironmentInjector,
+  NgModuleRef,
+  Type,
+} from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 import { Component } from "@src/app/entities/enum";
@@ -13,14 +21,13 @@ import { ButtonWhiteComponent } from "@src/app/components/buttons/button-white/b
 
 import { IS_DEV } from "@src/app/constants/envs.constants";
 
-// TODO: Cambiar los Any.
+const componentsMap: Record<string, ComponentRef<unknown>> = {};
+const titleMfe: string = "Shared Angular";
 
-const componentsMap: Record<string, ComponentRef<any>> = {};
-
-let ngModuleRef: NgModuleRef<any> | null = null;
+let ngModuleRef: NgModuleRef<AppModule> | null = null;
 let appRef: ApplicationRef | null = null;
 
-const getComponentById = (idComponent: Component): any => {
+const getComponentById = (idComponent: Component): Type<unknown> => {
   return {
     [Component.Header]: HeaderComponent,
     [Component.AppTest]: AppTestComponent,
@@ -28,15 +35,24 @@ const getComponentById = (idComponent: Component): any => {
   }[idComponent];
 };
 
-export const mountComponent = async (
+const mountComponent = async (
   el: HTMLElement,
   id: Component,
-  props: Record<string, unknown> = {}
-) => {
+  props: Record<string, unknown> = {},
+  debug: boolean = false
+): Promise<void> => {
+  if (!IS_DEV && id === Component.AppTest) {
+    throw new Error(
+      `[mountComponent - ${titleMfe}] You cannot render this component. Component: ${id}`
+    );
+  }
+
   const idRoot = props.idRoot as string;
 
   if (!idRoot) {
-    throw new Error("You must provide an 'idRoot' to identify the component.");
+    throw new Error(
+      `[mountComponent - ${titleMfe}] You must provide an 'idRoot' to identify the component.`
+    );
   }
 
   if (!ngModuleRef) {
@@ -46,34 +62,62 @@ export const mountComponent = async (
 
   if (componentsMap[idRoot]) {
     const compRef = componentsMap[idRoot];
-    Object.assign(compRef.instance, props);
-    (compRef.changeDetectorRef as any).detectChanges();
+    Object.assign(compRef.instance as object, props);
+    compRef.changeDetectorRef.detectChanges();
     return;
   }
 
   const componentType = getComponentById(id);
-  const factory =
-    ngModuleRef.componentFactoryResolver.resolveComponentFactory(componentType);
-  const compRef: ComponentRef<any> = factory.create(ngModuleRef.injector);
+  const compRef = createComponent(componentType as Type<unknown>, {
+    environmentInjector: ngModuleRef.injector as EnvironmentInjector,
+  });
 
-  Object.assign(compRef.instance, props);
+  Object.assign(compRef.instance as object, props);
   appRef!.attachView(compRef.hostView);
-  (compRef.changeDetectorRef as any).detectChanges();
+  compRef.changeDetectorRef.detectChanges();
 
-  const domElem = (compRef.hostView as any).rootNodes[0] as HTMLElement;
+  const domElem = (compRef.hostView as EmbeddedViewRef<unknown>)
+    .rootNodes[0] as HTMLElement;
   el.innerHTML = "";
   el.appendChild(domElem);
 
   componentsMap[idRoot] = compRef;
+
+  if (IS_DEV === "development" && debug) {
+    console.log(`[mountComponent - ${titleMfe}] mounting ${idRoot}`);
+  }
 };
 
-// Dev
+const unMountComponent = (idRoot: string, debug: boolean = false): void => {
+  const compRef = componentsMap[idRoot];
+
+  if (!compRef) {
+    throw new Error(
+      `[unMountComponent - ${titleMfe}] No component found with idRoot: '${idRoot}'`
+    );
+  }
+
+  if (appRef) {
+    appRef.detachView(compRef.hostView);
+  }
+
+  compRef.destroy();
+  delete componentsMap[idRoot];
+
+  if (IS_DEV === "development" && debug) {
+    console.log(`[unMountComponent - ${titleMfe}] Unmounting: '${idRoot}'`);
+  }
+};
+
+// Dev mode
 if (IS_DEV === "development") {
   const devRoot = document.getElementById(
     "_shared-angular-dev-root"
-  ) as HTMLDivElement;
+  ) as HTMLDivElement | null;
 
   if (devRoot) {
     mountComponent(devRoot, Component.AppTest, { idRoot: "APP TEST" });
   }
 }
+
+export { mountComponent, unMountComponent };
