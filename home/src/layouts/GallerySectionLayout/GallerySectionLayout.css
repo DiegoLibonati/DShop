@@ -5,7 +5,7 @@
   width: 100%;
   height: auto;
   padding: 0rem 1rem 0 1rem;
-  margin: 3.125rem 0rem 2.5rem 0rem;
+  margin: 3.125rem 0rem 0rem 0rem;
 }
 
 .gallery-section__title {
@@ -29,7 +29,7 @@
 @media screen and (width >= 1024px) {
   .gallery-section {
     padding: 0rem 6.25rem 0 6.25rem;
-    margin: 4.5rem 0rem 4rem 0rem;
+    margin: 4.5rem 0rem 0rem 0rem;
   }
 
   .gallery-section__title {

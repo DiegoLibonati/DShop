@@ -5,9 +5,6 @@
 // ### PARTICULARES ###
 
 // ### CONTAINER MFE ###
-// TODO: TESTS
-// TODO: De paso ver temas en los componentes de langs.
-// TODO: IMplementar unmount
 
 // ### HOME MFE ###
 

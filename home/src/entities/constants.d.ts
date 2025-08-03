@@ -3,6 +3,7 @@ export type LangC = {
     presentation: LangPresentation;
     new_arrivals: LangNewArrivals;
     top_selling: LangTopSelling;
+    browseByDressStyle: LangBrowseByDressStyle;
   };
 };
 
@@ -23,4 +24,8 @@ export type LangNewArrivals = {
 export type LangTopSelling = {
   title: string;
   button_view_all: string;
+};
+
+export type LangBrowseByDressStyle = {
+  title: string;
 };

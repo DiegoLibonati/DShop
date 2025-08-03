@@ -19,5 +19,8 @@ export const lang: LangC = {
       title: "TOP SELLING",
       button_view_all: "View All",
     },
+    browseByDressStyle: {
+      title: "BROWSE BY DRESS STYLE",
+    },
   },
 };

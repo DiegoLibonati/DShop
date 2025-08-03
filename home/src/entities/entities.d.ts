@@ -7,3 +7,5 @@ export type Clothes = {
   price: number;
   discount: number;
 };
+
+export type IllustrationType = "casual" | "formal" | "party" | "gym";

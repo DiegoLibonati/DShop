@@ -4,6 +4,7 @@ import { PresentationSection } from "@src/containers/PresentationSection/Present
 import { BrandsSection } from "@src/containers/BrandsSection/BrandsSection";
 import { NewArrivalsSection } from "@src/containers/NewArrivalsSection/NewArrivalsSection";
 import { TopSellingSection } from "@src/containers/TopSellingSection/TopSellingSection";
+import { BrowseByDressStyleSection } from "@src/containers/BrowseByDressStyleSection/BrowseByDressStyleSection";
 
 import "@src/App.css";
 
@@ -15,6 +16,7 @@ export const App = () => {
       <NewArrivalsSection></NewArrivalsSection>
       <hr className="hr-home"></hr>
       <TopSellingSection></TopSellingSection>
+      <BrowseByDressStyleSection></BrowseByDressStyleSection>
     </main>
   );
 };
