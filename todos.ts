@@ -15,13 +15,7 @@
 // TODO: IMplementar unmount
 
 // ### SHARED REACT MFE ###
-// TODO: TESTS
-// TODO: De paso ver temas en los componentes de langs.
-// TODO: Si estas en prod y queres acceder app-test throw error
-// TODO: Unmount -> Unicamente un id pasar por param. Se hace el unmount en el componente que se llama el mount
-// TODO: IMplementar unmount
 
 // ### SHARED ANGULAR MFE ###
 
 // ### SHARED UTILS MFE ###
-

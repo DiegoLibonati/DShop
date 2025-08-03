@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { mountComponent } from "shared_react/SharedReact";
+import { mountComponent, unMountComponent } from "shared_react/SharedReact";
 import { Component } from "shared_react/SharedReactEnums";
 import { ButtonBlackProps } from "shared_react/SharedReactProps";
 
@@ -21,7 +21,17 @@ export const ButtonBlack = ({
     });
   };
 
-  useEffect(onInit, []);
+  const onDestroy = () => {
+    unMountComponent(idRoot);
+  };
+
+  useEffect(() => {
+    onInit();
+
+    return () => {
+      onDestroy();
+    };
+  }, []);
 
   return <div ref={ref}></div>;
 };

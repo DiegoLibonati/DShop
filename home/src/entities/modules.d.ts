@@ -6,6 +6,7 @@ declare module "shared_react/SharedReact" {
     idComponent: Component,
     props: Record<string, unknown> = {}
   ) => void;
+  export const unMountComponent: (idRoot: string) => void;
 }
 
 declare module "shared_react/SharedReactEnums" {

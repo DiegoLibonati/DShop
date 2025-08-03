@@ -18,6 +18,7 @@ import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
 import { IS_DEV } from "@src/constants/envs";
 
 const roots: Record<string, Root> = {};
+const titleMfe: string = "Shared React";
 
 export const getComponentById = (
   idComponent: Component,
@@ -46,20 +47,29 @@ export const getComponentById = (
 const mountComponent = (
   el: HTMLDivElement,
   idComponent: Component,
-  props: Record<string, unknown> = {}
+  props: Record<string, unknown> = {},
+  debug: boolean = false
 ) => {
   // console.log("Element:", el);
   // console.log("Id Componente a renderizar: ", idComponent);
   // console.log("Props: ", props);
 
-  const componentId = props?.idRoot as string;
+  if (!IS_DEV && idComponent === Component.AppTest) {
+    throw new Error(
+      `[mountComponent - ${titleMfe}] You cannot render this component. Component: ${idComponent}`
+    );
+  }
 
-  if (!componentId) {
-    throw new Error("You must provide an 'idRoot' to identify the component.");
+  const idRootComponent = props?.idRoot as string;
+
+  if (!idRootComponent) {
+    throw new Error(
+      `[mountComponent - ${titleMfe}] You must provide an 'idRoot' to identify the component`
+    );
   }
 
   const reactNode = getComponentById(idComponent, props);
-  const rootExists = roots[componentId];
+  const rootExists = roots[idRootComponent];
 
   if (rootExists) {
     rootExists.render(reactNode);
@@ -69,7 +79,28 @@ const mountComponent = (
   const root = createRoot(el);
 
   root.render(reactNode);
-  roots[componentId] = root;
+  roots[idRootComponent] = root;
+
+  if (IS_DEV === "development" && debug) {
+    console.log(`[mountComponent - ${titleMfe}] mounting ${idRootComponent}`);
+  }
+};
+
+const unMountComponent = (idRoot: string, debug: boolean = false) => {
+  const rootExists = roots[idRoot];
+
+  if (!rootExists) {
+    throw new Error(
+      `[unMountComponent - ${titleMfe}] No component found with idRoot: ${idRoot}`
+    );
+  }
+
+  rootExists.unmount();
+  delete roots[idRoot];
+
+  if (IS_DEV === "development" && debug) {
+    console.log(`[unMountComponent - ${titleMfe}] Unmounting ${idRoot}`);
+  }
 };
 
 // Dev
@@ -83,4 +114,4 @@ if (IS_DEV === "development") {
   }
 }
 
-export { mountComponent };
+export { mountComponent, unMountComponent };
