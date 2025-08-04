@@ -35,3 +35,11 @@ export interface SvgCartShoppingProps
 export interface SvgSkyStarProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {}
+
+export interface SvgArrowLeftProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgArrowRightProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}

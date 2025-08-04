@@ -9,3 +9,10 @@ export type Clothes = {
 };
 
 export type IllustrationType = "casual" | "formal" | "party" | "gym";
+
+export type Review = {
+  id: string;
+  name: string;
+  description: string;
+  value: number;
+};

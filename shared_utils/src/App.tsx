@@ -7,6 +7,8 @@ import { SvgHamburgerMenu } from "@src/components/Svgs/SvgHamburgerMenu/SvgHambu
 import { SvgCartShopping } from "@src/components/Svgs/SvgCartShopping/SvgCartShopping";
 import { SvgSearch } from "@src/components/Svgs/SvgSearch/SvgSearch";
 import { SvgSkyStar } from "@src/components/Svgs/SvgSkyStar/SvgSkyStar";
+import { SvgArrowLeft } from "@src/components/Svgs/SvgArrowLeft/SvgArrowLeft";
+import { SvgArrowRight } from "@src/components/Svgs/SvgArrowRight/SvgArrowRight";
 
 import "@src/App.css";
 
@@ -52,6 +54,16 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">SvgSkyStar</h2>
         <SvgSkyStar></SvgSkyStar>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">SvgArrowLeft</h2>
+        <SvgArrowLeft></SvgArrowLeft>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">SvgArrowLeft</h2>
+        <SvgArrowRight></SvgArrowRight>
       </div>
 
       {/* Podés agregar más componentes aquí */}

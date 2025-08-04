@@ -15,3 +15,8 @@ export interface IllustrationWithTitleProps extends DefaultProps {
   type: IllustrationType;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface CarrouselWithTitleAndArrowsProps extends DefaultProps {
+
+
+}

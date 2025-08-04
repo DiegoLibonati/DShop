@@ -1,0 +1,9 @@
+.our-happy-customers {
+  margin-top: 3.125rem;
+}
+
+@media screen and (width >= 1024px) {
+  .our-happy-customers {
+    margin-top: 5rem;
+  }
+}

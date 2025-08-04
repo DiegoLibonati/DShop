@@ -57,6 +57,7 @@ declare module "shared_angular/SharedAngular" {
 declare module "shared_angular/SharedAngularEnums" {
   export enum Component {
     ButtonWhite = "button-white",
+    ReviewCustomer = "review-customer",
   }
 }
 
@@ -73,6 +74,13 @@ declare module "shared_angular/SharedAngularProps" {
     rounded?: boolean;
     borderGray?: boolean;
     onClick?: (e: MouseEvent) => void;
+  }
+
+  export interface ReviewCustomerProps extends DefaultProps {
+    name: string;
+    description: string;
+    maxStars: number;
+    valueStars: number;
   }
 }
 
@@ -97,6 +105,8 @@ declare module "shared_utils/SharedUtilsEnums" {
     SvgHamburgerMenu = "svg-hamburger-menu",
     SvgSearch = "svg-search",
     SvgSkyStar = "svg-sky-star",
+    SvgArrowLeft = "svg-arrow-left",
+    SvgArrowRight = "svg-arrow-right",
   }
 }
 
@@ -138,6 +148,14 @@ declare module "shared_utils/SharedUtilsProps" {
       DefaultProps {}
 
   export interface SvgSkyStarProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgArrowLeftProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgArrowRightProps
     extends SVGProps<SVGSVGElement>,
       DefaultProps {}
 }

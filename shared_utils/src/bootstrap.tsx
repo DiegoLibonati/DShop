@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot, Root } from "react-dom/client";
 
 import {
+  SvgArrowLeftProps,
+  SvgArrowRightProps,
   SvgCartShoppingProps,
   SvgChevronDownProps,
   SvgChevronUpProps,
@@ -20,6 +22,8 @@ import { SvgHamburgerMenu } from "@src/components/Svgs/SvgHamburgerMenu/SvgHambu
 import { SvgCartShopping } from "@src/components/Svgs/SvgCartShopping/SvgCartShopping";
 import { SvgSearch } from "@src/components/Svgs/SvgSearch/SvgSearch";
 import { SvgSkyStar } from "@src/components/Svgs/SvgSkyStar/SvgSkyStar";
+import { SvgArrowLeft } from "@src/components/Svgs/SvgArrowLeft/SvgArrowLeft";
+import { SvgArrowRight } from "@src/components/Svgs/SvgArrowRight/SvgArrowRight";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -37,6 +41,8 @@ export const getComponentById = (
     | SvgSearchProps
     | SvgCartShoppingProps
     | SvgSkyStarProps
+    | SvgArrowLeftProps
+    | SvgArrowRightProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -57,6 +63,12 @@ export const getComponentById = (
     ),
     [Component.SvgSearch]: <SvgSearch {...(props as SvgSearchProps)} />,
     [Component.SvgSkyStar]: <SvgSkyStar {...(props as SvgSkyStarProps)} />,
+    [Component.SvgArrowLeft]: (
+      <SvgArrowLeft {...(props as SvgArrowLeftProps)} />
+    ),
+    [Component.SvgArrowRight]: (
+      <SvgArrowRight {...(props as SvgArrowRightProps)} />
+    ),
   }[idComponent];
 };
 

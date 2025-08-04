@@ -4,6 +4,7 @@ export type LangC = {
     new_arrivals: LangNewArrivals;
     top_selling: LangTopSelling;
     browseByDressStyle: LangBrowseByDressStyle;
+    ourHappyCustomers: LangOurHappyCustomers;
   };
 };
 
@@ -27,5 +28,9 @@ export type LangTopSelling = {
 };
 
 export type LangBrowseByDressStyle = {
+  title: string;
+};
+
+export type LangOurHappyCustomers = {
   title: string;
 };

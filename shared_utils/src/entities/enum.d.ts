@@ -7,4 +7,6 @@ export enum Component {
   SvgHamburgerMenu = "svg-hamburger-menu",
   SvgSearch = "svg-search",
   SvgSkyStar = "svg-sky-star",
+  SvgArrowLeft = "svg-arrow-left",
+  SvgArrowRight = "svg-arrow-right",
 }

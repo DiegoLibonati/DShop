@@ -22,5 +22,8 @@ export const lang: LangC = {
     browseByDressStyle: {
       title: "BROWSE BY DRESS STYLE",
     },
+    ourHappyCustomers: {
+      title: "OUR HAPPY CUSTOMERS",
+    },
   },
 };
