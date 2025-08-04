@@ -9,6 +9,7 @@ export const Header = ({
   name,
   options,
   className,
+  classNameWrapper,
   onClickCart,
   onClickMenu,
   onClickSearch,
@@ -41,7 +42,7 @@ export const Header = ({
     };
   }, []);
 
-  return <div ref={ref}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };
 
 export default Header;

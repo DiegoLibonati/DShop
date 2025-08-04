@@ -19,6 +19,7 @@ declare module "shared_react/SharedReactProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface RateStarsProps extends DefaultProps {
@@ -56,6 +57,7 @@ declare module "shared_utils/SharedUtilsProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface SvgStarToFillProps extends DefaultProps {

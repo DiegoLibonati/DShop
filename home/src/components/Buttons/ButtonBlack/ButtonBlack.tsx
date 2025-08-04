@@ -9,6 +9,7 @@ export const ButtonBlack = ({
   children,
   rounded,
   className,
+  classNameWrapper
 }: ButtonBlackProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -33,5 +34,5 @@ export const ButtonBlack = ({
     };
   }, []);
 
-  return <div ref={ref}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };

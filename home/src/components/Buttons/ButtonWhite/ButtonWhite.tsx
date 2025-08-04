@@ -10,6 +10,7 @@ export const ButtonWhite = ({
   borderGray,
   rounded,
   className,
+  classNameWrapper,
   children,
   onClick,
 }: ButtonWhiteProps) => {
@@ -39,7 +40,7 @@ export const ButtonWhite = ({
     };
   }, []);
 
-  return <div ref={ref} className={`${className}-wrapper`}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };
 
 export default ButtonWhite;

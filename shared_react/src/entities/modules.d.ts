@@ -26,6 +26,7 @@ declare module "shared_utils/SharedUtilsProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
+    classNameWrapper?: string;
     children?: React.ReactNode;
   }
 

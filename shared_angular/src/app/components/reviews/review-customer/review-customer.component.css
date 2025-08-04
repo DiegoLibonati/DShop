@@ -9,14 +9,9 @@
   border-radius: 1rem;
 }
 
-::ng-deep.review-customer__rate-star-wrapper {
+::ng-deep.rate-stars__star-wrapper {
   height: 1.188rem;
   width: 1.188rem;
-}
-
-::ng-deep.review-customer__rate-star {
-  height: 100%;
-  width: 100%;
 }
 
 .review-customer__name {
@@ -54,7 +49,7 @@
     font-size: 1rem;
   }
 
-  ::ng-deep.review-customer__rate-star-wrapper {
+  ::ng-deep.rate-stars__star-wrapper {
     height: 1.438rem;
     width: 1.438rem;
   }

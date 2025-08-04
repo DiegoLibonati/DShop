@@ -60,6 +60,7 @@ export const NewArrivalsSection = () => {
         <SliderSnapX
           idRoot={idArrivalSlider.current[0]}
           className="new-arrivals__slider"
+          classNameWrapper="new-arrivals__slider-wrapper"
         >
           {idsClothesMobile.length > 0 &&
             newArrivals?.map((c, i) => {

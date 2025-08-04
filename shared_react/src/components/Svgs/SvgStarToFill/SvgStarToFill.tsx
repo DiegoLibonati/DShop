@@ -10,6 +10,7 @@ export const SvgStarToFill = ({
   inColor,
   fill,
   className,
+  classNameWrapper,
 }: SvgStarToFillProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -35,5 +36,5 @@ export const SvgStarToFill = ({
     };
   }, []);
 
-  return <div ref={ref} className={`${className}-wrapper`}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };

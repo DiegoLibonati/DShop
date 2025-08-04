@@ -26,10 +26,7 @@ export class SvgHamburgerMenuComponent implements AfterViewInit, OnDestroy {
 
   @Input() idRoot: SvgHamburgerMenuProps["idRoot"] = "";
   @Input() className: SvgHamburgerMenuProps["className"] = "";
-
-  get classNameWrapper(): string {
-    return this.className ? `${this.className}-wrapper` : "";
-  }
+  @Input() classNameWrapper: SvgHamburgerMenuProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
     mountComponent(

@@ -24,6 +24,7 @@ declare module "shared_react/SharedReactProps" {
     idRoot: string;
     children?: React.ReactNode;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface ButtonBlackProps extends DefaultProps {
@@ -64,6 +65,7 @@ declare module "shared_angular/SharedAngularProps" {
     idRoot: string;
     children?: React.ReactNode;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface ButtonWhiteProps extends DefaultProps {
@@ -104,6 +106,7 @@ declare module "shared_utils/SharedUtilsProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface SvgStarToFillProps
@@ -136,9 +139,7 @@ declare module "shared_utils/SharedUtilsProps" {
 
   export interface SvgSkyStarProps
     extends SVGProps<SVGSVGElement>,
-      DefaultProps {
-    wrapperClass: string;
-  }
+      DefaultProps {}
 }
 
 declare module "shared_utils/SharedUtilsStyles";

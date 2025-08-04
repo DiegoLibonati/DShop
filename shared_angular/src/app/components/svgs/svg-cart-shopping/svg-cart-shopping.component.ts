@@ -26,10 +26,7 @@ export class SvgCartShoppingComponent implements AfterViewInit, OnDestroy {
 
   @Input() idRoot: SvgCartShoppingProps["idRoot"] = "";
   @Input() className: SvgCartShoppingProps["className"] = "";
-
-  get classNameWrapper(): string {
-    return this.className ? `${this.className}-wrapper` : "";
-  }
+  @Input() classNameWrapper: SvgCartShoppingProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
     mountComponent(

@@ -29,6 +29,7 @@ export const RateStars = ({
             idRoot={uuidsRef.current[i]}
             key={`star_${i}_ratestars`}
             className={`rate-stars__star ${className}`}
+            classNameWrapper="rate-stars__star-wrapper"
             fill={fillPercentage}
             inColor={inColor}
             outColor={outColor}

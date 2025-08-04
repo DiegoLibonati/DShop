@@ -26,10 +26,7 @@ export class SvgSearchComponent implements AfterViewInit, OnDestroy {
 
   @Input() idRoot: SvgSearchProps["idRoot"] = "";
   @Input() className: SvgSearchProps["className"] = "";
-
-  get classNameWrapper(): string {
-    return this.className ? `${this.className}-wrapper` : "";
-  }
+  @Input() classNameWrapper: SvgSearchProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
     mountComponent(this.ref!.nativeElement, ComponentSharedUtils.SvgSearch, {

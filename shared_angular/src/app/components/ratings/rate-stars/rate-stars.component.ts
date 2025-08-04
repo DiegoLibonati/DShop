@@ -28,12 +28,9 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
   @Input() inColor: RateStarsProps["inColor"] = "#FFC633";
   @Input() outColor: RateStarsProps["outColor"] = "#FFFFFF";
   @Input() className: RateStarsProps["className"] = "";
+  @Input() classNameWrapper: RateStarsProps["classNameWrapper"] = "";
 
   private componentName: string = "app-rate-stars";
-
-  get classNameWrapper(): string {
-    return this.className ? `${this.className}-wrapper` : "";
-  }
 
   ngAfterViewInit(): void {
     mountComponent(this.ref!.nativeElement, ComponentSharedReact.RateStars, {
@@ -54,6 +51,11 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
     console.log(`Props of ${this.componentName}:
       - ref: ${this.ref}
       - idRoot: ${this.idRoot}
+      - max: ${this.max}
+      - value: ${this.value}
+      - inColor: ${this.inColor}
+      - outColor: ${this.outColor}
+      - classNameWrapper: ${this.classNameWrapper}
       - className: ${this.className}
     `);
   }

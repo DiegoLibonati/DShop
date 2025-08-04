@@ -26,6 +26,7 @@ declare module "shared_angular/SharedAngularProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
+    classNameWrapper?: string;
   }
 
   export interface HeaderProps extends DefaultProps {

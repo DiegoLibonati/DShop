@@ -13,6 +13,7 @@ export const ItemClothes = ({
   src,
   children,
   className,
+  classNameWrapper,
   onClick,
 }: ItemClothesProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -43,5 +44,5 @@ export const ItemClothes = ({
     };
   }, []);
 
-  return <div ref={ref}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };

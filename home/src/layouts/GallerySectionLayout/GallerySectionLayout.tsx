@@ -30,6 +30,7 @@ export const GallerySectionLayout = ({
         rounded={true}
         onClick={onClick}
         className="gallery-section__btn"
+        classNameWrapper="gallery-section__btn-wrapper"
       >
         {btnText}
       </ButtonWhite>

@@ -9,6 +9,7 @@
       <svg-hamburger-menu
         [idRoot]="rootIds[0]"
         [className]="'header__logo-open-icon'"
+        [className]="'header__logo-open-icon-wrapper'"
       ></svg-hamburger-menu>
     </button>
 
@@ -27,11 +28,13 @@
       <svg-chevron-down
         [idRoot]="rootIds[1]"
         [className]="'header__option-icon'"
+        [classNameWrapper]="'header__option-icon-wrapper'"
         *ngIf="option.isMenu && !option.open"
       ></svg-chevron-down>
       <svg-chevron-up
         [idRoot]="rootIds[2]"
         [className]="'header__option-icon'"
+        [classNameWrapper]="'header__option-icon-wrapper'"
         *ngIf="option.isMenu && option.open"
       ></svg-chevron-up>
     </button>
@@ -49,6 +52,7 @@
       <svg-search
         [idRoot]="rootIds[3]"
         [className]="'header__search-btn-icon'"
+        [classNameWrapper]="'header__search-btn-icon-wrapper'"
       ></svg-search>
     </button>
     <input
@@ -72,6 +76,7 @@
       <svg-search
         [idRoot]="rootIds[4]"
         [className]="'header__action-search-icon'"
+        [classNameWrapper]="'header__action-search-icon-wrapper'"
       ></svg-search>
     </button>
 
@@ -84,6 +89,7 @@
       <svg-cart-shopping
         [idRoot]="rootIds[5]"
         [className]="'header__action-cart-icon'"
+        [classNameWrapper]="'header__action-cart-icon-wrapper'"
       ></svg-cart-shopping>
     </button>
   </div>

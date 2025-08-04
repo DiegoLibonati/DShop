@@ -9,7 +9,7 @@ export const SvgSkyStar = ({
   width,
   height,
   className,
-  wrapperClass,
+  classNameWrapper,
 }: SvgSkyStarProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -34,5 +34,5 @@ export const SvgSkyStar = ({
     };
   }, []);
 
-  return <div ref={ref} className={wrapperClass}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };

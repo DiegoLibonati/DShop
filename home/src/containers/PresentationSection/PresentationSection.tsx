@@ -27,6 +27,7 @@ export const PresentationSection = () => {
         <ButtonBlack
           idRoot={idsPresentation.current[0]}
           className="presentation-information__shop-now"
+          classNameWrapper="presentation-information__shop-now-wrapper"
           rounded={true}
         >
           {lang["en"].presentation.button_shop_now}
@@ -75,14 +76,14 @@ export const PresentationSection = () => {
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-            wrapperClass="presentation-illustration__vector-wrapper"
+            classNameWrapper="presentation-illustration__vector-wrapper"
           ></SvgSkyStar>
           <SvgSkyStar
             idRoot={idsPresentation.current[2]}
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-            wrapperClass="presentation-illustration__vector-wrapper"
+            classNameWrapper="presentation-illustration__vector-wrapper"
           ></SvgSkyStar>
         </div>
       </article>
@@ -100,14 +101,14 @@ export const PresentationSection = () => {
             width={44}
             height={44}
             className="presentation-illustration__vector presentation-illustration__vector--1"
-            wrapperClass="presentation-illustration__vector-wrapper"
+            classNameWrapper="presentation-illustration__vector-wrapper"
           ></SvgSkyStar>
           <SvgSkyStar
             idRoot={idsPresentation.current[4]}
             width={76}
             height={76}
             className="presentation-illustration__vector presentation-illustration__vector--2"
-            wrapperClass="presentation-illustration__vector-wrapper"
+            classNameWrapper="presentation-illustration__vector-wrapper"
           ></SvgSkyStar>
         </div>
       </article>

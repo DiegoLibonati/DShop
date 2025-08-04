@@ -60,6 +60,7 @@ export const TopSellingSection = () => {
         <SliderSnapX
           idRoot={idTopSellingSlider.current[0]}
           className="top-sellings__slider"
+          classNameWrapper="top-sellings__slider-wrapper"
         >
           {idsClothesMobile.length > 0 &&
             topSellings?.map((c, i) => {

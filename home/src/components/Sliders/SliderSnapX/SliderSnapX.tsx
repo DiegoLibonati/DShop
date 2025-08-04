@@ -8,6 +8,7 @@ export const SliderSnapX = ({
   idRoot,
   children,
   className,
+  classNameWrapper,
 }: SliderSnapXProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -41,5 +42,5 @@ export const SliderSnapX = ({
 
   useEffect(onChildrenChange, [children]);
 
-  return <div ref={ref} className={`${className}-wrapper`}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };
