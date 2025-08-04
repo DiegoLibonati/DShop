@@ -1,3 +1,34 @@
+declare module "shared_react/SharedReact" {
+  import { Component } from "shared_react/SharedReactEnums";
+
+  export const mountComponent: (
+    el: HTMLDivElement,
+    idComponent: Component,
+    props?: Record<string, unknown>
+  ) => void;
+  export const unMountComponent: (idRoot: string) => void;
+}
+
+declare module "shared_react/SharedReactEnums" {
+  export enum Component {
+    RateStars = "rate-stars",
+  }
+}
+
+declare module "shared_react/SharedReactProps" {
+  export interface DefaultProps {
+    idRoot: string;
+    className?: string;
+  }
+
+  export interface RateStarsProps extends DefaultProps {
+    max: number;
+    value: number;
+    outColor: string;
+    inColor: string;
+  }
+}
+
 declare module "shared_utils/SharedUtils" {
   import { Component } from "shared_utils/SharedUtilsEnums";
 

@@ -26,4 +26,15 @@
       >View All</app-button-white
     >
   </div>
+
+  <div class="component">
+    <h2 class="component__title">Review-Customer</h2>
+    <app-review-customer
+      [name]="reviewCustomerProps.name"
+      [description]="reviewCustomerProps.description"
+      [maxStars]="reviewCustomerProps.maxStars"
+      [valueStars]="reviewCustomerProps.valueStars"
+      [className]="reviewCustomerProps.className"
+    ></app-review-customer>
+  </div>
 </div>

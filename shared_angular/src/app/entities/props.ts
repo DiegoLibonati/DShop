@@ -23,12 +23,9 @@ export interface ButtonWhiteProps extends DefaultProps {
   onClick?: (e: MouseEvent) => void;
 }
 
-export interface SvgSearchProps extends DefaultProps {}
-
-export interface SvgCartShoppingProps extends DefaultProps {}
-
-export interface SvgHamburgerMenuProps extends DefaultProps {}
-
-export interface SvgChevronDownProps extends DefaultProps {}
-
-export interface SvgChevronUpProps extends DefaultProps {}
+export interface ReviewCustomerProps extends DefaultProps {
+  name: string;
+  description: string;
+  maxStars: number;
+  valueStars: number;
+}
