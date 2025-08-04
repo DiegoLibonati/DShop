@@ -1,3 +1,7 @@
+.new-arrivals {
+  margin-top: 3.125rem;
+}
+
 .new-arrivals__slider-wrapper {
   width: 100%;
   overflow: hidden;
@@ -12,6 +16,10 @@
 }
 
 @media screen and (width >= 1024px) {
+  .new-arrivals {
+    margin-top: 4.5rem;
+  }
+
   .new-arrivals__slider-wrapper {
     display: none;
   }

@@ -54,6 +54,7 @@ export const NewArrivalsSection = () => {
       title={lang["en"].new_arrivals.title}
       btnText={lang["en"].new_arrivals.button_view_all}
       onClick={handleClickViewAll}
+      className="new-arrivals"
     >
       {idArrivalSlider.current.length > 0 && (
         <SliderSnapX

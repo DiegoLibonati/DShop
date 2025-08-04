@@ -54,6 +54,7 @@ export const TopSellingSection = () => {
       title={lang["en"].top_selling.title}
       btnText={lang["en"].top_selling.button_view_all}
       onClick={handleClickViewAll}
+      className="top-sellings"
     >
       {idTopSellingSlider.current.length > 0 && (
         <SliderSnapX

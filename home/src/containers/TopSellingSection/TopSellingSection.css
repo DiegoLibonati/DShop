@@ -1,3 +1,7 @@
+.top-sellings {
+  margin-top: 3.125rem;
+}
+
 .top-sellings__slider-wrapper {
   width: 100%;
   overflow: hidden;
@@ -12,6 +16,10 @@
 }
 
 @media screen and (width >= 1024px) {
+  .top-sellings {
+    margin-top: 4.5rem;
+  }
+
   .top-sellings__slider-wrapper {
     display: none;
   }

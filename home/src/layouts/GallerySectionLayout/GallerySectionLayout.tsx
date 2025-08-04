@@ -12,12 +12,13 @@ export const GallerySectionLayout = ({
   title,
   btnText,
   children,
+  className,
   onClick,
 }: GallerySectionLayoutProps) => {
   const idsGallerySection = useRef<string[]>(getIdsByLength(1));
 
   return (
-    <section className="gallery-section">
+    <section className={`gallery-section ${className}`}>
       <h2 className="gallery-section__title">{title}</h2>
 
       {children}

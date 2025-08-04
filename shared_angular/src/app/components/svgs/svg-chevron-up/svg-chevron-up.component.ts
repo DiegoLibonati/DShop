@@ -27,6 +27,10 @@ export class SvgChevronUpComponent implements AfterViewInit, OnDestroy {
   @Input() idRoot: SvgChevronUpProps["idRoot"] = "";
   @Input() className: SvgChevronUpProps["className"] = "";
 
+  get classNameWrapper(): string {
+    return this.className ? `${this.className}-wrapper` : "";
+  }
+
   ngAfterViewInit(): void {
     mountComponent(this.ref!.nativeElement, ComponentSharedUtils.SvgChevronUp, {
       idRoot: this.idRoot,

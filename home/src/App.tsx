@@ -14,7 +14,7 @@ export const App = () => {
       <PresentationSection></PresentationSection>
       <BrandsSection></BrandsSection>
       <NewArrivalsSection></NewArrivalsSection>
-      <hr className="hr-home"></hr>
+      <hr className="hr-home hr-home-gallery"></hr>
       <TopSellingSection></TopSellingSection>
       <BrowseByDressStyleSection></BrowseByDressStyleSection>
     </main>
