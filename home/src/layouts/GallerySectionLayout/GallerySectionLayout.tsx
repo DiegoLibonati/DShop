@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 
 import { GallerySectionLayoutProps } from "@src/entities/props";
 
-import ButtonWhite from "@src/components/Buttons/ButtonWhite/ButtonWhite";
+import ButtonWhite from "@src/components/core/Buttons/ButtonWhite/ButtonWhite";
 
-import { getIdsByLength } from "shared_utils/SharedUtils";
+import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/layouts/GallerySectionLayout/GallerySectionLayout.css";
 
@@ -28,6 +28,7 @@ export const GallerySectionLayout = ({
         ariaLabel={`${btnText} - ${title}`}
         borderGray={true}
         rounded={true}
+        type="button"
         onClick={onClick}
         className="gallery-section__btn"
         classNameWrapper="gallery-section__btn-wrapper"

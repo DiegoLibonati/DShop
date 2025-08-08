@@ -8,7 +8,7 @@ export interface DefaultProps {
 export interface GallerySectionLayoutProps extends DefaultProps {
   title: string;
   btnText: string;
-  onClick: (e: MouseEvent) => void;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface IllustrationWithTitleProps extends DefaultProps {
@@ -16,7 +16,4 @@ export interface IllustrationWithTitleProps extends DefaultProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface CarrouselWithTitleAndArrowsProps extends DefaultProps {
-
-
-}
+export interface CarrouselWithTitleAndArrowsProps extends DefaultProps {}

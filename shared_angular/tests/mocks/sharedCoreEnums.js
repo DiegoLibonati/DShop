@@ -1,0 +1,23 @@
+const Component = {
+  AppTest: "app-test",
+  SvgStarToFill: "svg-star-to-fill",
+  SvgCartShopping: "svg-cart-shopping",
+  SvgChevronDown: "svg-chevron-down",
+  SvgChevronUp: "svg-chevron-up",
+  SvgHamburgerMenu: "svg-hamburger-menu",
+  SvgSearch: "svg-search",
+  SvgSkyStar: "svg-sky-star",
+  SvgArrowLeft: "svg-arrow-left",
+  SvgArrowRight: "svg-arrow-right",
+  ButtonBlack: "button-black",
+  ButtonWhite: "button-white",
+  ImageWithBackgroundColor: "image-with-background-color",
+  InformationItemClothes: "information-item-clothes",
+  RateStars: "rate-stars",
+  SliderSnapX: "slider-snap-x",
+  AnchorCircular: "anchor-circular",
+};
+
+module.exports = {
+  Component,
+};

@@ -12,4 +12,4 @@
 
 // ### SHARED ANGULAR MFE ###
 
-// ### SHARED UTILS MFE ###
+// ### SHARED CORE MFE ###

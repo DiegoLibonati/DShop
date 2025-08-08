@@ -1,5 +1,7 @@
 const Component = {
-  RateStars: "rate-stars",
+  ItemClothes: "item-clothes",
+  FooterWithSubscribeNewslettes: "footer-with-subscribe-newsletter",
+  SubscribeNewslettes: "subscribe-newsletter",
 };
 
 module.exports = {

@@ -30,8 +30,7 @@ module.exports = merge(commonConfig, {
         "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       remotes: {
-        shared_react: "shared_react@http://localhost:8082/remoteEntry.js",
-        shared_utils: "shared_utils@http://localhost:8084/remoteEntry.js",
+        shared_core: "shared_core@http://localhost:8084/remoteEntry.js",
       },
       shared: {
         ...packageJson.dependencies,

@@ -15,10 +15,9 @@ import { Component } from "@src/app/entities/enum";
 
 import { AppModule } from "@src/app/app.module";
 
-import { HeaderComponent } from "@src/app/components/headers/header/header.component";
-import { AppTestComponent } from "@src/app/components/app-test/app-test.component";
-import { ButtonWhiteComponent } from "@src/app/components/buttons/button-white/button-white.component";
-import { ReviewCustomerComponent } from "@src/app/components/reviews/review-customer/review-customer.component";
+import { HeaderComponent } from "@src/app/components/composed/headers/header/header.component";
+import { AppTestComponent } from "@src/app/components/composed/app-test/app-test.component";
+import { ReviewCustomerComponent } from "@src/app/components/composed/reviews/review-customer/review-customer.component";
 
 import { IS_DEV } from "@src/app/constants/envs.constants";
 
@@ -32,7 +31,6 @@ const getComponentById = (idComponent: Component): Type<unknown> => {
   return {
     [Component.Header]: HeaderComponent,
     [Component.AppTest]: AppTestComponent,
-    [Component.ButtonWhite]: ButtonWhiteComponent,
     [Component.ReviewCustomer]: ReviewCustomerComponent,
   }[idComponent];
 };

@@ -1,5 +1,5 @@
-declare module "shared_react/SharedReact" {
-  import { Component } from "shared_react/SharedReactEnums";
+declare module "shared_core/SharedCore" {
+  import { Component } from "shared_core/SharedCoreEnums";
 
   export const mountComponent: (
     el: HTMLDivElement,
@@ -7,57 +7,88 @@ declare module "shared_react/SharedReact" {
     props?: Record<string, unknown>
   ) => void;
   export const unMountComponent: (idRoot: string) => void;
-}
-
-declare module "shared_react/SharedReactEnums" {
-  export enum Component {
-    RateStars = "rate-stars",
-  }
-}
-
-declare module "shared_react/SharedReactProps" {
-  export interface DefaultProps {
-    idRoot: string;
-    className?: string;
-    classNameWrapper?: string;
-  }
-
-  export interface RateStarsProps extends DefaultProps {
-    max: number;
-    value: number;
-    outColor: string;
-    inColor: string;
-  }
-}
-
-declare module "shared_utils/SharedUtils" {
-  import { Component } from "shared_utils/SharedUtilsEnums";
-
-  export const mountComponent: (
-    el: HTMLDivElement,
-    idComponent: Component,
-    props?: Record<string, unknown>
-  ) => void;
-  export const unMountComponent: (idRoot: string) => void;
+  export const getFinalPriceByDiscount: (
+    price: number,
+    discount: number
+  ) => number;
   export const getIdsByLength: (length: number) => string[];
 }
 
-declare module "shared_utils/SharedUtilsEnums" {
+declare module "shared_core/SharedCoreEnums" {
   export enum Component {
+    AppTest = "app-test",
     SvgStarToFill = "svg-star-to-fill",
     SvgCartShopping = "svg-cart-shopping",
     SvgChevronDown = "svg-chevron-down",
     SvgChevronUp = "svg-chevron-up",
     SvgHamburgerMenu = "svg-hamburger-menu",
     SvgSearch = "svg-search",
+    SvgSkyStar = "svg-sky-star",
+    SvgArrowLeft = "svg-arrow-left",
+    SvgArrowRight = "svg-arrow-right",
+    SvgTwitter = "svg-twitter",
+    SvgFacebook = "svg-facebook",
+    SvgInstagram = "svg-instagram",
+    ButtonBlack = "button-black",
+    ButtonWhite = "button-white",
+    ImageWithBackgroundColor = "image-with-background-color",
+    InformationItemClothes = "information-item-clothes",
+    RateStars = "rate-stars",
+    SliderSnapX = "slider-snap-x",
+    AnchorCircular = "anchor-circular",
   }
 }
 
-declare module "shared_utils/SharedUtilsProps" {
+declare module "shared_core/SharedCoreProps" {
   export interface DefaultProps {
     idRoot: string;
     className?: string;
     classNameWrapper?: string;
+    children?: string;
+  }
+
+  export interface ButtonBlackProps extends DefaultProps {
+    ariaLabel: string;
+    rounded?: boolean;
+    onClick?: (e: MouseEvent) => void;
+  }
+
+  export interface ImageWithBackgroundColorProps extends DefaultProps {
+    src: string;
+    alt: string;
+    bgColor: string;
+  }
+
+  export interface InformationItemClothesProps extends DefaultProps {
+    name: string;
+    rate: number;
+    price: number;
+    discount: number;
+  }
+
+  export interface RateStarsProps extends DefaultProps {
+    max: number;
+    value: number;
+    inColor: string;
+    outColor: string;
+    classNameStar?: string;
+  }
+
+  export interface SliderSnapXProps extends DefaultProps {}
+
+  export interface ButtonWhiteProps extends DefaultProps {
+    ariaLabel: string;
+    rounded?: boolean;
+    borderGray?: boolean;
+    type?: "button" | "reset" | "submit";
+    onClick?: (e: MouseEvent) => void;
+  }
+
+  export interface AnchorCircularProps extends DefaultProps {
+    ariaLabel: string;
+    href: string;
+    target?: "_self" | "_blank";
+    borderGray?: boolean;
   }
 
   export interface SvgStarToFillProps extends DefaultProps {
@@ -75,6 +106,23 @@ declare module "shared_utils/SharedUtilsProps" {
   export interface SvgChevronDownProps extends DefaultProps {}
 
   export interface SvgCartShoppingProps extends DefaultProps {}
+
+  export interface SvgSkyStarProps extends DefaultProps {}
+
+  export interface SvgArrowLeftProps extends DefaultProps {}
+
+  export interface SvgArrowRightProps extends DefaultProps {}
+
+  export interface SvgTwitterProps extends DefaultProps {}
+
+  export interface SvgFacebookProps extends DefaultProps {}
+
+  export interface SvgInstagramProps extends DefaultProps {}
 }
 
-declare module "shared_utils/SharedUtilsStyles";
+declare module "shared_core/SharedCoreStyles";
+
+declare module "*.png";
+declare module "*.svg";
+declare module "*.jpeg";
+declare module "*.jpg";

@@ -10,17 +10,25 @@ module.exports = {
     "^.+\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/tests/mocks/imgs.js",
     "^@src/(.*)$": "<rootDir>/src/$1",
 
-    "^shared_utils/SharedUtils$": "<rootDir>/tests/mocks/SharedUtils.js",
-    "^shared_utils/SharedUtilsEnums$":
-      "<rootDir>/tests/mocks/SharedUtilsEnums.js",
-    "^shared_utils/SharedUtilsProps$":
-      "<rootDir>/tests/mocks/SharedUtilsProps.js",
+    "^shared_core/SharedCore$": "<rootDir>/tests/mocks/SharedCore.js",
+    "^shared_core/SharedCoreEnums$": "<rootDir>/tests/mocks/SharedCoreEnums.js",
+    "^shared_core/SharedCoreProps$": "<rootDir>/tests/mocks/SharedCoreProps.js",
 
     "^shared_react/SharedReact$": "<rootDir>/tests/mocks/SharedReact.js",
+    "^shared_react/SharedReactEntities$":
+      "<rootDir>/tests/mocks/SharedReactEntities.js",
     "^shared_react/SharedReactEnums$":
       "<rootDir>/tests/mocks/SharedReactEnums.js",
     "^shared_react/SharedReactProps$":
       "<rootDir>/tests/mocks/SharedReactProps.js",
+
+    "^shared_angular/SharedAngular$": "<rootDir>/tests/mocks/SharedAngular.js",
+    "^shared_angular/SharedAngularEntities$":
+      "<rootDir>/tests/mocks/SharedAngularEntities.js",
+    "^shared_angular/SharedAngularEnums$":
+      "<rootDir>/tests/mocks/SharedAngularEnums.js",
+    "^shared_angular/SharedAngularProps$":
+      "<rootDir>/tests/mocks/SharedAngularProps.js",
   },
   transformIgnorePatterns: [],
 };

@@ -23,8 +23,7 @@ module.exports = merge(common, {
         "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       remotes: {
-        shared_react: `shared_react@/shared_react/latest/remoteEntry.js`,
-        shared_utils: `shared_utils@/shared_utils/latest/remoteEntry.js`,
+        shared_core: `shared_core@/shared_core/latest/remoteEntry.js`,
       },
       shared: {
         ...packageJson.dependencies,

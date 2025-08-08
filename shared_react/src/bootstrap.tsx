@@ -2,18 +2,16 @@ import React from "react";
 import { createRoot, Root } from "react-dom/client";
 
 import {
-  ButtonBlackProps,
+  FooterWithSubscribeNewsletterProps,
   ItemClothesProps,
-  RateStarsProps,
-  SliderSnapXProps,
+  SubscribeNewsletterProps,
 } from "@src/entities/props";
 import { Component } from "@src/entities/enum.d";
 
 import { App } from "@src/App";
-import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
-import { ItemClothes } from "@src/components/Items/ItemClothes/ItemClothes";
-import { RateStars } from "@src/components/Ratings/RateStars/RateStars";
-import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
+import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClothes";
+import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
+import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
 
 import { IS_DEV } from "@src/constants/envs";
 
@@ -24,22 +22,24 @@ export const getComponentById = (
   idComponent: Component,
   props:
     | Record<string, unknown>
-    | ButtonBlackProps
     | ItemClothesProps
-    | RateStarsProps
-    | SliderSnapXProps
+    | FooterWithSubscribeNewsletterProps
+    | SubscribeNewsletterProps
 ): React.ReactNode => {
   return {
-    [Component.ButtonBlack]: <ButtonBlack {...(props as ButtonBlackProps)} />,
     [Component.AppTest]: <App {...(props as Record<string, unknown>)} />,
     [Component.ItemClothes]: (
       <ItemClothes {...(props as ItemClothesProps)}></ItemClothes>
     ),
-    [Component.RateStars]: (
-      <RateStars {...(props as RateStarsProps)}></RateStars>
+    [Component.FooterWithSubscribeNewsletter]: (
+      <FooterWithSubscribeNewsletter
+        {...(props as FooterWithSubscribeNewsletterProps)}
+      ></FooterWithSubscribeNewsletter>
     ),
-    [Component.SliderSnapX]: (
-      <SliderSnapX {...(props as SliderSnapXProps)}></SliderSnapX>
+    [Component.SubscribeNewsletter]: (
+      <SubscribeNewsletter
+        {...(props as SubscribeNewsletterProps)}
+      ></SubscribeNewsletter>
     ),
   }[idComponent];
 };

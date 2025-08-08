@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Clothes } from "@src/entities/entities";
 
-import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
-import { ItemClothes } from "@src/components/Items/ItemClothes/ItemClothes";
+import { SliderSnapX } from "@src/components/core/Sliders/SliderSnapX/SliderSnapX";
+import { ItemClothes } from "@src/components/core/Items/ItemClothes/ItemClothes";
 
 import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GallerySectionLayout";
 
 import { lang } from "@src/constants/lang";
 import { clothesList } from "@src/constants/clothes";
 
-import { getIdsByLength } from "shared_utils/SharedUtils";
+import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/containers/TopSellingSection/TopSellingSection.css";
 

@@ -1,7 +1,6 @@
 export enum Component {
-  ButtonBlack = "button-black",
   AppTest = "app-test",
   ItemClothes = "item-clothes",
-  RateStars = "rate-stars",
-  SliderSnapX = "slider-snap-x",
+  FooterWithSubscribeNewsletter = "footer-with-subscribe-newsletter",
+  SubscribeNewsletter = "subscribe-newsletter",
 }

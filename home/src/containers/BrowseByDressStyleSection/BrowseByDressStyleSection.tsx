@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { IllustrationType } from "@src/entities/entities";
 
-import { IllustrationWithTitle } from "@src/components/Illustrations/IllustrationWithTitle/IllustrationWithTitle";
+import { IllustrationWithTitle } from "@src/components/composed/Illustrations/IllustrationWithTitle/IllustrationWithTitle";
 
 import { lang } from "@src/constants/lang";
 

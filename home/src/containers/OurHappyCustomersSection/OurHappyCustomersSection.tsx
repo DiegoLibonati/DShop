@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import { Review } from "@src/entities/entities";
 
-import ReviewCustomer from "@src/components/Reviews/ReviewCustomer/ReviewCustomer";
-import { CarrouselWithTitleAndArrows } from "@src/components/Carrousels/CarrouselWithTitleAndArrows/CarrouselWithTitleAndArrows";
+import ReviewCustomer from "@src/components/core/Reviews/ReviewCustomer/ReviewCustomer";
+import { CarrouselWithTitleAndArrows } from "@src/components/composed/Carrousels/CarrouselWithTitleAndArrows/CarrouselWithTitleAndArrows";
 
 import { reviews as reviewsList } from "@src/constants/reviews";
 
-import { getIdsByLength } from "shared_utils/SharedUtils";
+import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/containers/OurHappyCustomersSection/OurHappyCustomersSection.css";
 

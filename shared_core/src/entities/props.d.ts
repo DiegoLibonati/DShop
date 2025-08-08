@@ -1,0 +1,101 @@
+import { SVGProps } from "react";
+
+export interface DefaultProps {
+  idRoot?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export interface ButtonBlackProps extends DefaultProps {
+  ariaLabel: string;
+  rounded?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface ImageWithBackgroundColorProps extends DefaultProps {
+  src: string;
+  alt: string;
+  bgColor: string;
+}
+
+export interface InformationItemClothesProps extends DefaultProps {
+  name: string;
+  rate: number;
+  price: number;
+  discount: number;
+}
+
+export interface RateStarsProps extends DefaultProps {
+  max: number;
+  value: number;
+  inColor: string;
+  outColor: string;
+  classNameStar?: string;
+}
+
+export interface SliderSnapXProps extends DefaultProps {}
+
+export interface ButtonWhiteProps extends DefaultProps {
+  ariaLabel: string;
+  rounded?: boolean;
+  borderGray?: boolean;
+  type?: "button" | "reset" | "submit";
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface AnchorCircularProps extends DefaultProps {
+  ariaLabel: string;
+  href: string;
+  target?: React.HTMLAttributeAnchorTarget;
+  borderGray?: boolean;
+}
+
+export interface SvgStarToFillProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {
+  outColor: string;
+  inColor: string;
+  fill: number;
+}
+
+export interface SvgSearchProps extends SVGProps<SVGSVGElement>, DefaultProps {}
+
+export interface SvgHamburgerMenuProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgChevronUpProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgChevronDownProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgCartShoppingProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgSkyStarProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgArrowLeftProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgArrowRightProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgTwitterProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgFacebookProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}
+
+export interface SvgInstagramProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps {}

@@ -1,0 +1,145 @@
+import { render, screen } from "@testing-library/react";
+
+import { Language } from "@src/entities/entities";
+import { FooterWithSubscribeNewsletterProps } from "@src/entities/props";
+
+import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
+
+import { footerLinks } from "@src/constants/footer";
+
+type RenderComponent = {
+  props: FooterWithSubscribeNewsletterProps & {
+    onSubmitSubscribe: jest.Mock;
+  };
+  container: HTMLElement;
+};
+
+const renderComponent = (
+  instagram: string,
+  facebook: string,
+  twitter: string,
+  language: Language
+): RenderComponent => {
+  const props: FooterWithSubscribeNewsletterProps & {
+    onSubmitSubscribe: jest.Mock;
+  } = {
+    title: "title",
+    description: "description",
+    links: footerLinks,
+    language: language ?? "en",
+    facebook: facebook ?? "",
+    instagram: instagram ?? "",
+    twitter: twitter ?? "",
+    className: "test-clas",
+    onSubmitSubscribe: jest.fn(),
+  };
+
+  const { container } = render(
+    <FooterWithSubscribeNewsletter
+      title={props.title}
+      description={props.description}
+      links={props.links}
+      facebook={props.facebook}
+      instagram={props.instagram}
+      twitter={props.twitter}
+      language={props.language}
+      className={props.className}
+      onSubmitSubscribe={props.onSubmitSubscribe}
+    >
+      {props.children}
+    </FooterWithSubscribeNewsletter>
+  );
+
+  return {
+    props: props,
+    container: container,
+  };
+};
+
+describe("FooterWithSubscribeNewsletter.tsx", () => {
+  describe("General Tests.", () => {
+    const instagram = "";
+    const facebook = "";
+    const twitter = "";
+    const language = "en";
+
+    test("It must render the component.", () => {
+      const { container, props } = renderComponent(
+        instagram,
+        facebook,
+        twitter,
+        language
+      );
+
+      const root = container.querySelector(
+        ".footer-with-subscribe-newsletter"
+      ) as HTMLDivElement;
+      const subscribeNewsletter = container.querySelector(
+        ".footer-with-subscribe-newsletter__subscribe"
+      ) as HTMLDivElement;
+      const title = screen.getByRole("heading", { name: props.title });
+      const description = screen.getByText(props.description);
+      const links = container.querySelector(
+        ".footer-with-subscribe-newsletter__content-links"
+      ) as HTMLDivElement;
+      const cr = screen.getByText(`${props.title} © All Rights Reserved`);
+      const payments = screen.getByAltText("payments");
+
+      expect(root).toBeInTheDocument();
+      expect(subscribeNewsletter).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
+      expect(description).toBeInTheDocument();
+      expect(links.children).toHaveLength(props.links.length);
+      expect(cr).toBeInTheDocument();
+      expect(payments).toBeInTheDocument();
+    });
+  });
+
+  describe("With social medias.", () => {
+    const instagram = "link";
+    const facebook = "link";
+    const twitter = "link";
+
+    const totalMedias = 3;
+
+    const language = "en";
+
+    test("It must render all social media.", () => {
+      const { container } = renderComponent(
+        instagram,
+        facebook,
+        twitter,
+        language
+      );
+
+      const socialMedias = container.querySelectorAll(
+        ".footer-with-subscribe-newsletter__content-social-wrapper"
+      ) as NodeList;
+
+      expect(socialMedias).toHaveLength(totalMedias);
+    });
+  });
+
+  describe("Without social medias.", () => {
+    const instagram = "";
+    const facebook = "";
+    const twitter = "";
+
+    const language = "en";
+
+    test("It must NOT render social medias.", () => {
+      const { container } = renderComponent(
+        instagram,
+        facebook,
+        twitter,
+        language
+      );
+
+      const socialMedias = container.querySelector(
+        "footer-with-subscribe-newsletter__content-socials"
+      ) as HTMLDivElement;
+
+      expect(socialMedias).not.toBeInTheDocument();
+    });
+  });
+});

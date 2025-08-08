@@ -2,8 +2,8 @@ import { HeaderOption, Language } from "@src/app/entities/entities";
 
 interface DefaultProps {
   idRoot?: string;
-  className?: string;
   language?: Language;
+  className?: string;
 }
 
 export interface HeaderProps extends DefaultProps {
@@ -13,14 +13,6 @@ export interface HeaderProps extends DefaultProps {
   onSubmitSearch: (e: Event, searchInputValue: string) => void;
   onClickSearch: (e: MouseEvent) => void;
   onClickCart: (e: MouseEvent) => void;
-}
-
-export interface ButtonWhiteProps extends DefaultProps {
-  ariaLabel: string;
-  rounded?: boolean;
-  borderGray?: boolean;
-  textContent?: string;
-  onClick?: (e: MouseEvent) => void;
 }
 
 export interface ReviewCustomerProps extends DefaultProps {

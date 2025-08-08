@@ -42,7 +42,7 @@ services:
     ports:
       - 8082:80
     depends_on:
-      dshop-shared-utils:
+      dshop-shared-core:
         condition: service_started
     networks:
       - dshop-prod-net
@@ -57,18 +57,18 @@ services:
     ports:
       - 8083:80
     depends_on:
-      dshop-shared-utils:
+      dshop-shared-core:
         condition: service_started
     networks:
       - dshop-prod-net
 
-  dshop-shared-utils:
+  dshop-shared-core:
     build:
-      context: ./shared_utils
+      context: ./shared_core
       dockerfile: Dockerfile.production
     restart: always
     env_file:
-      - ./shared_utils/.env
+      - ./shared_core/.env
     ports:
       - 8084:80
     networks:

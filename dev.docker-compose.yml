@@ -47,6 +47,9 @@ services:
       - ./shared_react/src:/home/app/src
     ports:
       - 8082:8082
+    depends_on:
+      dshop-shared-core:
+        condition: service_started
     networks:
       - dshop-dev-net
 
@@ -61,18 +64,21 @@ services:
       - ./shared_angular/src:/home/app/src
     ports:
       - 8083:8083
+    depends_on:
+      dshop-shared-core:
+        condition: service_started
     networks:
       - dshop-dev-net
 
-  dshop-shared-utils:
+  dshop-shared-core:
     build:
-      context: ./shared_utils
+      context: ./shared_core
       dockerfile: Dockerfile.development
     restart: always
     env_file:
-      - ./shared_utils/.env
+      - ./shared_core/.env
     volumes:
-      - ./shared_utils/src:/home/app/src
+      - ./shared_core/src:/home/app/src
     ports:
       - 8084:8084
     networks:

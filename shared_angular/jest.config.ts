@@ -13,18 +13,9 @@ export default {
     "\\.(scss|sass|less)$": "<rootDir>/tests/mocks/css.js",
     "^@src/(.*)$": "<rootDir>/src/$1",
 
-    "^shared_utils/SharedUtils$": "<rootDir>/tests/mocks/SharedUtils.js",
-    "^shared_utils/SharedUtilsEnums$":
-      "<rootDir>/tests/mocks/SharedUtilsEnums.js",
-    "^shared_utils/SharedUtilsProps$":
-      "<rootDir>/tests/mocks/SharedUtilsProps.js",
-
-    "^shared_react/SharedReact$":
-      "<rootDir>/tests/mocks/SharedReact.js",
-    "^shared_react/SharedReactEnums$":
-      "<rootDir>/tests/mocks/SharedReactEnums.js",
-    "^shared_react/SharedReactProps$":
-      "<rootDir>/tests/mocks/SharedReactProps.js",
+    "^shared_core/SharedCore$": "<rootDir>/tests/mocks/SharedCore.js",
+    "^shared_core/SharedCoreEnums$": "<rootDir>/tests/mocks/SharedCoreEnums.js",
+    "^shared_core/SharedCoreProps$": "<rootDir>/tests/mocks/SharedCoreProps.js",
   },
   transformIgnorePatterns: ["node_modules/(?!.*\\.mjs$|tslib|@angular|rxjs)"],
 };

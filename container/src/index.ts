@@ -1,4 +1,4 @@
 import("@src/bootstrap");
-import("shared_utils/SharedUtilsStyles");
+import("shared_core/SharedCoreStyles");
 
 import "@src/index.css";

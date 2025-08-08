@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 
-import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
-import { SvgSkyStar } from "@src/components/Svgs/SvgSkyStar/SvgSkyStar";
+import { ButtonBlack } from "@src/components/core/Buttons/ButtonBlack/ButtonBlack";
+import { SvgSkyStar } from "@src/components/core/Svgs/SvgSkyStar/SvgSkyStar";
 
 import { lang } from "@src/constants/lang";
 
 import PresentationMobile from "@src/assets/presentation-mobile.png";
 import PresentationDesktop from "@src/assets/presentation-desktop.png";
 
-import { getIdsByLength } from "shared_utils/SharedUtils";
+import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/containers/PresentationSection/PresentationSection.css";
 
@@ -26,6 +26,7 @@ export const PresentationSection = () => {
         </p>
         <ButtonBlack
           idRoot={idsPresentation.current[0]}
+          ariaLabel="shop now"
           className="presentation-information__shop-now"
           classNameWrapper="presentation-information__shop-now-wrapper"
           rounded={true}
