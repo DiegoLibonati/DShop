@@ -10,8 +10,6 @@ import { SvgChevronDownComponent } from "@src/app/components/core/svgs/svg-chevr
 import { SvgChevronUpComponent } from "@src/app/components/core/svgs/svg-chevron-up/svg-chevron-up.component";
 import { SvgCartShoppingComponent } from "@src/app/components/core/svgs/svg-cart-shopping/svg-cart-shopping.component";
 
-import { HEADER_OPTIONS } from "@src/app/constants/components.constants";
-
 type RenderComponent = {
   props: HeaderProps & {
     onClickMenu: jest.Mock;
@@ -22,7 +20,7 @@ type RenderComponent = {
   container: Element;
 };
 
-const renderComponent = async (): Promise<RenderComponent> => {
+const renderComponent = async (isFixed: boolean): Promise<RenderComponent> => {
   const props: HeaderProps & {
     onClickMenu: jest.Mock;
     onSubmitSearch: jest.Mock;
@@ -30,9 +28,7 @@ const renderComponent = async (): Promise<RenderComponent> => {
     onClickCart: jest.Mock;
   } = {
     name: "namecito",
-    options: HEADER_OPTIONS.map((ho) => {
-      return { ...ho, onClick: jest.fn() };
-    }),
+    isFixed: isFixed,
     onClickCart: jest.fn(),
     onClickMenu: jest.fn(),
     onClickSearch: jest.fn(),
@@ -58,8 +54,10 @@ const renderComponent = async (): Promise<RenderComponent> => {
 
 describe("header.component.ts", () => {
   describe("General Tests.", () => {
+    const isFixed = false;
+
     test("It must render the component.", async () => {
-      const { container } = await renderComponent();
+      const { container } = await renderComponent(isFixed);
 
       const header = container.querySelector(".header") as HTMLElement;
 
@@ -68,8 +66,10 @@ describe("header.component.ts", () => {
   });
 
   describe("Header logo section.", () => {
+    const isFixed = false;
+
     test("It must render the logo section of the header.", async () => {
-      const { container, props } = await renderComponent();
+      const { container, props } = await renderComponent(isFixed);
 
       const headerLogo = container.querySelector(
         ".header__logo"
@@ -87,7 +87,7 @@ describe("header.component.ts", () => {
     });
 
     test("The onClickMenu function should be executed when the open header is clicked.", async () => {
-      const { props } = await renderComponent();
+      const { props } = await renderComponent(isFixed);
 
       const btnHeaderOpen = screen.getByRole("button", {
         name: "header open",
@@ -103,8 +103,10 @@ describe("header.component.ts", () => {
   });
 
   describe("Header options section.", () => {
+    const isFixed = false;
+
     test("It must render the options section of the header.", async () => {
-      const { container } = await renderComponent();
+      const { container } = await renderComponent(isFixed);
 
       const headerOptions = container.querySelector(
         ".header__options"
@@ -112,48 +114,13 @@ describe("header.component.ts", () => {
 
       expect(headerOptions).toBeInTheDocument();
     });
-
-    test("It must render each options of options header section.", async () => {
-      const { props } = await renderComponent();
-
-      props.options.forEach(async (option) => {
-        const btnOption = (await screen.findByRole("button", {
-          name: new RegExp(`header ${option.name}`),
-        })) as HTMLButtonElement;
-        const btnText = screen.getByText(option.name) as HTMLParagraphElement;
-
-        expect(btnOption).toBeInTheDocument();
-        expect(btnText).toBeInTheDocument();
-
-        if (option.isMenu) {
-          const svgMenu = btnOption.querySelector(
-            ".header__option-icon"
-          ) as HTMLElement;
-
-          expect(svgMenu).toBeInTheDocument();
-        }
-      });
-    });
-
-    test("It must execute the onClick fn on each options of options header section.", async () => {
-      const { props } = await renderComponent();
-
-      props.options.forEach(async (option) => {
-        const btnOption = (await screen.findByRole("button", {
-          name: new RegExp(`header ${option.name}`),
-        })) as HTMLButtonElement;
-
-        await user.click(btnOption);
-
-        expect(option.onClick).toHaveBeenCalledTimes(1);
-        expect(option.onClick).toHaveBeenCalledWith(expect.any(Event));
-      });
-    });
   });
 
   describe("Header form section.", () => {
+    const isFixed = false;
+
     test("It must render the form section of the header.", async () => {
-      const { container } = await renderComponent();
+      const { container } = await renderComponent(isFixed);
 
       const headerForm = container.querySelector(
         ".header__search"
@@ -171,7 +138,7 @@ describe("header.component.ts", () => {
     test("The onSubmitSearch function must be executed when the search button is clicked.", async () => {
       const text = "hola";
 
-      const { container, props } = await renderComponent();
+      const { container, props } = await renderComponent(isFixed);
 
       const headerForm = container.querySelector(
         ".header__search"
@@ -201,8 +168,10 @@ describe("header.component.ts", () => {
   });
 
   describe("Header actions section.", () => {
+    const isFixed = false;
+
     test("It must render the actions section of the header.", async () => {
-      const { container } = await renderComponent();
+      const { container } = await renderComponent(isFixed);
 
       const headerActions = container.querySelector(
         ".header__actions"
@@ -220,7 +189,7 @@ describe("header.component.ts", () => {
     });
 
     test("The onClickSearch and onClickCart functions must be executed when their respective buttons are clicked.", async () => {
-      const { props } = await renderComponent();
+      const { props } = await renderComponent(isFixed);
 
       const btnHeaderSearch = screen.getByLabelText(
         /header search/i
@@ -241,6 +210,30 @@ describe("header.component.ts", () => {
 
       expect(props.onClickCart).toHaveBeenCalledTimes(1);
       expect(props.onClickCart).toHaveBeenCalledWith(expect.any(Event));
+    });
+  });
+
+  describe("Without isFixed", () => {
+    const isFixed = false;
+
+    test("It should not be fixed.", async () => {
+      const { container } = await renderComponent(isFixed);
+
+      const header = container.querySelector(".header") as HTMLElement;
+
+      expect(header.classList.contains("header--fixed")).toBeFalsy();
+    });
+  });
+
+  describe("With isFixed", () => {
+    const isFixed = true;
+
+    test("It should be fixed.", async () => {
+      const { container } = await renderComponent(isFixed);
+
+      const header = container.querySelector(".header") as HTMLElement;
+
+      expect(header.classList.contains("header--fixed")).toBeTruthy();
     });
   });
 });

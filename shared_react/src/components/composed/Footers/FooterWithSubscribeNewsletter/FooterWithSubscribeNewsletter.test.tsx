@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 
-import { Language } from "@src/entities/entities";
 import { FooterWithSubscribeNewsletterProps } from "@src/entities/props";
 
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
 
 import { footerLinks } from "@src/constants/footer";
+
+import { Locale } from "shared_core/SharedCoreEntities";
 
 type RenderComponent = {
   props: FooterWithSubscribeNewsletterProps & {
@@ -18,7 +19,7 @@ const renderComponent = (
   instagram: string,
   facebook: string,
   twitter: string,
-  language: Language
+  language: Locale
 ): RenderComponent => {
   const props: FooterWithSubscribeNewsletterProps & {
     onSubmitSubscribe: jest.Mock;

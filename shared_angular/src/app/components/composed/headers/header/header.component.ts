@@ -17,7 +17,7 @@ import { getIdsByLength } from "shared_core/SharedCore";
 })
 export class HeaderComponent implements OnInit {
   @Input() name: HeaderProps["name"] = "";
-  @Input() options: HeaderProps["options"] = [];
+  @Input() isFixed: HeaderProps["isFixed"] = false;
   @Input() language: HeaderProps["language"] = "en";
   @Input() className: HeaderProps["className"] = "";
 
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   public searchInputValue: string = "";
   public texts: LangHeader = lang[this.language!].header;
 
-  public rootIds = getIdsByLength(6);
+  public rootIds = getIdsByLength(4);
 
   ngOnInit(): void {
     // this.viewProps();
@@ -44,8 +44,8 @@ export class HeaderComponent implements OnInit {
   viewProps(): void {
     console.log(`Props of ${this.componentName}:
       - name: ${this.name} 
-      - options: ${this.options}
       - language: ${this.language}
+      - isFixed: ${this.isFixed}
       - onClickMenu: ${this.onClickMenu}
       - onSubmitSearch: ${this.onSubmitSearch}
       - onClickSearch: ${this.onClickSearch}

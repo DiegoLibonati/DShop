@@ -8,6 +8,7 @@ export const ButtonBlack = ({
   idRoot,
   children,
   rounded,
+  language,
   className,
   classNameWrapper
 }: ButtonBlackProps) => {
@@ -18,6 +19,7 @@ export const ButtonBlack = ({
       idRoot: idRoot,
       children: children,
       rounded: rounded,
+      language: language,
       className: className,
     });
   };

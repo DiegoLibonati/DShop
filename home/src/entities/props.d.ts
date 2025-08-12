@@ -1,8 +1,11 @@
 import { IllustrationType } from "@src/entities/entities";
 
+import { Locale } from "shared_core/SharedCoreEntities";
+
 export interface DefaultProps {
   className?: string;
   children?: React.ReactNode;
+  language?: Locale;
 }
 
 export interface GallerySectionLayoutProps extends DefaultProps {

@@ -1,11 +1,12 @@
 import { SVGProps } from "react";
 
-import { FooterLinks, Language } from "@src/entities/entities";
+import { Locale } from "shared_core/SharedCoreEntities";
 
 export interface DefaultProps {
   idRoot?: string;
   className?: string;
   children?: React.ReactNode;
+  language?: Locale;
 }
 
 export interface ItemClothesProps extends DefaultProps {
@@ -20,8 +21,6 @@ export interface ItemClothesProps extends DefaultProps {
 export interface FooterWithSubscribeNewsletterProps extends DefaultProps {
   title: string;
   description: string;
-  links: FooterLinks[];
-  language?: Language;
   instagram?: string;
   facebook?: string;
   twitter?: string;
@@ -31,6 +30,5 @@ export interface FooterWithSubscribeNewsletterProps extends DefaultProps {
 export interface SubscribeNewsletterProps extends DefaultProps {
   title: string;
   submitLabel: string;
-  language?: Language;
   onSubmit: (inputValue: string) => void;
 }

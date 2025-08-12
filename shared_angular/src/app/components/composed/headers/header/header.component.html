@@ -1,4 +1,8 @@
-<header class="header" [ngClass]="className">
+<header
+  class="header"
+  [class]="className || ''"
+  [ngClass]="{ 'header--fixed': isFixed }"
+>
   <div class="header__logo">
     <button
       type="button"
@@ -16,28 +20,8 @@
     <h2 class="header__logo-title">{{ name }}</h2>
   </div>
 
-  <nav class="header__options">
-    <button
-      *ngFor="let option of options"
-      type="button"
-      [attr.aria-label]="'header ' + option.name"
-      class="header__btn header__option"
-      (click)="option.onClick($event)"
-    >
-      <p class="header__option-text">{{ option.name }}</p>
-      <svg-chevron-down
-        [idRoot]="rootIds[1]"
-        [className]="'header__option-icon'"
-        [classNameWrapper]="'header__option-icon-wrapper'"
-        *ngIf="option.isMenu && !option.open"
-      ></svg-chevron-down>
-      <svg-chevron-up
-        [idRoot]="rootIds[2]"
-        [className]="'header__option-icon'"
-        [classNameWrapper]="'header__option-icon-wrapper'"
-        *ngIf="option.isMenu && option.open"
-      ></svg-chevron-up>
-    </button>
+  <nav [attr.id]="'slot-' + idRoot" class="header__options">
+    <ng-content></ng-content>
   </nav>
 
   <form
@@ -50,7 +34,7 @@
       class="header__btn header__search-btn"
     >
       <svg-search
-        [idRoot]="rootIds[3]"
+        [idRoot]="rootIds[1]"
         [className]="'header__search-btn-icon'"
         [classNameWrapper]="'header__search-btn-icon-wrapper'"
       ></svg-search>
@@ -74,7 +58,7 @@
       (click)="onClickSearch($event)"
     >
       <svg-search
-        [idRoot]="rootIds[4]"
+        [idRoot]="rootIds[2]"
         [className]="'header__action-search-icon'"
         [classNameWrapper]="'header__action-search-icon-wrapper'"
       ></svg-search>
@@ -87,7 +71,7 @@
       (click)="onClickCart($event)"
     >
       <svg-cart-shopping
-        [idRoot]="rootIds[5]"
+        [idRoot]="rootIds[3]"
         [className]="'header__action-cart-icon'"
         [classNameWrapper]="'header__action-cart-icon-wrapper'"
       ></svg-cart-shopping>

@@ -9,20 +9,6 @@ declare module "shared_react/SharedReact" {
   export const unMountComponent: (idRoot: string) => void;
 }
 
-declare module "shared_react/SharedReactEntities" {
-  export type Language = "en";
-
-  export type FooterContentLinks = {
-    title: string;
-    link: string;
-  };
-
-  export type FooterLinks = {
-    title: string;
-    content: FooterContentLinks[];
-  };
-}
-
 declare module "shared_react/SharedReactEnums" {
   export enum Component {
     ItemClothes = "item-clothes",
@@ -34,13 +20,14 @@ declare module "shared_react/SharedReactEnums" {
 declare module "shared_react/SharedReactProps" {
   import React, { SVGProps } from "react";
 
-  import { FooterLinks, Language } from "shared_react/SharedReactEntities";
+  import { Locale } from "shared_core/SharedCoreEntities";
 
   export interface DefaultProps {
     idRoot: string;
     className?: string;
     classNameWrapper?: string;
     children?: React.ReactNode;
+    language?: Locale;
   }
 
   export interface ItemClothesProps extends DefaultProps {
@@ -55,8 +42,6 @@ declare module "shared_react/SharedReactProps" {
   export interface FooterWithSubscribeNewsletterProps extends DefaultProps {
     title: string;
     description: string;
-    links: FooterLinks[];
-    language?: Language;
     instagram?: string;
     facebook?: string;
     twitter?: string;
@@ -66,7 +51,6 @@ declare module "shared_react/SharedReactProps" {
   export interface SubscribeNewsletterProps extends DefaultProps {
     title: string;
     submitLabel: string;
-    language?: Language;
     onSubmit: (inputValue: string) => void;
   }
 }
@@ -82,18 +66,6 @@ declare module "shared_angular/SharedAngular" {
   export const unMountComponent: (idRoot: string) => void;
 }
 
-declare module "shared_angular/SharedAngularEntities" {
-  export type HeaderOption = {
-    id: string;
-    name: string;
-    onClick: (e: MouseEvent) => void;
-    isMenu?: boolean;
-    open?: boolean;
-  };
-
-  export type Language = "en";
-}
-
 declare module "shared_angular/SharedAngularEnums" {
   export enum Component {
     Header = "header",
@@ -102,18 +74,18 @@ declare module "shared_angular/SharedAngularEnums" {
 }
 
 declare module "shared_angular/SharedAngularProps" {
-  import { HeaderOption, Language } from "shared_angular/SharedAngularEntities";
+  import { Locale } from "shared_core/SharedCoreEntities";
 
   interface DefaultProps {
     idRoot: string;
-    language?: Language;
+    language?: Locale;
     className?: string;
     classNameWrapper?: string;
   }
 
   export interface HeaderProps extends DefaultProps {
     name: string;
-    options: HeaderOption[];
+    isFixed?: boolean;
     onClickMenu: (e: MouseEvent) => void;
     onSubmitSearch: (e: Event, searchInputValue: string) => void;
     onClickSearch: (e: MouseEvent) => void;
@@ -138,6 +110,10 @@ declare module "shared_core/SharedCore" {
   ) => void;
   export const unMountComponent: (idRoot: string) => void;
   export const getIdsByLength: (length: number) => string[];
+}
+
+declare module "shared_core/SharedCoreEntities" {
+  export type Locale = "en";
 }
 
 declare module "shared_core/SharedCoreEnums" {
@@ -168,11 +144,14 @@ declare module "shared_core/SharedCoreEnums" {
 declare module "shared_core/SharedCoreProps" {
   import { SVGProps } from "react";
 
+  import { Locale } from "shared_core/SharedCoreEntities";
+
   export interface DefaultProps {
     idRoot: string;
     className?: string;
     classNameWrapper?: string;
     children?: React.ReactNode;
+    language?: Locale;
   }
 
   export interface ButtonBlackProps extends DefaultProps {

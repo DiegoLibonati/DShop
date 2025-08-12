@@ -55,6 +55,7 @@ export const SubscribeNewsletter = ({
           type="submit"
           borderGray={false}
           rounded={true}
+          language={language}
           className="subscribe-newsletter__form-submit"
           classNameWrapper="subscribe-newsletter__form-submit-wrapper"
         >

@@ -30,14 +30,18 @@ export const App = () => {
           className="footer-with-subscribe-newsletter-showcase"
           title="DShop"
           description="We have clothes that suits your style and which you’re proud to wear. From women to men."
-          links={footerLinks}
           instagram={"https://www.instagram.com"}
           facebook={"https://www.facebook.com"}
           twitter={"https://www.x.com"}
           onSubmitSubscribe={(inputValue) => {
             console.log(inputValue);
           }}
-        ></FooterWithSubscribeNewsletter>
+        >
+          <div>Links 1</div>
+          <div>Links 2</div>
+          <div>Links 3</div>
+          <div>Links 4</div>
+        </FooterWithSubscribeNewsletter>
       </div>
 
       <div className="component">

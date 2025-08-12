@@ -1,40 +1,28 @@
-import { HeaderOption } from "shared_angular/SharedAngularEntities";
+import { FooterSectionId } from "@src/entities/entities";
 
-export const HEADER_OPTIONS: HeaderOption[] = [
-  {
-    id: "shop",
-    name: "Shop",
-    onClick: () => {
-      console.log("Test Shop");
-    },
-    isMenu: true,
-    open: false,
+export const FOOTER_LINKS: Record<FooterSectionId, Record<string, string>> = {
+  company: {
+    whoWeAre: "/company/about",
+    ourTeam: "/company/team",
+    careers: "/company/careers",
+    newsroom: "/company/news",
   },
-  {
-    id: "on_sale",
-    name: "On Sale",
-    onClick: () => {
-      console.log("Test On Sale");
-    },
-    isMenu: false,
-    open: false,
+  help: {
+    supportCenter: "/help/support-center",
+    liveChat: "/help/chat",
+    reportProblem: "/help/report",
+    systemStatus: "/help/status",
   },
-  {
-    id: "new_arrivals",
-    name: "New Arrivals",
-    onClick: () => {
-      console.log("Test On New Arrivals");
-    },
-    isMenu: false,
-    open: false,
+  faq: {
+    accountIssues: "/faq/account",
+    billingQuestions: "/faq/billing",
+    technicalSupport: "/faq/tech",
+    shippingInfo: "/faq/shipping",
   },
-  {
-    id: "Brands",
-    name: "Brands",
-    onClick: () => {
-      console.log("Test On Brands");
-    },
-    isMenu: false,
-    open: false,
+  resources: {
+    blog: "/resources/blog",
+    ebooks: "/resources/ebooks",
+    webinars: "/resources/webinars",
+    communityForum: "/resources/forum",
   },
-];
+};

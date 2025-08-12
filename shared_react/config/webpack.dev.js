@@ -24,7 +24,6 @@ module.exports = merge(commonConfig, {
       filename: "remoteEntry.js",
       exposes: {
         "./SharedReact": "./src/bootstrap.tsx",
-        "./SharedReactEntities": "./src/entities/entities.d.ts",
         "./SharedReactEnums": "./src/entities/enum.d.ts",
         "./SharedReactProps": "./src/entities/props.d.ts",
       },

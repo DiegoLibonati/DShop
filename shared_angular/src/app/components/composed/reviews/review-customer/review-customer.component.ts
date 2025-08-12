@@ -17,6 +17,7 @@ export class ReviewCustomerComponent implements OnInit {
   @Input() description: ReviewCustomerProps["description"] = "";
   @Input() maxStars: ReviewCustomerProps["maxStars"] = 5;
   @Input() valueStars: ReviewCustomerProps["valueStars"] = 0;
+  @Input() language: ReviewCustomerProps["language"] = "en";
   @Input() className: ReviewCustomerProps["className"] = "";
 
   private componentName: string = "app-review-customer";
@@ -33,6 +34,7 @@ export class ReviewCustomerComponent implements OnInit {
       - description: ${this.description}
       - maxStars: ${this.maxStars}
       - valueStars: ${this.valueStars}
+      - language: ${this.language}
       - className: ${this.className}`);
   }
 

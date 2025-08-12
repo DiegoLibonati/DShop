@@ -27,7 +27,6 @@ module.exports = merge(commonConfig, {
         "./SharedAngular": "./src/bootstrap.ts",
         "./SharedAngularEnums": "./src/app/entities/enum.ts",
         "./SharedAngularProps": "./src/app/entities/props.ts",
-        "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       remotes: {
         shared_core: "shared_core@http://localhost:8084/remoteEntry.js",

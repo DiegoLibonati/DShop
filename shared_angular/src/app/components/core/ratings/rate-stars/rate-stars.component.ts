@@ -27,6 +27,7 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
   @Input() value: RateStarsProps["value"] = 0;
   @Input() inColor: RateStarsProps["inColor"] = "#FFC633";
   @Input() outColor: RateStarsProps["outColor"] = "#FFFFFF";
+  @Input() language: RateStarsProps["language"] = "en";
   @Input() className: RateStarsProps["className"] = "";
   @Input() classNameStar: RateStarsProps["classNameStar"] = "";
   @Input() classNameWrapper: RateStarsProps["classNameWrapper"] = "";
@@ -40,6 +41,7 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
       value: this.value,
       inColor: this.inColor,
       outColor: this.outColor,
+      language: this.language,
       className: this.className,
       classNameStar: this.classNameStar,
     });
@@ -57,6 +59,7 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
       - value: ${this.value}
       - inColor: ${this.inColor}
       - outColor: ${this.outColor}
+      - language: ${this.language}
       - className: ${this.className}
       - classNameStar: ${this.classNameStar}
       - classNameWrapper: ${this.classNameWrapper}

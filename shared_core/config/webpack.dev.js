@@ -25,6 +25,7 @@ module.exports = merge(commonConfig, {
       exposes: {
         "./SharedCore": "./src/bootstrap.tsx",
         "./SharedCoreEnums": "./src/entities/enum.d.ts",
+        "./SharedCoreEntities": "./src/entities/entities.d.ts",
         "./SharedCoreProps": "./src/entities/props.d.ts",
         "./SharedCoreStyles": "./src/index.css",
       },

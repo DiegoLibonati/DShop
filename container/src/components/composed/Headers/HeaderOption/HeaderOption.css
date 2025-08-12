@@ -1,0 +1,21 @@
+@media screen and (width >= 1024px) {
+  .header-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.453rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .header-option__text {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .header-option__icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}

@@ -13,6 +13,7 @@ export const AnchorCircular = ({
   className,
   classNameWrapper,
   children,
+  language,
 }: AnchorCircularProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -23,6 +24,7 @@ export const AnchorCircular = ({
       href: href,
       borderGray: borderGray,
       target: target,
+      language: language,
       className: className,
       children: children,
     });

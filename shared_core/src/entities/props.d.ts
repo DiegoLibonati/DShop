@@ -1,9 +1,12 @@
 import { SVGProps } from "react";
 
+import { Locale } from "@src/entities/entities";
+
 export interface DefaultProps {
   idRoot?: string;
   className?: string;
   children?: React.ReactNode;
+  language?: Locale;
 }
 
 export interface ButtonBlackProps extends DefaultProps {

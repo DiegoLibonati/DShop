@@ -14,6 +14,10 @@ declare module "shared_core/SharedCore" {
   export const getIdsByLength: (length: number) => string[];
 }
 
+declare module "shared_core/SharedCoreEntities" {
+  export type Locale = "en";
+}
+
 declare module "shared_core/SharedCoreEnums" {
   export enum Component {
     AppTest = "app-test",
@@ -42,11 +46,14 @@ declare module "shared_core/SharedCoreEnums" {
 declare module "shared_core/SharedCoreProps" {
   import React, { SVGProps } from "react";
 
+  import { Locale } from "shared_core/SharedCoreEntities";
+
   export interface DefaultProps {
     idRoot: string;
     className?: string;
     classNameWrapper?: string;
     children?: React.ReactNode;
+    language?: Locale;
   }
 
   export interface ButtonBlackProps extends DefaultProps {

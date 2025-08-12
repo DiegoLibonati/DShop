@@ -1,14 +1,15 @@
-import { HeaderOption, Language } from "@src/app/entities/entities";
+import { Locale } from "shared_core/SharedCoreEntities";
 
 interface DefaultProps {
   idRoot?: string;
-  language?: Language;
+  language?: Locale;
   className?: string;
+  children?: string;
 }
 
 export interface HeaderProps extends DefaultProps {
   name: string;
-  options: HeaderOption[];
+  isFixed?: boolean;
   onClickMenu: (e: MouseEvent) => void;
   onSubmitSearch: (e: Event, searchInputValue: string) => void;
   onClickSearch: (e: MouseEvent) => void;

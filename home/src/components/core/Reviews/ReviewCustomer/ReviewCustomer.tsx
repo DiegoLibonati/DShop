@@ -10,6 +10,7 @@ export const ReviewCustomer = ({
   maxStars,
   name,
   valueStars,
+  language,
   className,
   classNameWrapper,
 }: ReviewCustomerProps) => {
@@ -22,6 +23,7 @@ export const ReviewCustomer = ({
       description: description,
       valueStars: valueStars,
       maxStars: maxStars,
+      language: language,
       className: className,
     });
   };

@@ -9,6 +9,7 @@ export const ImageWithBackgroundColor = ({
   src,
   alt,
   bgColor,
+  language,
   className,
   classNameWrapper,
 }: ImageWithBackgroundColorProps) => {
@@ -20,6 +21,7 @@ export const ImageWithBackgroundColor = ({
       src: src,
       alt: alt,
       bgColor: bgColor,
+      language: language,
       className: className,
     });
   };

@@ -20,7 +20,6 @@ module.exports = merge(common, {
         "./SharedAngular": "./src/bootstrap.ts",
         "./SharedAngularEnums": "./src/app/entities/enum.ts",
         "./SharedAngularProps": "./src/app/entities/props.ts",
-        "./SharedAngularEntities": "./src/app/entities/entities.ts",
       },
       remotes: {
         shared_core: `shared_core@/shared_core/latest/remoteEntry.js`,

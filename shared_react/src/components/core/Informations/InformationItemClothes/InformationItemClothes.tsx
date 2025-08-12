@@ -10,6 +10,7 @@ export const InformationItemClothes = ({
   name,
   price,
   rate,
+  language,
   className,
   classNameWrapper,
 }: InformationItemClothesProps) => {
@@ -22,6 +23,7 @@ export const InformationItemClothes = ({
       name: name,
       price: price,
       rate: rate,
+      language: language,
       className: className,
     });
   };

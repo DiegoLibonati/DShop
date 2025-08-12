@@ -13,6 +13,7 @@ export const InformationItemClothes = ({
   rate,
   price,
   discount,
+  language,
   className,
 }: InformationItemClothesProps) => {
   const maxStars = 5;
@@ -33,6 +34,7 @@ export const InformationItemClothes = ({
           value={rate}
           outColor={"#FFFFFF"}
           inColor="#FFC633"
+          language={language}
           className="information-item-clothes__rating-stars"
           classNameStar="information-item-clothes__rating-star"
         ></RateStars>

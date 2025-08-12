@@ -15,6 +15,7 @@ export const ItemClothes = ({
   discount,
   price,
   rate,
+  language,
   onClick,
 }: ItemClothesProps) => {
   const rootIds = useRef<string[]>(getIdsByLength(2));
@@ -30,6 +31,7 @@ export const ItemClothes = ({
         src={src}
         alt={name}
         bgColor="#f0eeed"
+        language={language}
       ></ImageWithBackgroundColor>
 
       <InformationItemClothes
@@ -39,6 +41,7 @@ export const ItemClothes = ({
         name={name}
         price={price}
         rate={rate}
+        language={language}
       ></InformationItemClothes>
     </div>
   );

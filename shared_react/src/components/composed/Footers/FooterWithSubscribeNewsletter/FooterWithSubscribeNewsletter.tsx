@@ -21,10 +21,10 @@ export const FooterWithSubscribeNewsletter = ({
   description,
   language = "en",
   className,
-  links,
   facebook,
   instagram,
   twitter,
+  children,
   onSubmitSubscribe,
 }: FooterWithSubscribeNewsletterProps) => {
   const rootIds = useRef<string[]>(getIdsByLength(6));
@@ -57,6 +57,7 @@ export const FooterWithSubscribeNewsletter = ({
                   ariaLabel="social media instagram"
                   href={instagram}
                   target="_blank"
+                  language={language}
                   className="footer-with-subscribe-newsletter__content-social"
                   classNameWrapper="footer-with-subscribe-newsletter__content-social-wrapper"
                 >
@@ -77,6 +78,7 @@ export const FooterWithSubscribeNewsletter = ({
                   ariaLabel="social media facebook"
                   href={facebook}
                   target="_blank"
+                  language={language}
                   className="footer-with-subscribe-newsletter__content-social"
                   classNameWrapper="footer-with-subscribe-newsletter__content-social-wrapper"
                 >
@@ -97,6 +99,7 @@ export const FooterWithSubscribeNewsletter = ({
                   ariaLabel="social media twitter"
                   href={twitter}
                   target="_blank"
+                  language={language}
                   className="footer-with-subscribe-newsletter__content-social"
                   classNameWrapper="footer-with-subscribe-newsletter__content-social-wrapper"
                 >
@@ -114,31 +117,7 @@ export const FooterWithSubscribeNewsletter = ({
         </div>
 
         <div className="footer-with-subscribe-newsletter__content-links">
-          {links.map((l) => {
-            return (
-              <div
-                key={`footer-link-${l.title}`}
-                className="footer-with-subscribe-newsletter__content-link"
-              >
-                <h2 className="footer-with-subscribe-newsletter__content-link-title">
-                  {l.title}
-                </h2>
-
-                {l.content.map((c) => {
-                  return (
-                    <a
-                      key={`footer-link-content-anchor-${c.title}`}
-                      href=""
-                      aria-label={`link-${c.title}`}
-                      className="footer-with-subscribe-newsletter__content-anchor"
-                    >
-                      {c.title}
-                    </a>
-                  );
-                })}
-              </div>
-            );
-          })}
+          {children}
         </div>
       </div>
 

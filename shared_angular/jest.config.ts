@@ -14,6 +14,7 @@ export default {
     "^@src/(.*)$": "<rootDir>/src/$1",
 
     "^shared_core/SharedCore$": "<rootDir>/tests/mocks/SharedCore.js",
+    "^shared_core/SharedCoreEntities$": "<rootDir>/tests/mocks/SharedCoreEntities.js",
     "^shared_core/SharedCoreEnums$": "<rootDir>/tests/mocks/SharedCoreEnums.js",
     "^shared_core/SharedCoreProps$": "<rootDir>/tests/mocks/SharedCoreProps.js",
   },

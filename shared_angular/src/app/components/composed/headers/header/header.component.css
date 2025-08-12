@@ -1,11 +1,18 @@
 .header {
   position: relative;
+  z-index: 999;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: auto;
   padding: 1rem 1.25rem 1rem 1.25rem;
   background-color: var(--white);
+}
+
+.header--fixed {
+  position: fixed;
 }
 
 .header:after {
@@ -48,7 +55,6 @@
 }
 
 ::ng-deep .header__action-cart-icon-wrapper,
-::ng-deep .header__option-icon-wrapper,
 ::ng-deep .header__logo-open-icon-wrapper,
 ::ng-deep .header__search-btn-icon-wrapper,
 ::ng-deep .header__action-search-icon-wrapper {
@@ -90,23 +96,6 @@
 
   .header__options {
     gap: 1.5rem;
-  }
-
-  .header__option {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.453rem;
-  }
-
-  .header__option-text {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  ::ng-deep .header__option-icon {
-    width: 0.75rem;
-    height: 0.75rem;
   }
 
   .header__search {

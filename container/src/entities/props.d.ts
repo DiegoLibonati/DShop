@@ -1,0 +1,28 @@
+import React from "react";
+
+import { FooterContent } from "@src/entities/entities";
+
+import { Locale } from "shared_core/SharedCoreEntities";
+
+interface DefaultProps {
+  children?: React.ReactNode;
+  language?: Locale;
+  className?: string;
+  classNameWrapper?: string;
+}
+
+export interface AppHomeProps extends DefaultProps {}
+
+export interface LayoutPageProps extends DefaultProps {}
+
+export interface HeaderOptionProps extends DefaultProps {
+  name: string;
+  open: boolean;
+  isMenu: boolean;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface FooterSectionProps extends DefaultProps {
+  title: string;
+  content: FooterContent[];
+}

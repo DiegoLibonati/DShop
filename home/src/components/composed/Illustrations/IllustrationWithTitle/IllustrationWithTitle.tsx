@@ -10,8 +10,8 @@ import Party from "@src/assets/Party.png";
 import "@src/components/composed/Illustrations/IllustrationWithTitle/IllustrationWithTitle.css";
 
 export const IllustrationWithTitle = ({
-  className,
   type,
+  className,
   onClick,
 }: IllustrationWithTitleProps) => {
   return (

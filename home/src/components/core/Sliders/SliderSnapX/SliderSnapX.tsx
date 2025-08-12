@@ -6,6 +6,7 @@ import { SliderSnapXProps } from "shared_core/SharedCoreProps";
 
 export const SliderSnapX = ({
   idRoot,
+  language,
   children,
   className,
   classNameWrapper,
@@ -16,6 +17,7 @@ export const SliderSnapX = ({
     mountComponent(ref.current!, Component.SliderSnapX, {
       idRoot: idRoot,
       children: children,
+      language: language,
       className: className,
     });
   };
@@ -24,6 +26,7 @@ export const SliderSnapX = ({
     mountComponent(ref.current!, Component.SliderSnapX, {
       idRoot: idRoot,
       children: children,
+      language: language,
       className: className,
     });
   };

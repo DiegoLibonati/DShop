@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from "react";
 
+import { AppHomeProps } from "@src/entities/props";
+
 import { mount, unMount } from "home/HomeApp";
 
-const AppHome = () => {
+const AppHome = ({ classNameWrapper }: AppHomeProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
@@ -21,7 +23,7 @@ const AppHome = () => {
     };
   }, []);
 
-  return <div ref={ref}></div>;
+  return <div ref={ref} className={classNameWrapper}></div>;
 };
 
 export default AppHome;

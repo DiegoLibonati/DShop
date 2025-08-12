@@ -12,6 +12,7 @@ import { getIdsByLength } from "shared_core/SharedCore";
 import "@src/components/composed/Carrousels/CarrouselWithTitleAndArrows/CarrouselWithTitleAndArrows.css";
 
 export const CarrouselWithTitleAndArrows = ({
+ language,
   children,
 }: CarrouselWithTitleAndArrowsProps) => {
   const refContent = useRef<HTMLDivElement | null>(null);
