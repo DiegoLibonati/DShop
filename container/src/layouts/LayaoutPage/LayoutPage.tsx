@@ -31,8 +31,15 @@ import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/layouts/LayaoutPage/LayoutPage.css";
 
+const NotificationBarLazy = lazy(
+  () =>
+    import("@src/components/core/Notifications/NotificationBar/NotificationBar")
+);
 const HeaderLazy = lazy(
   () => import("@src/components/core/Headers/Header/Header")
+);
+const MenuHeaderLazy = lazy(
+  () => import("@src/components/composed/Menus/MenuHeader/MenuHeader")
 );
 const FooterWithSubscribeNewsletterLazy = lazy(
   () =>
@@ -48,24 +55,30 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
   const [footerLinks, setFooterLinks] = useState<FooterSectionT[]>(() =>
     getFooterLinks("en")
   );
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false)
+  const [notificationClosed, setNotificationClosed] = useState<boolean>(false);
 
-  const idsLayouts = useRef<string[]>(getIdsByLength(2));
+  const idsLayouts = useRef<string[]>(getIdsByLength(3));
+
+  const handleClickMenuClose = () => {
+    setIsMenuOpen(false);
+  };
 
   const handleClickCart = (e: MouseEvent) => {
     console.log("Click Cart ", e);
   };
 
   const handleClickMenu = (e: MouseEvent) => {
-    console.log("Click Menu ", e);
+    setIsMenuOpen(true);
   };
 
   const handleClickSearch = (e: MouseEvent) => {
-    console.log("Click Search ", e);
+    setIsMenuOpen(true);
   };
 
-  const handleSubmitSearch = (e: Event, value: string) => {
-    e.preventDefault();
-    console.log("SubmitSearch ", e, value);
+  const handleSubmitSearch = (value: string) => {
+    console.log(value);
   };
 
   const handleSubmitSubscribeNewsletter = (value: string) => {
@@ -76,6 +89,10 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
     console.log("Click header option");
   };
 
+  const handleClickCloseNotification = () => {
+    setNotificationClosed(true);
+  };
+
   const onLanguageChange = () => {
     const lng = "en";
 
@@ -83,13 +100,37 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
     setFooterLinks(getFooterLinks(lng));
   };
 
+  const onWindowScroll = () => {
+    const scrollY = window.scrollY;
+
+    if (!scrollY) return setScrolled(false);
+    return setScrolled(true);
+  };
+
   useEffect(onLanguageChange, []);
+  useEffect(() => {
+    window.addEventListener("scroll", onWindowScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onWindowScroll);
+    };
+  }, []);
 
   return (
     <Fragment>
+      <Suspense fallback={<div>Cargando Notification Bar</div>}>
+        <NotificationBarLazy
+          idRoot={idsLayouts.current[0]}
+          onClose={handleClickCloseNotification}
+          className={`${(scrolled || notificationClosed) && "notification-bar--hidden"}`}
+        >
+          {lang["en"].notifications.bar}
+        </NotificationBarLazy>
+      </Suspense>
+
       <Suspense fallback={<div>Cargando Header</div>}>
         <HeaderLazy
-          idRoot={idsLayouts.current[0]}
+          idRoot={idsLayouts.current[1]}
           name={TITLE_APP}
           isFixed={true}
           onClickCart={handleClickCart}
@@ -111,11 +152,34 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
         </HeaderLazy>
       </Suspense>
 
+      <Suspense fallback={<div>Cargando menu header</div>}>
+        <MenuHeaderLazy
+          isMenuOpen={isMenuOpen}
+          language="en"
+          handleClickMenuClose={handleClickMenuClose}
+        >
+          <div className="menu-header__options">
+            {headerOptions.map((ho) => {
+              return (
+                <HeaderOption
+                  key={`menu-header-option-${ho.id}`}
+                  name={ho.name}
+                  isMenu={ho.isMenu!}
+                  open={ho.open!}
+                  onClick={handleClickHeaderOption}
+                  className="menu-header__option"
+                ></HeaderOption>
+              );
+            })}
+          </div>
+        </MenuHeaderLazy>
+      </Suspense>
+
       {children}
 
       <Suspense fallback={<div>Cargando Footer</div>}>
         <FooterWithSubscribeNewsletterLazy
-          idRoot={idsLayouts.current[1]}
+          idRoot={idsLayouts.current[2]}
           title={TITLE_APP}
           description={lang["en"].footer.description}
           instagram={INSTAGRAM_LINK}

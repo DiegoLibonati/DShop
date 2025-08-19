@@ -70,6 +70,7 @@ declare module "shared_angular/SharedAngularEnums" {
   export enum Component {
     Header = "header",
     ReviewCustomer = "review-customer",
+    NotificationBar = "notification-bar",
   }
 }
 
@@ -87,7 +88,7 @@ declare module "shared_angular/SharedAngularProps" {
     name: string;
     isFixed?: boolean;
     onClickMenu: (e: MouseEvent) => void;
-    onSubmitSearch: (e: Event, searchInputValue: string) => void;
+    onSubmitSearch: (inputValue: string) => void;
     onClickSearch: (e: MouseEvent) => void;
     onClickCart: (e: MouseEvent) => void;
   }
@@ -97,6 +98,11 @@ declare module "shared_angular/SharedAngularProps" {
     description: string;
     maxStars: number;
     valueStars: number;
+  }
+
+  export interface NotificationBarProps extends DefaultProps {
+    text: string;
+    onClose: () => void;
   }
 }
 
@@ -131,6 +137,7 @@ declare module "shared_core/SharedCoreEnums" {
     SvgTwitter = "svg-twitter",
     SvgFacebook = "svg-facebook",
     SvgInstagram = "svg-instagram",
+    SvgClose = "svg-close",
     ButtonBlack = "button-black",
     ButtonWhite = "button-white",
     ImageWithBackgroundColor = "image-with-background-color",
@@ -138,6 +145,8 @@ declare module "shared_core/SharedCoreEnums" {
     RateStars = "rate-stars",
     SliderSnapX = "slider-snap-x",
     AnchorCircular = "anchor-circular",
+    MenuScreenWhite = "menu-screen-white",
+    FormSearch = "form-search",
   }
 }
 
@@ -198,6 +207,13 @@ declare module "shared_core/SharedCoreProps" {
     borderGray?: boolean;
   }
 
+  export interface MenuScreenWhiteProps extends DefaultProps {}
+
+  export interface FormSearchProps extends DefaultProps {
+    placeholder?: string;
+    onSubmit: (inputValue: string) => void;
+  }
+
   export interface SvgStarToFillProps
     extends SVGProps<SVGSVGElement>,
       DefaultProps {
@@ -247,6 +263,10 @@ declare module "shared_core/SharedCoreProps" {
       DefaultProps {}
 
   export interface SvgInstagramProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgCloseProps
     extends SVGProps<SVGSVGElement>,
       DefaultProps {}
 }

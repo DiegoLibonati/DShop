@@ -12,6 +12,7 @@ import { SvgArrowRight } from "@src/components/Svgs/SvgArrowRight/SvgArrowRight"
 import { SvgTwitter } from "@src/components/Svgs/SvgTwitter/SvgTwitter";
 import { SvgFacebook } from "@src/components/Svgs/SvgFacebook/SvgFacebook";
 import { SvgInstagram } from "@src/components/Svgs/SvgInstagram/SvgInstagram";
+import { SvgClose } from "@src/components/Svgs/SvgClose/SvgClose";
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 import { ButtonWhite } from "@src/components/Buttons/ButtonWhite/ButtonWhite";
 import { ImageWithBackgroundColor } from "@src/components/Images/ImageWithBackgroundColor/ImageWithBackgroundColor";
@@ -19,6 +20,8 @@ import { InformationItemClothes } from "@src/components/Informations/Information
 import { RateStars } from "@src/components/Ratings/RateStars/RateStars";
 import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
 import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCircular";
+import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
+import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 
 import "@src/App.css";
 
@@ -114,6 +117,23 @@ export const App = () => {
       </div>
 
       <div className="component">
+        <h2 className="component__title">MenuScreenWhite</h2>
+        <MenuScreenWhite className="menu-screen-white--no-fixed">
+          Hola
+        </MenuScreenWhite>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">FormSearch</h2>
+        <FormSearch
+          onSubmit={(inputValue) => {
+            console.log(inputValue);
+          }}
+          placeholder="Search for products..."
+        ></FormSearch>
+      </div>
+
+      <div className="component">
         <h2 className="component__title">SvgStarToFill</h2>
         <SvgStarToFill
           fill={75}
@@ -175,6 +195,11 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">SvgInstagram</h2>
         <SvgInstagram fill="black"></SvgInstagram>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">SvgClose</h2>
+        <SvgClose fill="black"></SvgClose>
       </div>
 
       {/* Podés agregar más componentes aquí */}

@@ -24,31 +24,12 @@
     <ng-content></ng-content>
   </nav>
 
-  <form
-    class="header__search"
-    (submit)="onSubmitSearch($event, searchInputValue)"
-  >
-    <button
-      type="submit"
-      aria-label="search button"
-      class="header__btn header__search-btn"
-    >
-      <svg-search
-        [idRoot]="rootIds[1]"
-        [className]="'header__search-btn-icon'"
-        [classNameWrapper]="'header__search-btn-icon-wrapper'"
-      ></svg-search>
-    </button>
-    <input
-      id="search-input"
-      type="text"
-      name="search-input"
-      [value]="searchInputValue"
-      class="header__search-input"
-      [placeholder]="texts.inputPlaceholder"
-      (input)="onSearchInputChange($event)"
-    />
-  </form>
+  <app-form-search
+    [idRoot]="rootIds[1]"
+    [placeholder]="texts.inputPlaceholder"
+    [formSubmit]="onSubmitSearch"
+    [className]="'header__search'"
+  ></app-form-search>
 
   <div class="header__actions">
     <button

@@ -13,6 +13,7 @@ export const HeaderOption = ({
   name,
   open,
   isMenu,
+  className,
   onClick,
 }: HeaderOptionProps) => {
   const idsLayouts = useRef<string[]>(getIdsByLength(2));
@@ -21,7 +22,7 @@ export const HeaderOption = ({
     <button
       type="button"
       aria-label={`header ${name}`}
-      className="header-option"
+      className={`header-option ${className}`}
       onClick={onClick}
     >
       <p className="header-option__text">{name}</p>

@@ -12,11 +12,14 @@ export enum Component {
   SvgTwitter = "svg-twitter",
   SvgFacebook = "svg-facebook",
   SvgInstagram = "svg-instagram",
+  SvgClose = "svg-close",
   ButtonBlack = "button-black",
   ButtonWhite = "button-white",
   ImageWithBackgroundColor = "image-with-background-color",
   InformationItemClothes = "information-item-clothes",
   RateStars = "rate-stars",
   SliderSnapX = "slider-snap-x",
-  AnchorCircular = "anchor-circular"
+  AnchorCircular = "anchor-circular",
+  MenuScreenWhite = "menu-screen-white",
+  FormSearch = "form-search"
 }

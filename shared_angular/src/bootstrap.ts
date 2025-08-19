@@ -18,6 +18,7 @@ import { AppModule } from "@src/app/app.module";
 import { HeaderComponent } from "@src/app/components/composed/headers/header/header.component";
 import { AppTestComponent } from "@src/app/components/composed/app-test/app-test.component";
 import { ReviewCustomerComponent } from "@src/app/components/composed/reviews/review-customer/review-customer.component";
+import { NotificationBarComponent } from "@src/app/components/composed/notifications/notification-bar/notification-bar.component";
 
 import { IS_DEV } from "@src/app/constants/envs.constants";
 
@@ -32,6 +33,7 @@ const getComponentById = (idComponent: Component): Type<unknown> => {
     [Component.Header]: HeaderComponent,
     [Component.AppTest]: AppTestComponent,
     [Component.ReviewCustomer]: ReviewCustomerComponent,
+    [Component.NotificationBar]: NotificationBarComponent,
   }[idComponent];
 };
 

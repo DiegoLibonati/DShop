@@ -11,7 +11,7 @@ export interface HeaderProps extends DefaultProps {
   name: string;
   isFixed?: boolean;
   onClickMenu: (e: MouseEvent) => void;
-  onSubmitSearch: (e: Event, searchInputValue: string) => void;
+  onSubmitSearch: (inputValue: string) => void;
   onClickSearch: (e: MouseEvent) => void;
   onClickCart: (e: MouseEvent) => void;
 }
@@ -21,4 +21,9 @@ export interface ReviewCustomerProps extends DefaultProps {
   description: string;
   maxStars: number;
   valueStars: number;
+}
+
+export interface NotificationBarProps extends DefaultProps {
+  text: string;
+  onClose: () => void;
 }

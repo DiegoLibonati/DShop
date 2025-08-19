@@ -25,4 +25,13 @@
       [className]="reviewCustomerProps.className"
     ></app-review-customer>
   </div>
+
+  <div class="component">
+    <h2 class="component__title">Notification-Bar</h2>
+    <app-notification-bar
+      [text]="notificationBarProps.text"
+      [className]="notificationBarProps.className"
+      [onClose]="notificationBarProps.onClose"
+    ></app-notification-bar>
+  </div>
 </div>

@@ -1,0 +1,31 @@
+.notification-bar--hidden {
+  display: none !important;
+}
+
+.menu-header__options {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.menu-header__option {
+  height: auto;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.menu-header__option .header-option__text {
+  text-align: start;
+  white-space: nowrap;
+}
+
+@media screen and (width >= 1280px) {
+  .header__search {
+    width: 36.063rem !important;
+  }
+}

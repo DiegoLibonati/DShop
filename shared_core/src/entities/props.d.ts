@@ -53,6 +53,13 @@ export interface AnchorCircularProps extends DefaultProps {
   borderGray?: boolean;
 }
 
+export interface MenuScreenWhiteProps extends DefaultProps {}
+
+export interface FormSearchProps extends DefaultProps {
+  placeholder?: string;
+  onSubmit: (inputValue: string) => void;
+}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {
@@ -102,3 +109,5 @@ export interface SvgFacebookProps
 export interface SvgInstagramProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {}
+
+export interface SvgCloseProps extends SVGProps<SVGSVGElement>, DefaultProps {}

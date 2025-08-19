@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
 
   private componentName: string = "header";
 
-  public searchInputValue: string = "";
   public texts: LangHeader = lang[this.language!].header;
 
   public rootIds = getIdsByLength(4);
@@ -53,11 +52,6 @@ export class HeaderComponent implements OnInit {
       - className: ${this.className}`);
   }
 
-  onSearchInputChange(e: InputEvent) {
-    const target = e.target as HTMLInputElement;
-    this.searchInputValue = target.value;
-  }
-
   // Defaults Fns
 
   onDefaultClickMenu(e: MouseEvent): void {
@@ -68,15 +62,12 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  onDefaultSubmitSearch(e: Event, searchInputValue: string): void {
-    e.preventDefault();
-
+  onDefaultSubmitSearch(inputValue: string): void {
     console.log(
       "Executed in shared_angular - SubmitSearch: ",
       this.componentName,
-      e
+      inputValue
     );
-    console.log("Value: ", searchInputValue);
   }
 
   onDefaultClickSearch(e: MouseEvent): void {

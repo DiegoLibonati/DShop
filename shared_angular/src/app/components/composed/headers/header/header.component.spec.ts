@@ -4,6 +4,7 @@ import user from "@testing-library/user-event";
 import { HeaderProps } from "@src/app/entities/props";
 
 import { HeaderComponent } from "@src/app/components/composed/headers/header/header.component";
+import { FormSearchComponent } from "@src/app/components/core/forms/form-search/form-search.component";
 import { SvgSearchComponent } from "@src/app/components/core/svgs/svg-search/svg-search.component";
 import { SvgHamburgerMenuComponent } from "@src/app/components/core/svgs/svg-hamburger-menu/svg-hamburger-menu.component";
 import { SvgChevronDownComponent } from "@src/app/components/core/svgs/svg-chevron-down/svg-chevron-down.component";
@@ -42,6 +43,7 @@ const renderComponent = async (isFixed: boolean): Promise<RenderComponent> => {
       SvgChevronDownComponent,
       SvgChevronUpComponent,
       SvgCartShoppingComponent,
+      FormSearchComponent,
     ],
     componentProperties: props,
   });
@@ -123,47 +125,10 @@ describe("header.component.ts", () => {
       const { container } = await renderComponent(isFixed);
 
       const headerForm = container.querySelector(
-        ".header__search"
-      ) as HTMLFormElement;
-      const btnSubmit = screen.getByLabelText(
-        /search button/i
-      ) as HTMLButtonElement;
-      const input = screen.getByPlaceholderText("Search for products...");
+        "app-form-search"
+      ) as HTMLElement;
 
       expect(headerForm).toBeInTheDocument();
-      expect(btnSubmit).toBeInTheDocument();
-      expect(input).toBeInTheDocument();
-    });
-
-    test("The onSubmitSearch function must be executed when the search button is clicked.", async () => {
-      const text = "hola";
-
-      const { container, props } = await renderComponent(isFixed);
-
-      const headerForm = container.querySelector(
-        ".header__search"
-      ) as HTMLFormElement;
-      const btnSubmit = screen.getByLabelText(
-        /search button/i
-      ) as HTMLButtonElement;
-      const input = screen.getByPlaceholderText("Search for products...");
-
-      expect(headerForm).toBeInTheDocument();
-      expect(btnSubmit).toBeInTheDocument();
-      expect(input).toBeInTheDocument();
-
-      await user.click(input);
-      await user.keyboard(text);
-
-      headerForm.dispatchEvent(
-        new SubmitEvent("submit", { bubbles: true, cancelable: true })
-      );
-
-      expect(props.onSubmitSearch).toHaveBeenCalledTimes(1);
-      expect(props.onSubmitSearch).toHaveBeenCalledWith(
-        expect.any(SubmitEvent),
-        text
-      );
     });
   });
 

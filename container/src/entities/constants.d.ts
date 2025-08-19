@@ -4,6 +4,7 @@ export type LangC = {
   en: {
     header: LangHeader;
     footer: LangFooter;
+    notifications: LangNotifications;
   };
 };
 
@@ -14,6 +15,7 @@ export type LangHeader = {
     newArrivals: string;
     brands: string;
   };
+  placeholder: string;
 };
 
 export type LangFooter = {
@@ -23,4 +25,8 @@ export type LangFooter = {
 export type LangFooterSection = {
   title: string;
   items: Record<string, string>;
+};
+
+export type LangNotifications = {
+  bar: string;
 };

@@ -9,6 +9,7 @@ export const lang: LangC = {
         newArrivals: "New Arrivals",
         brands: "Brands",
       },
+      placeholder: "Search for products...",
     },
     footer: {
       description:
@@ -51,6 +52,9 @@ export const lang: LangC = {
           },
         },
       },
+    },
+    notifications: {
+      bar: "Educational project for practicing MicroFrontends (MFEs).",
     },
   },
 };

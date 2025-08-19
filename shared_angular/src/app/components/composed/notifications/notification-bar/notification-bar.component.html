@@ -1,0 +1,16 @@
+<div class="notification-bar" [ngClass]="className">
+  <p class="notification-bar__text">{{ text }}</p>
+
+  <button
+    type="button"
+    class="notification-bar__btn-close"
+    (click)="onClose()"
+    aria-label="close notification bar"
+  >
+    <svg-close
+      [idRoot]="rootIds[0]"
+      [className]="'notification-bar__btn-close-icon'"
+      [classNameWrapper]="'notification-bar__btn-close-icon-wrapper'"
+    ></svg-close>
+  </button>
+</div>

@@ -26,3 +26,8 @@ export interface FooterSectionProps extends DefaultProps {
   title: string;
   content: FooterContent[];
 }
+
+export interface MenuHeaderProps extends DefaultProps {
+  isMenuOpen: boolean;
+  handleClickMenuClose: () => void;
+}

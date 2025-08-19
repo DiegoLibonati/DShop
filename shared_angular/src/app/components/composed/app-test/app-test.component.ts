@@ -1,6 +1,10 @@
 import { Component } from "@angular/core";
 
-import { HeaderProps, ReviewCustomerProps } from "@src/app/entities/props";
+import {
+  HeaderProps,
+  NotificationBarProps,
+  ReviewCustomerProps,
+} from "@src/app/entities/props";
 
 import template from "@src/app/components/composed/app-test/app-test.component.html";
 import styles from "@src/app/components/composed/app-test/app-test.component.css";
@@ -31,6 +35,12 @@ export class AppTestComponent {
     className: "review-customer-test",
   };
 
+  public notificationBarProps: NotificationBarProps = {
+    text: "pepe",
+    className: "notification-bar-test",
+    onClose: this.onNotificationBarDefaultClose.bind(this),
+  };
+
   // HEADER COMPONENT
 
   onHeaderDefaultClickMenu(e: MouseEvent): void {
@@ -41,15 +51,12 @@ export class AppTestComponent {
     );
   }
 
-  onHeaderDefaultSubmitSearch(e: Event, inputValue: string): void {
-    e.preventDefault();
-
+  onHeaderDefaultSubmitSearch(inputValue: string): void {
     console.log(
       "Executed in shared_angular - SubmitSearch: ",
       this.componentName,
-      e
+      inputValue
     );
-    console.log("Value: ", inputValue);
   }
 
   onHeaderDefaultClickSearch(e: MouseEvent): void {
@@ -66,5 +73,11 @@ export class AppTestComponent {
       this.componentName,
       e
     );
+  }
+
+  // NOTIFICATION BAR COMPONENT
+
+  onNotificationBarDefaultClose(): void {
+    console.log("Executed in shared_angular - onNotificationBarDefaultClose: ", this.componentName);
   }
 }

@@ -19,3 +19,7 @@
   font-size: 1.5rem;
   text-decoration: underline;
 }
+
+.menu-screen-white--no-fixed {
+  position: relative;
+}

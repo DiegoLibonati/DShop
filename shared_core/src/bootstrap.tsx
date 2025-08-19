@@ -5,8 +5,10 @@ import {
   AnchorCircularProps,
   ButtonBlackProps,
   ButtonWhiteProps,
+  FormSearchProps,
   ImageWithBackgroundColorProps,
   InformationItemClothesProps,
+  MenuScreenWhiteProps,
   RateStarsProps,
   SliderSnapXProps,
   SvgArrowLeftProps,
@@ -14,6 +16,7 @@ import {
   SvgCartShoppingProps,
   SvgChevronDownProps,
   SvgChevronUpProps,
+  SvgCloseProps,
   SvgFacebookProps,
   SvgHamburgerMenuProps,
   SvgInstagramProps,
@@ -37,6 +40,7 @@ import { SvgArrowRight } from "@src/components/Svgs/SvgArrowRight/SvgArrowRight"
 import { SvgTwitter } from "@src/components/Svgs/SvgTwitter/SvgTwitter";
 import { SvgFacebook } from "@src/components/Svgs/SvgFacebook/SvgFacebook";
 import { SvgInstagram } from "@src/components/Svgs/SvgInstagram/SvgInstagram";
+import { SvgClose } from "./components/Svgs/SvgClose/SvgClose";
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 import { ButtonWhite } from "@src/components/Buttons/ButtonWhite/ButtonWhite";
 import { ImageWithBackgroundColor } from "@src/components/Images/ImageWithBackgroundColor/ImageWithBackgroundColor";
@@ -44,6 +48,8 @@ import { InformationItemClothes } from "@src/components/Informations/Information
 import { RateStars } from "@src/components/Ratings/RateStars/RateStars";
 import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
 import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCircular";
+import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
+import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -66,6 +72,7 @@ export const getComponentById = (
     | SvgTwitterProps
     | SvgFacebookProps
     | SvgInstagramProps
+    | SvgCloseProps
     | ButtonBlackProps
     | ButtonWhiteProps
     | ImageWithBackgroundColorProps
@@ -73,6 +80,8 @@ export const getComponentById = (
     | RateStarsProps
     | SliderSnapXProps
     | AnchorCircularProps
+    | MenuScreenWhiteProps
+    | FormSearchProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -104,6 +113,7 @@ export const getComponentById = (
     [Component.SvgInstagram]: (
       <SvgInstagram {...(props as SvgInstagramProps)} />
     ),
+    [Component.SvgClose]: <SvgClose {...(props as SvgCloseProps)} />,
     [Component.ButtonBlack]: <ButtonBlack {...(props as ButtonBlackProps)} />,
     [Component.ButtonWhite]: <ButtonWhite {...(props as ButtonWhiteProps)} />,
     [Component.ImageWithBackgroundColor]: (
@@ -117,6 +127,10 @@ export const getComponentById = (
     [Component.AnchorCircular]: (
       <AnchorCircular {...(props as AnchorCircularProps)} />
     ),
+    [Component.MenuScreenWhite]: (
+      <MenuScreenWhite {...(props as MenuScreenWhiteProps)} />
+    ),
+    [Component.FormSearch]: <FormSearch {...(props as FormSearchProps)} />,
   }[idComponent];
 };
 
