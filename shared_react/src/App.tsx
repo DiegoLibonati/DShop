@@ -4,8 +4,6 @@ import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClot
 import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
 
-import { footerLinks } from "@src/constants/footer";
-
 import "@src/App.css";
 
 export const App = () => {

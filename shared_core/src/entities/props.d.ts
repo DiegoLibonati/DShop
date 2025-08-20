@@ -62,6 +62,12 @@ export interface FormSearchProps extends DefaultProps {
   onSubmit: (inputValue: string) => void;
 }
 
+export interface ColorCircleProps extends DefaultProps {
+  color: string;
+  isActive?: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {
@@ -113,3 +119,5 @@ export interface SvgInstagramProps
     DefaultProps {}
 
 export interface SvgCloseProps extends SVGProps<SVGSVGElement>, DefaultProps {}
+
+export interface SvgCheckProps extends SVGProps<SVGSVGElement>, DefaultProps {}

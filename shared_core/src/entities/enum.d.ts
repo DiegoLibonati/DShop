@@ -13,6 +13,7 @@ export enum Component {
   SvgFacebook = "svg-facebook",
   SvgInstagram = "svg-instagram",
   SvgClose = "svg-close",
+  SvgCheck = "svg-check",
   ButtonBlack = "button-black",
   ButtonWhite = "button-white",
   ImageWithBackgroundColor = "image-with-background-color",
@@ -21,5 +22,6 @@ export enum Component {
   SliderSnapX = "slider-snap-x",
   AnchorCircular = "anchor-circular",
   MenuScreenWhite = "menu-screen-white",
-  FormSearch = "form-search"
+  FormSearch = "form-search",
+  ColorCircle = "color-circle",
 }

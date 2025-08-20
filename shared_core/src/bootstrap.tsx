@@ -5,6 +5,7 @@ import {
   AnchorCircularProps,
   ButtonBlackProps,
   ButtonWhiteProps,
+  ColorCircleProps,
   FormSearchProps,
   ImageWithBackgroundColorProps,
   InformationItemClothesProps,
@@ -14,6 +15,7 @@ import {
   SvgArrowLeftProps,
   SvgArrowRightProps,
   SvgCartShoppingProps,
+  SvgCheckProps,
   SvgChevronDownProps,
   SvgChevronUpProps,
   SvgCloseProps,
@@ -40,7 +42,8 @@ import { SvgArrowRight } from "@src/components/Svgs/SvgArrowRight/SvgArrowRight"
 import { SvgTwitter } from "@src/components/Svgs/SvgTwitter/SvgTwitter";
 import { SvgFacebook } from "@src/components/Svgs/SvgFacebook/SvgFacebook";
 import { SvgInstagram } from "@src/components/Svgs/SvgInstagram/SvgInstagram";
-import { SvgClose } from "./components/Svgs/SvgClose/SvgClose";
+import { SvgClose } from "@src/components/Svgs/SvgClose/SvgClose";
+import { SvgCheck } from "@src/components/Svgs/SvgCheck/SvgCheck";
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 import { ButtonWhite } from "@src/components/Buttons/ButtonWhite/ButtonWhite";
 import { ImageWithBackgroundColor } from "@src/components/Images/ImageWithBackgroundColor/ImageWithBackgroundColor";
@@ -50,6 +53,7 @@ import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
 import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCircular";
 import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
 import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
+import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -73,6 +77,7 @@ export const getComponentById = (
     | SvgFacebookProps
     | SvgInstagramProps
     | SvgCloseProps
+    | SvgCheckProps
     | ButtonBlackProps
     | ButtonWhiteProps
     | ImageWithBackgroundColorProps
@@ -82,6 +87,7 @@ export const getComponentById = (
     | AnchorCircularProps
     | MenuScreenWhiteProps
     | FormSearchProps
+    | ColorCircleProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -114,6 +120,7 @@ export const getComponentById = (
       <SvgInstagram {...(props as SvgInstagramProps)} />
     ),
     [Component.SvgClose]: <SvgClose {...(props as SvgCloseProps)} />,
+    [Component.SvgCheck]: <SvgCheck {...(props as SvgCheckProps)} />,
     [Component.ButtonBlack]: <ButtonBlack {...(props as ButtonBlackProps)} />,
     [Component.ButtonWhite]: <ButtonWhite {...(props as ButtonWhiteProps)} />,
     [Component.ImageWithBackgroundColor]: (
@@ -131,6 +138,7 @@ export const getComponentById = (
       <MenuScreenWhite {...(props as MenuScreenWhiteProps)} />
     ),
     [Component.FormSearch]: <FormSearch {...(props as FormSearchProps)} />,
+    [Component.ColorCircle]: <ColorCircle {...(props as ColorCircleProps)} />,
   }[idComponent];
 };
 

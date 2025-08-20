@@ -9,6 +9,11 @@ const Component = {
   SvgSkyStar: "svg-sky-star",
   SvgArrowLeft: "svg-arrow-left",
   SvgArrowRight: "svg-arrow-right",
+  SvgTwitter: "svg-twitter",
+  SvgFacebook: "svg-facebook",
+  SvgInstagram: "svg-instagram",
+  SvgClose: "svg-close",
+  SvgCheck: "svg-check",
   ButtonBlack: "button-black",
   ButtonWhite: "button-white",
   ImageWithBackgroundColor: "image-with-background-color",
@@ -16,6 +21,9 @@ const Component = {
   RateStars: "rate-stars",
   SliderSnapX: "slider-snap-x",
   AnchorCircular: "anchor-circular",
+  MenuScreenWhite: "menu-screen-white",
+  FormSearch: "form-search",
+  ColorCircle: "color-circle",
 };
 
 module.exports = {

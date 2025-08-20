@@ -123,7 +123,6 @@ declare module "shared_core/SharedCoreEntities" {
 
 declare module "shared_core/SharedCoreEnums" {
   export enum Component {
-    AppTest = "app-test",
     SvgStarToFill = "svg-star-to-fill",
     SvgCartShopping = "svg-cart-shopping",
     SvgChevronDown = "svg-chevron-down",
@@ -137,6 +136,7 @@ declare module "shared_core/SharedCoreEnums" {
     SvgFacebook = "svg-facebook",
     SvgInstagram = "svg-instagram",
     SvgClose = "svg-close",
+    SvgCheck = "svg-check",
     ButtonBlack = "button-black",
     ButtonWhite = "button-white",
     ImageWithBackgroundColor = "image-with-background-color",
@@ -146,6 +146,7 @@ declare module "shared_core/SharedCoreEnums" {
     AnchorCircular = "anchor-circular",
     MenuScreenWhite = "menu-screen-white",
     FormSearch = "form-search",
+    ColorCircle = "color-circle",
   }
 }
 
@@ -215,6 +216,12 @@ declare module "shared_core/SharedCoreProps" {
     onSubmit: (inputValue: string) => void;
   }
 
+  export interface ColorCircleProps extends DefaultProps {
+    color: string;
+    isActive?: boolean;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
+  }
+
   export interface SvgStarToFillProps
     extends SVGProps<SVGSVGElement>,
       DefaultProps {
@@ -268,6 +275,10 @@ declare module "shared_core/SharedCoreProps" {
       DefaultProps {}
 
   export interface SvgCloseProps
+    extends SVGProps<SVGSVGElement>,
+      DefaultProps {}
+
+  export interface SvgCheckProps
     extends SVGProps<SVGSVGElement>,
       DefaultProps {}
 }

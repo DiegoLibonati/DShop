@@ -13,6 +13,7 @@ import { SvgTwitter } from "@src/components/Svgs/SvgTwitter/SvgTwitter";
 import { SvgFacebook } from "@src/components/Svgs/SvgFacebook/SvgFacebook";
 import { SvgInstagram } from "@src/components/Svgs/SvgInstagram/SvgInstagram";
 import { SvgClose } from "@src/components/Svgs/SvgClose/SvgClose";
+import { SvgCheck } from "@src/components/Svgs/SvgCheck/SvgCheck";
 import { ButtonBlack } from "@src/components/Buttons/ButtonBlack/ButtonBlack";
 import { ButtonWhite } from "@src/components/Buttons/ButtonWhite/ButtonWhite";
 import { ImageWithBackgroundColor } from "@src/components/Images/ImageWithBackgroundColor/ImageWithBackgroundColor";
@@ -22,6 +23,7 @@ import { SliderSnapX } from "@src/components/Sliders/SliderSnapX/SliderSnapX";
 import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCircular";
 import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
 import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
+import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 
 import "@src/App.css";
 
@@ -149,6 +151,16 @@ export const App = () => {
       </div>
 
       <div className="component">
+        <h2 className="component__title">Color Circle</h2>
+        <ColorCircle color="#09f"></ColorCircle>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Color Circle Active</h2>
+        <ColorCircle color="#09f" isActive={true}></ColorCircle>
+      </div>
+
+      <div className="component">
         <h2 className="component__title">SvgStarToFill</h2>
         <SvgStarToFill
           fill={75}
@@ -215,6 +227,11 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">SvgClose</h2>
         <SvgClose fill="black"></SvgClose>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">SvgCheck</h2>
+        <SvgCheck fill="black"></SvgCheck>
       </div>
 
       {/* Podés agregar más componentes aquí */}

@@ -20,7 +20,6 @@ declare module "shared_core/SharedCoreEntities" {
 
 declare module "shared_core/SharedCoreEnums" {
   export enum Component {
-    AppTest = "app-test",
     SvgStarToFill = "svg-star-to-fill",
     SvgCartShopping = "svg-cart-shopping",
     SvgChevronDown = "svg-chevron-down",
@@ -34,6 +33,7 @@ declare module "shared_core/SharedCoreEnums" {
     SvgFacebook = "svg-facebook",
     SvgInstagram = "svg-instagram",
     SvgClose = "svg-close",
+    SvgCheck = "svg-check",
     ButtonBlack = "button-black",
     ButtonWhite = "button-white",
     ImageWithBackgroundColor = "image-with-background-color",
@@ -43,6 +43,7 @@ declare module "shared_core/SharedCoreEnums" {
     AnchorCircular = "anchor-circular",
     MenuScreenWhite = "menu-screen-white",
     FormSearch = "form-search",
+    ColorCircle = "color-circle",
   }
 }
 
@@ -110,6 +111,12 @@ declare module "shared_core/SharedCoreProps" {
     onSubmit: (inputValue: string) => void;
   }
 
+  export interface ColorCircleProps extends DefaultProps {
+    color: string;
+    isActive?: boolean;
+    onClick?: () => void;
+  }
+
   export interface SvgStarToFillProps extends DefaultProps {
     outColor: string;
     inColor: string;
@@ -139,6 +146,8 @@ declare module "shared_core/SharedCoreProps" {
   export interface SvgInstagramProps extends DefaultProps {}
 
   export interface SvgCloseProps extends DefaultProps {}
+
+  export interface SvgCheckProps extends DefaultProps {}
 }
 
 declare module "shared_core/SharedCoreStyles";
