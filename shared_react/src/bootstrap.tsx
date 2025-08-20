@@ -4,6 +4,7 @@ import { createRoot, Root } from "react-dom/client";
 import {
   FooterWithSubscribeNewsletterProps,
   ItemClothesProps,
+  LoaderScreenProps,
   SubscribeNewsletterProps,
 } from "@src/entities/props";
 import { Component } from "@src/entities/enum.d";
@@ -12,6 +13,7 @@ import { App } from "@src/App";
 import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClothes";
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
 import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
+import { LoaderScreen } from "@src/components/composed/Loaders/LoaderScreen/LoaderScreen";
 
 import { IS_DEV } from "@src/constants/envs";
 
@@ -25,6 +27,7 @@ export const getComponentById = (
     | ItemClothesProps
     | FooterWithSubscribeNewsletterProps
     | SubscribeNewsletterProps
+    | LoaderScreenProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App {...(props as Record<string, unknown>)} />,
@@ -40,6 +43,9 @@ export const getComponentById = (
       <SubscribeNewsletter
         {...(props as SubscribeNewsletterProps)}
       ></SubscribeNewsletter>
+    ),
+    [Component.LoaderScreen]: (
+      <LoaderScreen {...(props as LoaderScreenProps)}></LoaderScreen>
     ),
   }[idComponent];
 };

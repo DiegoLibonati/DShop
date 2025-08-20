@@ -47,6 +47,7 @@ declare module "shared_core/SharedCoreEnums" {
     TagSimple = "tag-simple",
     CounterWithActions = "counter-with-actions",
     SkeletonShimmer = "skeleton-shimmer",
+    LoaderCircular = "loader-circular",
   }
 }
 
@@ -133,6 +134,8 @@ declare module "shared_core/SharedCoreProps" {
   export interface SkeletonShimmerProps extends DefaultProps {
     rounded?: boolean;
   }
+
+  export interface LoaderCircularProps extends DefaultProps {}
 
   export interface SvgStarToFillProps extends DefaultProps {
     outColor: string;

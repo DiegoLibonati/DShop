@@ -15,6 +15,7 @@ import {
 
 import { HeaderOption } from "@src/components/composed/Headers/HeaderOption/HeaderOption";
 import { FooterSection } from "@src/components/composed/Footers/FooterSection/FooterSection";
+import { LoaderScreen } from "@src/components/core/Loaders/LoaderScreen/LoaderScreen";
 
 import { getFooterLinks } from "@src/helpers/getFooterLinks";
 import { getHeaderOptions } from "@src/helpers/getHeaderOptions";
@@ -56,10 +57,10 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
     getFooterLinks("en")
   );
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false)
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const [notificationClosed, setNotificationClosed] = useState<boolean>(false);
 
-  const idsLayouts = useRef<string[]>(getIdsByLength(3));
+  const idsLayouts = useRef<string[]>(getIdsByLength(4));
 
   const handleClickMenuClose = () => {
     setIsMenuOpen(false);
@@ -117,20 +118,22 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
   }, []);
 
   return (
-    <Fragment>
-      <Suspense fallback={<div>Cargando Notification Bar</div>}>
+    <Suspense
+      fallback={<LoaderScreen idRoot={idsLayouts.current[0]}></LoaderScreen>}
+    >
+      <Fragment>
         <NotificationBarLazy
-          idRoot={idsLayouts.current[0]}
+          idRoot={idsLayouts.current[1]}
           onClose={handleClickCloseNotification}
-          className={`${(scrolled || notificationClosed) && "notification-bar--hidden"}`}
+          className={`${
+            (scrolled || notificationClosed) && "notification-bar--hidden"
+          }`}
         >
           {lang["en"].notifications.bar}
         </NotificationBarLazy>
-      </Suspense>
 
-      <Suspense fallback={<div>Cargando Header</div>}>
         <HeaderLazy
-          idRoot={idsLayouts.current[1]}
+          idRoot={idsLayouts.current[2]}
           name={TITLE_APP}
           isFixed={true}
           onClickCart={handleClickCart}
@@ -150,9 +153,7 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
             );
           })}
         </HeaderLazy>
-      </Suspense>
 
-      <Suspense fallback={<div>Cargando menu header</div>}>
         <MenuHeaderLazy
           isMenuOpen={isMenuOpen}
           language="en"
@@ -173,13 +174,11 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
             })}
           </div>
         </MenuHeaderLazy>
-      </Suspense>
 
-      {children}
+        {children}
 
-      <Suspense fallback={<div>Cargando Footer</div>}>
         <FooterWithSubscribeNewsletterLazy
-          idRoot={idsLayouts.current[2]}
+          idRoot={idsLayouts.current[3]}
           title={TITLE_APP}
           description={lang["en"].footer.description}
           instagram={INSTAGRAM_LINK}
@@ -199,8 +198,8 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
               );
             })}
         </FooterWithSubscribeNewsletterLazy>
-      </Suspense>
-    </Fragment>
+      </Fragment>
+    </Suspense>
   );
 };
 

@@ -10,6 +10,7 @@ import {
   FormSearchProps,
   ImageWithBackgroundColorProps,
   InformationItemClothesProps,
+  LoaderCircularProps,
   MenuScreenWhiteProps,
   RateStarsProps,
   SkeletonShimmerProps,
@@ -60,6 +61,7 @@ import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
 import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
 import { SkeletonShimmer } from "@src/components/Skeletons/SkeletonShimmer/SkeletonShimmer";
+import { LoaderCircular } from "@src/components/Loaders/LoaderCircular/LoaderCircular";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -97,6 +99,7 @@ export const getComponentById = (
     | TagSimpleProps
     | CounterWithActionsProps
     | SkeletonShimmerProps
+    | LoaderCircularProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -156,6 +159,9 @@ export const getComponentById = (
     ),
     [Component.SkeletonShimmer]: (
       <SkeletonShimmer {...(props as SkeletonShimmerProps)}></SkeletonShimmer>
+    ),
+    [Component.LoaderCircular]: (
+      <LoaderCircular {...(props as LoaderCircularProps)}></LoaderCircular>
     ),
   }[idComponent];
 };

@@ -82,6 +82,8 @@ export interface SkeletonShimmerProps extends DefaultProps {
   rounded?: boolean;
 }
 
+export interface LoaderCircularProps extends DefaultProps {}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {

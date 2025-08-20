@@ -19,6 +19,7 @@ declare module "shared_react/SharedReactEnums" {
     ItemClothes = "item-clothes",
     FooterWithSubscribeNewsletter = "footer-with-subscribe-newsletter",
     SubscribeNewsletter = "subscribe-newsletter",
+    LoaderScreen = "loader-screen",
   }
 }
 
@@ -59,6 +60,8 @@ declare module "shared_react/SharedReactProps" {
     language?: Locale;
     onSubmit: (inputValue: string) => void;
   }
+
+  export interface LoaderScreenProps extends DefaultProps {}
 }
 
 declare module "shared_angular/SharedAngular" {
@@ -157,6 +160,7 @@ declare module "shared_core/SharedCoreEnums" {
     TagSimple = "tag-simple",
     CounterWithActions = "counter-with-actions",
     SkeletonShimmer = "skeleton-shimmer",
+    LoaderCircular = "loader-circular",
   }
 }
 
@@ -242,6 +246,8 @@ declare module "shared_core/SharedCoreProps" {
   export interface SkeletonShimmerProps extends DefaultProps {
     rounded?: boolean;
   }
+
+  export interface LoaderCircularProps extends DefaultProps {}
 
   export interface SvgStarToFillProps
     extends SVGProps<SVGSVGElement>,

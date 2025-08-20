@@ -27,4 +27,5 @@ export enum Component {
   TagSimple = "tag-simple",
   CounterWithActions = "counter-with-actions",
   SkeletonShimmer = "skeleton-shimmer",
+  LoaderCircular = "loader-circular",
 }

@@ -3,6 +3,7 @@ import React from "react";
 import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClothes";
 import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
+import { LoaderScreen } from "@src/components/composed/Loaders/LoaderScreen/LoaderScreen";
 
 import "@src/App.css";
 
@@ -51,6 +52,11 @@ export const App = () => {
             console.log(inputValue);
           }}
         ></SubscribeNewsletter>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Loader Screen</h2>
+        <LoaderScreen className="loader-screen-app-test"></LoaderScreen>
       </div>
 
       {/* Podés agregar más componentes aquí */}

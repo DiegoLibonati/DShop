@@ -23,3 +23,8 @@
   font-size: 1.5rem;
   text-decoration: underline;
 }
+
+.loader-screen-app-test {
+  position: relative !important;
+  width: 100% !important;
+}

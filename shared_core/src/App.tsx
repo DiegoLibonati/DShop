@@ -27,6 +27,7 @@ import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
 import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
 import { SkeletonShimmer } from "@src/components/Skeletons/SkeletonShimmer/SkeletonShimmer";
+import { LoaderCircular } from "@src/components/Loaders/LoaderCircular/LoaderCircular";
 
 import "@src/App.css";
 
@@ -180,6 +181,11 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">Skeleton Shimmer</h2>
         <SkeletonShimmer rounded={true}></SkeletonShimmer>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Loader Circular</h2>
+        <LoaderCircular></LoaderCircular>
       </div>
 
       <div className="component">

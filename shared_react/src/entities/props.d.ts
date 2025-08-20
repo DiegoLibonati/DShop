@@ -32,3 +32,5 @@ export interface SubscribeNewsletterProps extends DefaultProps {
   submitLabel: string;
   onSubmit: (inputValue: string) => void;
 }
+
+export interface LoaderScreenProps extends DefaultProps {}
