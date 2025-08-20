@@ -9,6 +9,7 @@ export const ImageWithBackgroundColor = ({
   src,
   alt,
   bgColor,
+  isActive,
   language,
   className,
   classNameWrapper,
@@ -21,6 +22,7 @@ export const ImageWithBackgroundColor = ({
       src: src,
       alt: alt,
       bgColor: bgColor,
+      isActive: isActive,
       language: language,
       className: className,
     });

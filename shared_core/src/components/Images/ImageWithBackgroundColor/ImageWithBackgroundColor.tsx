@@ -8,11 +8,14 @@ export const ImageWithBackgroundColor = ({
   src,
   alt,
   bgColor,
+  isActive,
   className,
 }: ImageWithBackgroundColorProps) => {
   return (
     <div
-      className={`image-with-background-color-wrapper ${className}`}
+      className={`image-with-background-color-wrapper ${
+        isActive && "image-with-background-color-wrapper--active"
+      } ${className}`}
       style={{ backgroundColor: bgColor }}
     >
       <img

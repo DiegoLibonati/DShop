@@ -32,6 +32,7 @@ export const ItemClothes = ({
         alt={name}
         bgColor="#f0eeed"
         language={language}
+        isActive={false}
       ></ImageWithBackgroundColor>
 
       <InformationItemClothes

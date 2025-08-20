@@ -5,6 +5,10 @@
   padding: 1rem;
 }
 
+.image-with-background-color-wrapper--active {
+  border: 0.1rem solid var(--black);
+}
+
 .image-with-background-color__img {
   width: 100%;
   height: 100%;

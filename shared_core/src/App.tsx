@@ -54,11 +54,24 @@ export const App = () => {
       </div>
 
       <div className="component">
-        <h2 className="component__title">ImageWithBackgroundColor</h2>
+        <h2 className="component__title">
+          ImageWithBackgroundColor not Active
+        </h2>
         <ImageWithBackgroundColor
           src="https://i0.wp.com/ropaandroll.com/wp-content/uploads/2024/07/RMC-fallen-staked-ropa-and-roll-1.png?fit=1536%2C1536&ssl=1"
           alt="T-shirt with Tape Details"
           bgColor="#f0eeed"
+          isActive={false}
+        ></ImageWithBackgroundColor>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">ImageWithBackgroundColor Active</h2>
+        <ImageWithBackgroundColor
+          src="https://i0.wp.com/ropaandroll.com/wp-content/uploads/2024/07/RMC-fallen-staked-ropa-and-roll-1.png?fit=1536%2C1536&ssl=1"
+          alt="T-shirt with Tape Details"
+          bgColor="#f0eeed"
+          isActive={true}
         ></ImageWithBackgroundColor>
       </div>
 
@@ -94,6 +107,7 @@ export const App = () => {
                 src="https://i0.wp.com/ropaandroll.com/wp-content/uploads/2024/07/RMC-fallen-staked-ropa-and-roll-1.png?fit=1536%2C1536&ssl=1"
                 alt="T-shirt with Tape Details"
                 bgColor="#f0eeed"
+                isActive={false}
               />
             );
           })}

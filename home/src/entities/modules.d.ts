@@ -173,6 +173,7 @@ declare module "shared_core/SharedCoreProps" {
     src: string;
     alt: string;
     bgColor: string;
+    isActive: boolean;
   }
 
   export interface InformationItemClothesProps extends DefaultProps {

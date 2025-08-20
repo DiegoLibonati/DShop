@@ -19,6 +19,7 @@ export interface ImageWithBackgroundColorProps extends DefaultProps {
   src: string;
   alt: string;
   bgColor: string;
+  isActive: boolean;
 }
 
 export interface InformationItemClothesProps extends DefaultProps {
