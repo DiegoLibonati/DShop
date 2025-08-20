@@ -24,6 +24,5 @@ export interface ReviewCustomerProps extends DefaultProps {
 }
 
 export interface NotificationBarProps extends DefaultProps {
-  text: string;
   onClose: () => void;
 }

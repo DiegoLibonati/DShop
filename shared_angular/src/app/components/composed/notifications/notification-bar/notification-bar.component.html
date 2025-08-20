@@ -1,5 +1,7 @@
 <div class="notification-bar" [ngClass]="className">
-  <p class="notification-bar__text">{{ text }}</p>
+  <p [attr.id]="'slot-' + idRoot" class="notification-bar__text">
+    <ng-content></ng-content>
+  </p>
 
   <button
     type="button"

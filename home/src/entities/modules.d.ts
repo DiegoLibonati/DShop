@@ -101,7 +101,6 @@ declare module "shared_angular/SharedAngularProps" {
   }
 
   export interface NotificationBarProps extends DefaultProps {
-    text: string;
     onClose: () => void;
   }
 }

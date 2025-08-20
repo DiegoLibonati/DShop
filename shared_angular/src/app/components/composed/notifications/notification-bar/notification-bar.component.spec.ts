@@ -13,7 +13,6 @@ type RenderComponent = {
 
 const renderComponent = async (): Promise<RenderComponent> => {
   const props: NotificationBarProps & { onClose: jest.Mock } = {
-    text: "asd",
     className: "test class",
     onClose: jest.fn(),
   };
@@ -39,14 +38,6 @@ describe("notification-bar.component.ts", () => {
       ) as HTMLDivElement;
 
       expect(notificationBar).toBeInTheDocument();
-    });
-
-    test("It must render text sent by props.", async () => {
-      const { props } = await renderComponent();
-
-      const text = screen.getByText(props.text);
-
-      expect(text).toBeInTheDocument();
     });
 
     test("The onClose function must be executed when the button is pressed.", async () => {

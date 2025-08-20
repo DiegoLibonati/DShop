@@ -36,7 +36,6 @@ export class AppTestComponent {
   };
 
   public notificationBarProps: NotificationBarProps = {
-    text: "pepe",
     className: "notification-bar-test",
     onClose: this.onNotificationBarDefaultClose.bind(this),
   };
@@ -78,6 +77,9 @@ export class AppTestComponent {
   // NOTIFICATION BAR COMPONENT
 
   onNotificationBarDefaultClose(): void {
-    console.log("Executed in shared_angular - onNotificationBarDefaultClose: ", this.componentName);
+    console.log(
+      "Executed in shared_angular - onNotificationBarDefaultClose: ",
+      this.componentName
+    );
   }
 }

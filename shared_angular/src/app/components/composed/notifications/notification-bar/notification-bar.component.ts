@@ -13,7 +13,6 @@ import { getIdsByLength } from "shared_core/SharedCore";
   styles: [styles],
 })
 export class NotificationBarComponent implements OnInit {
-  @Input() text: NotificationBarProps["text"] = "";
   @Input() language: NotificationBarProps["language"] = "en";
   @Input() className: NotificationBarProps["className"] = "";
   @Input() onClose: NotificationBarProps["onClose"] =
@@ -27,7 +26,6 @@ export class NotificationBarComponent implements OnInit {
 
   viewProps(): void {
     console.log(`Props of ${this.componentName}:
-      - text: ${this.text}
       - language: ${this.language}
       - className: ${this.className}`);
   }
