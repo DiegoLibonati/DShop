@@ -68,6 +68,10 @@ export interface ColorCircleProps extends DefaultProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+export interface TagSimpleProps extends DefaultProps {
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {

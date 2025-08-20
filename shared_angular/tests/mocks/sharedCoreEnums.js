@@ -24,6 +24,7 @@ const Component = {
   MenuScreenWhite: "menu-screen-white",
   FormSearch: "form-search",
   ColorCircle: "color-circle",
+  TagSimple: "tag-simple",
 };
 
 module.exports = {

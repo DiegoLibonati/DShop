@@ -26,6 +26,7 @@ import {
   SvgSkyStarProps,
   SvgStarToFillProps,
   SvgTwitterProps,
+  TagSimpleProps,
 } from "@src/entities/props";
 import { Component } from "@src/entities/enum.d";
 
@@ -54,6 +55,7 @@ import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCir
 import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
 import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
+import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -88,6 +90,7 @@ export const getComponentById = (
     | MenuScreenWhiteProps
     | FormSearchProps
     | ColorCircleProps
+    | TagSimpleProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -139,6 +142,7 @@ export const getComponentById = (
     ),
     [Component.FormSearch]: <FormSearch {...(props as FormSearchProps)} />,
     [Component.ColorCircle]: <ColorCircle {...(props as ColorCircleProps)} />,
+    [Component.TagSimple]: <TagSimple {...(props as TagSimpleProps)} />,
   }[idComponent];
 };
 

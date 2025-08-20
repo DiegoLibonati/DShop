@@ -44,6 +44,7 @@ declare module "shared_core/SharedCoreEnums" {
     MenuScreenWhite = "menu-screen-white",
     FormSearch = "form-search",
     ColorCircle = "color-circle",
+    TagSimple = "tag-simple",
   }
 }
 
@@ -114,6 +115,10 @@ declare module "shared_core/SharedCoreProps" {
   export interface ColorCircleProps extends DefaultProps {
     color: string;
     isActive?: boolean;
+    onClick?: () => void;
+  }
+
+  export interface TagSimpleProps extends DefaultProps {
     onClick?: () => void;
   }
 

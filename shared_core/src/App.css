@@ -23,3 +23,7 @@
 .menu-screen-white--no-fixed {
   position: relative;
 }
+
+.tag-simple-test {
+  background-color: aqua;
+}
