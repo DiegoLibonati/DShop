@@ -75,6 +75,7 @@ declare module "shared_core/SharedCoreProps" {
     rate: number;
     price: number;
     discount: number;
+    description?: string;
   }
 
   export interface RateStarsProps extends DefaultProps {

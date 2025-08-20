@@ -11,13 +11,17 @@ type RenderComponent = {
   container: HTMLElement;
 };
 
-const renderComponent = (discount: number): RenderComponent => {
+const renderComponent = (
+  discount: number,
+  description: string
+): RenderComponent => {
   const props: InformationItemClothesProps = {
     name: "namecito",
     discount: discount,
     price: 100,
     rate: 3,
     className: "test-class",
+    description: description,
   };
 
   const { container } = render(
@@ -26,6 +30,7 @@ const renderComponent = (discount: number): RenderComponent => {
       name={props.name}
       price={props.price}
       rate={props.rate}
+      description={props.description}
       className={props.className}
     >
       {props.children}
@@ -43,9 +48,10 @@ describe("InformationItemClothes.tsx", () => {
 
   describe("General Tests.", () => {
     const discount = 0;
+    const description = "";
 
     test("It must render the InformationItemClothes component.", () => {
-      const { container, props } = renderComponent(discount);
+      const { container, props } = renderComponent(discount, description);
 
       const root = container.querySelector(
         ".information-item-clothes"
@@ -73,9 +79,10 @@ describe("InformationItemClothes.tsx", () => {
 
   describe("With discount.", () => {
     const discount = 10;
+    const description = "";
 
     test("It must render the InformationItemClothes component with discount.", () => {
-      const { props } = renderComponent( discount);
+      const { props } = renderComponent(discount, description);
 
       const finalPrice = getFinalPriceByDiscount(props.price, discount);
 
@@ -97,9 +104,10 @@ describe("InformationItemClothes.tsx", () => {
 
   describe("Without discount.", () => {
     const discount = 0;
+    const description = "";
 
     test("It must render the InformationItemClothes component without discount.", () => {
-      const { props } = renderComponent(discount);
+      const { props } = renderComponent(discount, description);
 
       const price = screen.queryByRole("heading", {
         name: `$${props.price}`,
@@ -110,6 +118,34 @@ describe("InformationItemClothes.tsx", () => {
 
       expect(price).toBeInTheDocument();
       expect(discountElement).not.toBeInTheDocument();
+    });
+  });
+
+  describe("Without description.", () => {
+    const discount = 0;
+    const description = "";
+
+    test("It must render the InformationItemClothes component without description.", () => {
+      const { container } = renderComponent(discount, description);
+
+      const descriptionElement = container.querySelector(
+        ".information-item-clothes__description"
+      ) as HTMLParagraphElement;
+
+      expect(descriptionElement).not.toBeInTheDocument();
+    });
+  });
+
+  describe("With description.", () => {
+    const discount = 0;
+    const description = "asdasdasdasdasdasdasd1234213 12312231 3123";
+
+    test("It must render the InformationItemClothes component with description.", () => {
+      const { props } = renderComponent(discount, description);
+
+      const descriptionElement = screen.getByText(props.description!);
+
+      expect(descriptionElement).toBeInTheDocument();
     });
   });
 });

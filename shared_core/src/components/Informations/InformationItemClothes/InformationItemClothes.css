@@ -65,6 +65,13 @@
   color: var(--red-bright);
 }
 
+.information-item-clothes__description {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--black-60);
+  margin-top: 0.25rem;
+}
+
 @media screen and (width >= 1024px) {
   .information-item-clothes {
   }
@@ -102,5 +109,10 @@
 
   .information-item-clothes__price-discount {
     font-size: 0.75rem;
+  }
+
+  .information-item-clothes__description {
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }

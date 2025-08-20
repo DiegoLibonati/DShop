@@ -10,6 +10,7 @@ export const InformationItemClothes = ({
   name,
   price,
   rate,
+  description,
   language,
   className,
   classNameWrapper,
@@ -23,6 +24,7 @@ export const InformationItemClothes = ({
       name: name,
       price: price,
       rate: rate,
+      description: description,
       language: language,
       className: className,
     });

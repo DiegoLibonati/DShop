@@ -13,6 +13,7 @@ export const InformationItemClothes = ({
   rate,
   price,
   discount,
+  description,
   language,
   className,
 }: InformationItemClothesProps) => {
@@ -59,6 +60,10 @@ export const InformationItemClothes = ({
           </Fragment>
         )}
       </div>
+
+      {description && (
+        <p className="information-item-clothes__description">{description}</p>
+      )}
     </div>
   );
 };

@@ -27,6 +27,7 @@ export interface InformationItemClothesProps extends DefaultProps {
   rate: number;
   price: number;
   discount: number;
+  description?: string;
 }
 
 export interface RateStarsProps extends DefaultProps {

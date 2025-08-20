@@ -82,6 +82,7 @@ export const App = () => {
           discount={10}
           price={200}
           rate={4}
+          description="This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style."
         ></InformationItemClothes>
       </div>
 
