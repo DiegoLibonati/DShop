@@ -46,6 +46,7 @@ declare module "shared_core/SharedCoreEnums" {
     ColorCircle = "color-circle",
     TagSimple = "tag-simple",
     CounterWithActions = "counter-with-actions",
+    SkeletonShimmer = "skeleton-shimmer",
   }
 }
 
@@ -127,6 +128,10 @@ declare module "shared_core/SharedCoreProps" {
   export interface CounterWithActionsProps extends DefaultProps {
     limit?: number;
     onChange: (value: number) => void;
+  }
+
+  export interface SkeletonShimmerProps extends DefaultProps {
+    rounded?: boolean;
   }
 
   export interface SvgStarToFillProps extends DefaultProps {

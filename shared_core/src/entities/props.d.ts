@@ -78,6 +78,10 @@ export interface CounterWithActionsProps extends DefaultProps {
   onChange: (value: number) => void;
 }
 
+export interface SkeletonShimmerProps extends DefaultProps {
+  rounded?: boolean;
+}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {

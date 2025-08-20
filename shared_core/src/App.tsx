@@ -26,6 +26,7 @@ import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
 import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
+import { SkeletonShimmer } from "@src/components/Skeletons/SkeletonShimmer/SkeletonShimmer";
 
 import "@src/App.css";
 
@@ -174,6 +175,11 @@ export const App = () => {
             console.log(value);
           }}
         ></CounterWithActions>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Skeleton Shimmer</h2>
+        <SkeletonShimmer rounded={true}></SkeletonShimmer>
       </div>
 
       <div className="component">

@@ -26,4 +26,5 @@ export enum Component {
   ColorCircle = "color-circle",
   TagSimple = "tag-simple",
   CounterWithActions = "counter-with-actions",
+  SkeletonShimmer = "skeleton-shimmer",
 }

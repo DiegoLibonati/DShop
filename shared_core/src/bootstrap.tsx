@@ -12,6 +12,7 @@ import {
   InformationItemClothesProps,
   MenuScreenWhiteProps,
   RateStarsProps,
+  SkeletonShimmerProps,
   SliderSnapXProps,
   SvgArrowLeftProps,
   SvgArrowRightProps,
@@ -58,6 +59,7 @@ import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
 import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
+import { SkeletonShimmer } from "@src/components/Skeletons/SkeletonShimmer/SkeletonShimmer";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -94,6 +96,7 @@ export const getComponentById = (
     | ColorCircleProps
     | TagSimpleProps
     | CounterWithActionsProps
+    | SkeletonShimmerProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -150,6 +153,9 @@ export const getComponentById = (
       <CounterWithActions
         {...(props as CounterWithActionsProps)}
       ></CounterWithActions>
+    ),
+    [Component.SkeletonShimmer]: (
+      <SkeletonShimmer {...(props as SkeletonShimmerProps)}></SkeletonShimmer>
     ),
   }[idComponent];
 };

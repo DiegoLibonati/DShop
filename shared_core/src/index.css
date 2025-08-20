@@ -6,11 +6,13 @@
 
   --white: #ffffff;
 
+  --gray-neutral: #e0e0e0;
+
   --light-gray-warm: #f2f0f1; /* antes: --ho-light-gray */
   --light-gray-neutral: #f0f0f0; /* antes: --sa-light-gray */
   --light-gray-cool: #f0eeed; /* antes: --sr-light-gray-color */
 
-  --black: #000000; 
+  --black: #000000;
   --black-10: #00000010; /* antes: --ho-black-color-10 */
   --black-20: #00000020; /* antes: --ho-black-color-20 */
   --black-40: #00000040; /* antes: --sa-black-color-40 */
