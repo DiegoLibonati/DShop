@@ -176,6 +176,7 @@ declare module "shared_core/SharedCoreProps" {
     alt: string;
     bgColor: string;
     isActive: boolean;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
   }
 
   export interface InformationItemClothesProps extends DefaultProps {

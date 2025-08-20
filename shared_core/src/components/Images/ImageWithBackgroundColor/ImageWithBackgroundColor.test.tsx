@@ -1,21 +1,23 @@
 import { render, screen } from "@testing-library/react";
+import user from "@testing-library/user-event";
 
 import { ImageWithBackgroundColorProps } from "@src/entities/props";
 
 import { ImageWithBackgroundColor } from "@src/components/Images/ImageWithBackgroundColor/ImageWithBackgroundColor.tsx";
 
 type RenderComponent = {
-  props: ImageWithBackgroundColorProps;
+  props: ImageWithBackgroundColorProps & { onClick: jest.Mock };
   container: HTMLElement;
 };
 
 const renderComponent = (isActive: boolean): RenderComponent => {
-  const props: ImageWithBackgroundColorProps = {
+  const props: ImageWithBackgroundColorProps & { onClick: jest.Mock } = {
     src: "pepe-test",
     alt: "pepe-test-alt",
     bgColor: "red",
     isActive: isActive,
     className: "test-class",
+    onClick: jest.fn(),
   };
 
   const { container } = render(
@@ -25,6 +27,7 @@ const renderComponent = (isActive: boolean): RenderComponent => {
       bgColor={props.bgColor}
       isActive={props.isActive}
       className={props.className}
+      onClick={props.onClick}
     >
       {props.children}
     </ImageWithBackgroundColor>
@@ -67,6 +70,21 @@ describe("ImageWithBackgroundColor.tsx", () => {
       ) as HTMLDivElement;
 
       expect(root.style.backgroundColor).toEqual(props.bgColor);
+    });
+
+    test("It must execute the relevant function when you click on the image.", async () => {
+      const { container, props } = renderComponent(isActive);
+
+      const root = container.querySelector(
+        ".image-with-background-color-wrapper"
+      ) as HTMLDivElement;
+
+      await user.click(root);
+
+      expect(props.onClick).toHaveBeenCalledTimes(1);
+      expect(
+        root.classList.contains("image-with-background-color-wrapper--pointer")
+      ).toBeTruthy();
     });
   });
 

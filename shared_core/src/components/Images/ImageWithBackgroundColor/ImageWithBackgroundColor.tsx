@@ -10,13 +10,17 @@ export const ImageWithBackgroundColor = ({
   bgColor,
   isActive,
   className,
+  onClick,
 }: ImageWithBackgroundColorProps) => {
   return (
     <div
       className={`image-with-background-color-wrapper ${
+        onClick && "image-with-background-color-wrapper--pointer"
+      } ${
         isActive && "image-with-background-color-wrapper--active"
       } ${className}`}
       style={{ backgroundColor: bgColor }}
+      onClick={onClick}
     >
       <img
         src={src}

@@ -20,6 +20,7 @@ export interface ImageWithBackgroundColorProps extends DefaultProps {
   alt: string;
   bgColor: string;
   isActive: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export interface InformationItemClothesProps extends DefaultProps {

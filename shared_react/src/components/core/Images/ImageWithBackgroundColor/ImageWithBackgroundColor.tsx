@@ -11,6 +11,7 @@ export const ImageWithBackgroundColor = ({
   bgColor,
   isActive,
   language,
+  onClick,
   className,
   classNameWrapper,
 }: ImageWithBackgroundColorProps) => {
@@ -25,6 +26,7 @@ export const ImageWithBackgroundColor = ({
       isActive: isActive,
       language: language,
       className: className,
+      onClick: onClick,
     });
   };
 
