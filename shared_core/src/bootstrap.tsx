@@ -6,6 +6,7 @@ import {
   ButtonBlackProps,
   ButtonWhiteProps,
   ColorCircleProps,
+  CounterWithActionsProps,
   FormSearchProps,
   ImageWithBackgroundColorProps,
   InformationItemClothesProps,
@@ -56,6 +57,7 @@ import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScree
 import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
 import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
+import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
 
 import { getFinalPriceByDiscount } from "@src/helpers/getFinalPriceByDiscount";
 import { getIdsByLength } from "@src/helpers/getIdsByLength";
@@ -91,6 +93,7 @@ export const getComponentById = (
     | FormSearchProps
     | ColorCircleProps
     | TagSimpleProps
+    | CounterWithActionsProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -143,6 +146,11 @@ export const getComponentById = (
     [Component.FormSearch]: <FormSearch {...(props as FormSearchProps)} />,
     [Component.ColorCircle]: <ColorCircle {...(props as ColorCircleProps)} />,
     [Component.TagSimple]: <TagSimple {...(props as TagSimpleProps)} />,
+    [Component.CounterWithActions]: (
+      <CounterWithActions
+        {...(props as CounterWithActionsProps)}
+      ></CounterWithActions>
+    ),
   }[idComponent];
 };
 

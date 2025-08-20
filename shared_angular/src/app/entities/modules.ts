@@ -45,6 +45,7 @@ declare module "shared_core/SharedCoreEnums" {
     FormSearch = "form-search",
     ColorCircle = "color-circle",
     TagSimple = "tag-simple",
+    CounterWithActions = "counter-with-actions",
   }
 }
 
@@ -120,6 +121,11 @@ declare module "shared_core/SharedCoreProps" {
 
   export interface TagSimpleProps extends DefaultProps {
     onClick?: () => void;
+  }
+
+  export interface CounterWithActionsProps extends DefaultProps {
+    limit?: number;
+    onChange: (value: number) => void;
   }
 
   export interface SvgStarToFillProps extends DefaultProps {

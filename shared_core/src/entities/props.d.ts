@@ -72,6 +72,11 @@ export interface TagSimpleProps extends DefaultProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
+export interface CounterWithActionsProps extends DefaultProps {
+  limit?: number;
+  onChange: (value: number) => void;
+}
+
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
     DefaultProps {

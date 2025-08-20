@@ -25,6 +25,7 @@ const Component = {
   FormSearch: "form-search",
   ColorCircle: "color-circle",
   TagSimple: "tag-simple",
+  CounterWithActions: "counter-with-actions",
 };
 
 module.exports = {

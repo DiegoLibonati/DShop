@@ -45,6 +45,7 @@ declare module "shared_core/SharedCoreEnums" {
     FormSearch = "form-search",
     ColorCircle = "color-circle",
     TagSimple = "tag-simple",
+    CounterWithActions = "counter-with-actions",
   }
 }
 

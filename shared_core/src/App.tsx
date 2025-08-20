@@ -24,9 +24,10 @@ import { AnchorCircular } from "@src/components/Anchors/AnchorCircular/AnchorCir
 import { MenuScreenWhite } from "@src/components/Menus/MenuScreenWhite/MenuScreenWhite";
 import { FormSearch } from "@src/components/Forms/FormSearch/FormSearch";
 import { ColorCircle } from "@src/components/Colors/ColorCircle/ColorCircle";
+import { TagSimple } from "@src/components/Tags/TagSimple/TagSimple";
+import { CounterWithActions } from "@src/components/Counters/CounterWithActions/CounterWithActions";
 
 import "@src/App.css";
-import { TagSimple } from "./components/Tags/TagSimple/TagSimple";
 
 export const App = () => {
   return (
@@ -164,6 +165,15 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">Tag Simple</h2>
         <TagSimple className="tag-simple-test">Large</TagSimple>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Counter With Actions</h2>
+        <CounterWithActions
+          onChange={(value) => {
+            console.log(value);
+          }}
+        ></CounterWithActions>
       </div>
 
       <div className="component">
