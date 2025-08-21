@@ -21,6 +21,7 @@ export class AppTestComponent {
     name: "DShop",
     className: "header-test",
     onClickMenu: this.onHeaderDefaultClickMenu.bind(this),
+    onClickTitle: this.onHeaderDefaultClickTitle.bind(this),
     onSubmitSearch: this.onHeaderDefaultSubmitSearch.bind(this),
     onClickSearch: this.onHeaderDefaultClickSearch.bind(this),
     onClickCart: this.onHeaderDefaultClickCart.bind(this),
@@ -45,6 +46,14 @@ export class AppTestComponent {
   onHeaderDefaultClickMenu(e: MouseEvent): void {
     console.log(
       "Executed in shared_angular - ClickMenu: ",
+      this.componentName,
+      e
+    );
+  }
+
+  onHeaderDefaultClickTitle(e: MouseEvent): void {
+    console.log(
+      "Executed in shared_angular - ClickTitle: ",
       this.componentName,
       e
     );

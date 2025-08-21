@@ -15,6 +15,7 @@ export const Header = ({
   children,
   onClickCart,
   onClickMenu,
+  onClickTitle,
   onClickSearch,
   onSubmitSearch,
 }: HeaderProps) => {
@@ -43,6 +44,7 @@ export const Header = ({
       className: className,
       onClickCart: onClickCart,
       onClickMenu: onClickMenu,
+      onClickTitle: onClickTitle,
       onClickSearch: onClickSearch,
       onSubmitSearch: onSubmitSearch,
     });

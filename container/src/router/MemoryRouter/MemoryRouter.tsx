@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import PublicRoutes from "@src/routes/PublicRoutes/PublicRoutes";
 
-export const HashRouter = () => {
+export const MemoryRouter = () => {
   return (
     <Routes>
       <Route path="/*" element={<PublicRoutes></PublicRoutes>}></Route>

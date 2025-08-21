@@ -91,6 +91,7 @@ declare module "shared_angular/SharedAngularProps" {
     name: string;
     isFixed?: boolean;
     onClickMenu: (e: MouseEvent) => void;
+    onClickTitle: (e: MouseEvent) => void;
     onSubmitSearch: (inputValue: string) => void;
     onClickSearch: (e: MouseEvent) => void;
     onClickCart: (e: MouseEvent) => void;

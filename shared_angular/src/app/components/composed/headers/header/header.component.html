@@ -17,7 +17,9 @@
       ></svg-hamburger-menu>
     </button>
 
-    <h2 class="header__logo-title">{{ name }}</h2>
+    <h2 class="header__logo-title" (click)="onClickTitle($event)">
+      {{ name }}
+    </h2>
   </div>
 
   <nav [attr.id]="'slot-' + idRoot" class="header__options">

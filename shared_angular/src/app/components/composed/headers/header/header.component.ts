@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() onClickMenu: HeaderProps["onClickMenu"] =
     this.onDefaultClickMenu.bind(this);
+  @Input() onClickTitle: HeaderProps["onClickTitle"] =
+    this.onDefaultClickTitle.bind(this);
   @Input() onSubmitSearch: HeaderProps["onSubmitSearch"] =
     this.onDefaultSubmitSearch.bind(this);
   @Input() onClickSearch: HeaderProps["onClickSearch"] =
@@ -57,6 +59,14 @@ export class HeaderComponent implements OnInit {
   onDefaultClickMenu(e: MouseEvent): void {
     console.log(
       "Executed in shared_angular - ClickMenu: ",
+      this.componentName,
+      e
+    );
+  }
+
+  onDefaultClickTitle(e: MouseEvent): void {
+    console.log(
+      "Executed in shared_angular - ClickTitle: ",
       this.componentName,
       e
     );

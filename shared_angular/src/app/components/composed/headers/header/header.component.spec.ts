@@ -14,6 +14,7 @@ import { SvgCartShoppingComponent } from "@src/app/components/core/svgs/svg-cart
 type RenderComponent = {
   props: HeaderProps & {
     onClickMenu: jest.Mock;
+    onClickTitle: jest.Mock;
     onSubmitSearch: jest.Mock;
     onClickSearch: jest.Mock;
     onClickCart: jest.Mock;
@@ -24,6 +25,7 @@ type RenderComponent = {
 const renderComponent = async (isFixed: boolean): Promise<RenderComponent> => {
   const props: HeaderProps & {
     onClickMenu: jest.Mock;
+    onClickTitle: jest.Mock;
     onSubmitSearch: jest.Mock;
     onClickSearch: jest.Mock;
     onClickCart: jest.Mock;
@@ -31,6 +33,7 @@ const renderComponent = async (isFixed: boolean): Promise<RenderComponent> => {
     name: "namecito",
     isFixed: isFixed,
     onClickCart: jest.fn(),
+    onClickTitle: jest.fn(),
     onClickMenu: jest.fn(),
     onClickSearch: jest.fn(),
     onSubmitSearch: jest.fn(),
@@ -101,6 +104,19 @@ describe("header.component.ts", () => {
 
       expect(props.onClickMenu).toHaveBeenCalledTimes(1);
       expect(props.onClickMenu).toHaveBeenCalledWith(expect.any(Event));
+    });
+
+    test("The onClickTitle function must be executed when is clicked.", async () => {
+      const { props } = await renderComponent(isFixed);
+
+      const title = screen.getByRole("heading", {
+        name: props.name,
+      }) as HTMLHeadingElement;
+
+      await user.click(title);
+
+      expect(props.onClickTitle).toHaveBeenCalledTimes(1);
+      expect(props.onClickTitle).toHaveBeenCalledWith(expect.any(Event));
     });
   });
 

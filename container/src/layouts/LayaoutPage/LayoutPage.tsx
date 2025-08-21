@@ -17,6 +17,8 @@ import { HeaderOption } from "@src/components/composed/Headers/HeaderOption/Head
 import { FooterSection } from "@src/components/composed/Footers/FooterSection/FooterSection";
 import { LoaderScreen } from "@src/components/core/Loaders/LoaderScreen/LoaderScreen";
 
+import { useRouter } from "@src/hooks/useRouter";
+
 import { getFooterLinks } from "@src/helpers/getFooterLinks";
 import { getHeaderOptions } from "@src/helpers/getHeaderOptions";
 
@@ -62,6 +64,8 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
 
   const idsLayouts = useRef<string[]>(getIdsByLength(4));
 
+  const { navigateToHome } = useRouter();
+
   const handleClickMenuClose = () => {
     setIsMenuOpen(false);
   };
@@ -72,6 +76,10 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
 
   const handleClickMenu = (e: MouseEvent) => {
     setIsMenuOpen(true);
+  };
+
+  const handleClickTitle = (e: MouseEvent) => {
+    navigateToHome();
   };
 
   const handleClickSearch = (e: MouseEvent) => {
@@ -138,6 +146,7 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
           isFixed={true}
           onClickCart={handleClickCart}
           onClickMenu={handleClickMenu}
+          onClickTitle={handleClickTitle}
           onClickSearch={handleClickSearch}
           onSubmitSearch={handleSubmitSearch}
         >
