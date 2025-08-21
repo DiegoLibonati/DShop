@@ -5,6 +5,8 @@ import { Review } from "@src/entities/entities";
 import ReviewCustomer from "@src/components/core/Reviews/ReviewCustomer/ReviewCustomer";
 import { CarrouselWithTitleAndArrows } from "@src/components/composed/Carrousels/CarrouselWithTitleAndArrows/CarrouselWithTitleAndArrows";
 
+import { useHappyCustomersContext } from "@src/contexts/HappyCustomers/HappyCustomersContext";
+
 import { reviews as reviewsList } from "@src/constants/reviews";
 
 import { getIdsByLength } from "shared_core/SharedCore";
@@ -12,9 +14,9 @@ import { getIdsByLength } from "shared_core/SharedCore";
 import "@src/containers/OurHappyCustomersSection/OurHappyCustomersSection.css";
 
 export const OurHappyCustomersSection = () => {
-  const [reviews, SetReviews] = useState<Review[]>([]);
-
   const [idsReviews, setIdsReviews] = useState<string[]>([]);
+
+  const { reviews, handleSetReviews } = useHappyCustomersContext();
 
   const clearIdsRoot = () => {
     setIdsReviews([]);
@@ -23,7 +25,7 @@ export const OurHappyCustomersSection = () => {
   const onInit = () => {
     const reviews: Review[] = reviewsList;
 
-    SetReviews(reviews);
+    handleSetReviews(reviews);
   };
 
   const onReviewsChange = () => {
@@ -43,7 +45,7 @@ export const OurHappyCustomersSection = () => {
     <section className="our-happy-customers">
       <CarrouselWithTitleAndArrows>
         {idsReviews.length > 0 &&
-          reviews.map((r, i) => {
+          reviews!.map((r, i) => {
             return (
               <ReviewCustomer
                 key={r.id}

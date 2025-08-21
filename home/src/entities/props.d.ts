@@ -1,4 +1,4 @@
-import { IllustrationType } from "@src/entities/entities";
+import { DressStyle } from "@src/entities/entities";
 
 import { Locale } from "shared_core/SharedCoreEntities";
 
@@ -15,7 +15,7 @@ export interface GallerySectionLayoutProps extends DefaultProps {
 }
 
 export interface IllustrationWithTitleProps extends DefaultProps {
-  type: IllustrationType;
+  type: DressStyle;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 

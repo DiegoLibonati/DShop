@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { Clothes } from "@src/entities/entities";
-
 import { SliderSnapX } from "@src/components/core/Sliders/SliderSnapX/SliderSnapX";
 import { ItemClothes } from "@src/components/core/Items/ItemClothes/ItemClothes";
 
 import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GallerySectionLayout";
+
+import { useTopSellingsContext } from "@src/contexts/TopSellings/TopSellingsContext";
 
 import { lang } from "@src/constants/lang";
 import { clothesList } from "@src/constants/clothes";
@@ -15,12 +15,12 @@ import { getIdsByLength } from "shared_core/SharedCore";
 import "@src/containers/TopSellingSection/TopSellingSection.css";
 
 export const TopSellingSection = () => {
-  const [topSellings, setTopSellings] = useState<Clothes[] | null>(null);
-
   const [idsClothesMobile, setIdsClothesMobile] = useState<string[]>([]);
   const [idsClothesDesktop, setIdsClothesDesktop] = useState<string[]>([]);
 
   const idTopSellingSlider = useRef<string[]>(getIdsByLength(1));
+
+  const { topSellings, handleSetTopSellings } = useTopSellingsContext();
 
   const handleClickViewAll = () => {
     console.log("View All Top Sellings");
@@ -32,7 +32,7 @@ export const TopSellingSection = () => {
   };
 
   const onInit = () => {
-    setTopSellings(clothesList);
+    handleSetTopSellings(clothesList);
   };
 
   const onTopSellingsChange = () => {

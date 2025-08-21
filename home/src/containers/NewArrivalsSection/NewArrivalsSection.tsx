@@ -1,11 +1,11 @@
-import React, { use, useEffect, useRef, useState } from "react";
-
-import { Clothes } from "@src/entities/entities";
+import React, { useEffect, useRef, useState } from "react";
 
 import { SliderSnapX } from "@src/components/core/Sliders/SliderSnapX/SliderSnapX";
 import { ItemClothes } from "@src/components/core/Items/ItemClothes/ItemClothes";
 
 import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GallerySectionLayout";
+
+import { useNewArrivalsContext } from "@src/contexts/NewArrivals/NewArrivalsContext";
 
 import { lang } from "@src/constants/lang";
 import { clothesList } from "@src/constants/clothes";
@@ -15,12 +15,12 @@ import { getIdsByLength } from "shared_core/SharedCore";
 import "@src/containers/NewArrivalsSection/NewArrivalsSection.css";
 
 export const NewArrivalsSection = () => {
-  const [newArrivals, setNewArrivals] = useState<Clothes[] | null>(null);
-
   const [idsClothesMobile, setIdsClothesMobile] = useState<string[]>([]);
   const [idsClothesDesktop, setIdsClothesDesktop] = useState<string[]>([]);
 
   const idArrivalSlider = useRef<string[]>(getIdsByLength(1));
+
+  const { newArrivals, handleSetNewArrivals } = useNewArrivalsContext();
 
   const handleClickViewAll = () => {
     console.log("View All New Arrivals");
@@ -32,7 +32,7 @@ export const NewArrivalsSection = () => {
   };
 
   const onInit = () => {
-    setNewArrivals(clothesList);
+    handleSetNewArrivals(clothesList);
   };
 
   const onNewArrivalsChange = () => {

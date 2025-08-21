@@ -3,6 +3,12 @@ import { createRoot, Root } from "react-dom/client";
 
 import { App } from "@src/App";
 
+import { BrandsProvider } from "@src/contexts/Brands/BrandsContext";
+import { NewArrivalsProvider } from "@src/contexts/NewArrivals/NewArrivalsContext";
+import { TopSellingsProvider } from "@src/contexts/TopSellings/TopSellingsContext";
+import { DressStylesProvider } from "@src/contexts/DressStyles/DressStylesContext";
+import { HappyCustomersProvider } from "@src/contexts/HappyCustomers/HappyCustomersContext";
+
 import { IS_DEV } from "@src/constants/envs";
 
 const titleMfe: string = "Home";
@@ -13,7 +19,19 @@ const mount = (el: HTMLElement, debug: boolean = false) => {
     root = createRoot(el);
   }
 
-  root.render(<App />);
+  root.render(
+    <BrandsProvider>
+      <NewArrivalsProvider>
+        <TopSellingsProvider>
+          <DressStylesProvider>
+            <HappyCustomersProvider>
+              <App />
+            </HappyCustomersProvider>
+          </DressStylesProvider>
+        </TopSellingsProvider>
+      </NewArrivalsProvider>
+    </BrandsProvider>
+  );
 
   if (IS_DEV === "development" && debug) {
     console.log(`[mountComponent - ${titleMfe}] mounting ${titleMfe}`);

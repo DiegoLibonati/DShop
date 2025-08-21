@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import { IllustrationType } from "@src/entities/entities";
+import { DressStyle } from "@src/entities/entities";
 
 import { IllustrationWithTitle } from "@src/components/composed/Illustrations/IllustrationWithTitle/IllustrationWithTitle";
+
+import { useDressStylesContext } from "@src/contexts/DressStyles/DressStylesContext";
 
 import { lang } from "@src/constants/lang";
 
 import "@src/containers/BrowseByDressStyleSection/BrowseByDressStyleSection.css";
 
 export const BrowseByDressStyleSection = () => {
-  const [styles, setStyles] = useState<IllustrationType[]>([]);
+  const { dressStyles, handleSetDressStyles } = useDressStylesContext();
 
-  const handleClickStyle = (type: IllustrationType) => {
+  const handleClickStyle = (type: DressStyle) => {
     console.log("Type: ", type);
   };
 
   const onInit = () => {
-    const styles: IllustrationType[] = ["casual", "formal", "party", "gym"];
+    const styles: DressStyle[] = ["casual", "formal", "party", "gym"];
 
-    setStyles(styles);
+    handleSetDressStyles(styles);
   };
 
   useEffect(onInit, []);
@@ -30,15 +32,16 @@ export const BrowseByDressStyleSection = () => {
       </h2>
 
       <div className="browse-by-dress-style__styles">
-        {styles.map((style) => {
-          return (
-            <IllustrationWithTitle
-              key={`style-${style}`}
-              type={style}
-              onClick={() => handleClickStyle(style)}
-            ></IllustrationWithTitle>
-          );
-        })}
+        {dressStyles &&
+          dressStyles.map((ds) => {
+            return (
+              <IllustrationWithTitle
+                key={`style-${ds}`}
+                type={ds}
+                onClick={() => handleClickStyle(ds)}
+              ></IllustrationWithTitle>
+            );
+          })}
       </div>
     </div>
   );

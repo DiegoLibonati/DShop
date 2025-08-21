@@ -1,4 +1,4 @@
-export type Languages = "en";
+export type Brand = string;
 
 export type Clothes = {
   src: string;
@@ -8,7 +8,7 @@ export type Clothes = {
   discount: number;
 };
 
-export type IllustrationType = "casual" | "formal" | "party" | "gym";
+export type DressStyle = "casual" | "formal" | "party" | "gym";
 
 export type Review = {
   id: string;
