@@ -1,26 +1,13 @@
-import React, {
-  Fragment,
-  lazy,
-  Suspense,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { Fragment, lazy, Suspense, useRef } from "react";
 
 import { LayoutPageProps } from "@src/entities/props";
-import {
-  FooterSection as FooterSectionT,
-  HeaderOption as HeaderOptionT,
-} from "@src/entities/entities";
 
 import { HeaderOption } from "@src/components/composed/Headers/HeaderOption/HeaderOption";
 import { FooterSection } from "@src/components/composed/Footers/FooterSection/FooterSection";
 import { LoaderScreen } from "@src/components/core/Loaders/LoaderScreen/LoaderScreen";
 
 import { useRouter } from "@src/hooks/useRouter";
-
-import { getFooterLinks } from "@src/helpers/getFooterLinks";
-import { getHeaderOptions } from "@src/helpers/getHeaderOptions";
+import { usePublicPageContext } from "@src/contexts/PublicPage/PublicPageContext";
 
 import {
   FACEBOOK_LINK,
@@ -52,78 +39,28 @@ const FooterWithSubscribeNewsletterLazy = lazy(
 );
 
 const LayoutPage = ({ children }: LayoutPageProps) => {
-  const [headerOptions, setHeaderOptions] = useState<HeaderOptionT[]>(() =>
-    getHeaderOptions("en")
-  );
-  const [footerLinks, setFooterLinks] = useState<FooterSectionT[]>(() =>
-    getFooterLinks("en")
-  );
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [scrolled, setScrolled] = useState<boolean>(false);
-  const [notificationClosed, setNotificationClosed] = useState<boolean>(false);
-
   const idsLayouts = useRef<string[]>(getIdsByLength(4));
 
   const { navigateToHome } = useRouter();
+  const {
+    scrolled,
+    notificationClosed,
+    footerLinks,
+    headerOptions,
+    isMenuOpen,
+    handleClickCart,
+    handleClickCloseNotification,
+    handleClickHeaderOption,
+    handleClickMenu,
+    handleClickMenuClose,
+    handleClickSearch,
+    handleSubmitSearch,
+    handleSubmitSubscribeNewsletter,
+  } = usePublicPageContext();
 
-  const handleClickMenuClose = () => {
-    setIsMenuOpen(false);
-  };
-
-  const handleClickCart = (e: MouseEvent) => {
-    console.log("Click Cart ", e);
-  };
-
-  const handleClickMenu = (e: MouseEvent) => {
-    setIsMenuOpen(true);
-  };
-
-  const handleClickTitle = (e: MouseEvent) => {
+  const handleClickTitle = (_: MouseEvent) => {
     navigateToHome();
   };
-
-  const handleClickSearch = (e: MouseEvent) => {
-    setIsMenuOpen(true);
-  };
-
-  const handleSubmitSearch = (value: string) => {
-    console.log(value);
-  };
-
-  const handleSubmitSubscribeNewsletter = (value: string) => {
-    console.log("Subscribe Newsletter ", value);
-  };
-
-  const handleClickHeaderOption = () => {
-    console.log("Click header option");
-  };
-
-  const handleClickCloseNotification = () => {
-    setNotificationClosed(true);
-  };
-
-  const onLanguageChange = () => {
-    const lng = "en";
-
-    setHeaderOptions(getHeaderOptions(lng));
-    setFooterLinks(getFooterLinks(lng));
-  };
-
-  const onWindowScroll = () => {
-    const scrollY = window.scrollY;
-
-    if (!scrollY) return setScrolled(false);
-    return setScrolled(true);
-  };
-
-  useEffect(onLanguageChange, []);
-  useEffect(() => {
-    window.addEventListener("scroll", onWindowScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onWindowScroll);
-    };
-  }, []);
 
   return (
     <Suspense

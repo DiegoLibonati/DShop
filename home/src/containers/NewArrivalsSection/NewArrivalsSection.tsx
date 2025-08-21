@@ -23,7 +23,7 @@ export const NewArrivalsSection = () => {
   const { newArrivals, handleSetNewArrivals } = useNewArrivalsContext();
 
   const handleClickViewAll = () => {
-    console.log("View All New Arrivals");
+    alert("Not configured.");
   };
 
   const clearIdsRoot = () => {
@@ -44,6 +44,10 @@ export const NewArrivalsSection = () => {
 
     setIdsClothesMobile(getIdsByLength(newArrivals!.length));
     setIdsClothesDesktop(getIdsByLength(newArrivals!.length));
+  };
+
+  const handleClickItem = () => {
+    alert("Not configured.");
   };
 
   useEffect(onInit, []);
@@ -73,6 +77,7 @@ export const NewArrivalsSection = () => {
                   name={c.name}
                   price={c.price}
                   rate={c.rate}
+                  onClick={handleClickItem}
                 ></ItemClothes>
               );
             })}
@@ -91,6 +96,7 @@ export const NewArrivalsSection = () => {
                 name={c.name}
                 price={c.price}
                 rate={c.rate}
+                onClick={handleClickItem}
               ></ItemClothes>
             );
           })}

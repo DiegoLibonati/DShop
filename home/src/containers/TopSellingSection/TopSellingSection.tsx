@@ -23,7 +23,7 @@ export const TopSellingSection = () => {
   const { topSellings, handleSetTopSellings } = useTopSellingsContext();
 
   const handleClickViewAll = () => {
-    console.log("View All Top Sellings");
+    alert("Not configured.");
   };
 
   const clearIdsRoot = () => {
@@ -44,6 +44,10 @@ export const TopSellingSection = () => {
 
     setIdsClothesMobile(getIdsByLength(topSellings!.length));
     setIdsClothesDesktop(getIdsByLength(topSellings!.length));
+  };
+
+  const handleClickItem = () => {
+    alert("Not configured.");
   };
 
   useEffect(onInit, []);
@@ -73,6 +77,7 @@ export const TopSellingSection = () => {
                   name={c.name}
                   price={c.price}
                   rate={c.rate}
+                  onClick={handleClickItem}
                 ></ItemClothes>
               );
             })}

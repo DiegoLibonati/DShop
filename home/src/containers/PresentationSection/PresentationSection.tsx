@@ -15,6 +15,10 @@ import "@src/containers/PresentationSection/PresentationSection.css";
 export const PresentationSection = () => {
   const idsPresentation = useRef<string[]>(getIdsByLength(5));
 
+  const handleClickShopNow = () => {
+    alert("Not configured.");
+  };
+
   return (
     <section className="presentation">
       <article className="presentation-information">
@@ -30,6 +34,7 @@ export const PresentationSection = () => {
           className="presentation-information__shop-now"
           classNameWrapper="presentation-information__shop-now-wrapper"
           rounded={true}
+          onClick={handleClickShopNow}
         >
           {lang["en"].presentation.button_shop_now}
         </ButtonBlack>

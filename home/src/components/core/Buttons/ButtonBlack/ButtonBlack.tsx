@@ -10,7 +10,8 @@ export const ButtonBlack = ({
   rounded,
   language,
   className,
-  classNameWrapper
+  classNameWrapper,
+  onClick,
 }: ButtonBlackProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -21,6 +22,7 @@ export const ButtonBlack = ({
       rounded: rounded,
       language: language,
       className: className,
+      onClick: onClick,
     });
   };
 

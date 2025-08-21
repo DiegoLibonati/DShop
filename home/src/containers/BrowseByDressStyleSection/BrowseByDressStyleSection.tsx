@@ -14,7 +14,7 @@ export const BrowseByDressStyleSection = () => {
   const { dressStyles, handleSetDressStyles } = useDressStylesContext();
 
   const handleClickStyle = (type: DressStyle) => {
-    console.log("Type: ", type);
+    alert("Not configured.");
   };
 
   const onInit = () => {
