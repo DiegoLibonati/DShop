@@ -1,12 +1,7 @@
 import React from "react";
-import { MemoryRouter as MemoryRouterDom } from "react-router-dom";
 
-import { MemoryRouter as MemoryRouterApp } from "@src/router/MemoryRouter/MemoryRouter";
+import { HashRouter as HashRouterApp } from "@src/router/HashRouter/HashRouter";
 
 export const App = () => {
-  return (
-    <MemoryRouterDom>
-      <MemoryRouterApp></MemoryRouterApp>
-    </MemoryRouterDom>
-  );
+  return <HashRouterApp></HashRouterApp>;
 };

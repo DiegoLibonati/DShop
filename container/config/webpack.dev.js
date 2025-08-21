@@ -25,6 +25,7 @@ module.exports = merge(commonConfig, {
         shared_react: "shared_react@http://localhost:8082/remoteEntry.js",
         shared_angular: "shared_angular@http://localhost:8083/remoteEntry.js",
         shared_core: "shared_core@http://localhost:8084/remoteEntry.js",
+        product_detail: "product_detail@http://localhost:8085/remoteEntry.js",
       },
       shared: packageJson.dependencies,
     }),

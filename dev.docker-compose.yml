@@ -36,6 +36,25 @@ services:
     networks:
       - dshop-dev-net
 
+  dshop-product-detail:
+    build:
+      context: ./product_detail
+      dockerfile: Dockerfile.development
+    restart: always
+    env_file:
+      - ./product_detail/.env
+    volumes:
+      - ./product_detail/src:/home/app/src
+    ports:
+      - 8085:8085
+    depends_on:
+      dshop-shared-react:
+        condition: service_started
+      dshop-shared-angular:
+        condition: service_started
+    networks:
+      - dshop-dev-net
+
   dshop-shared-react:
     build:
       context: ./shared_react

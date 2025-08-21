@@ -8,6 +8,7 @@ import {
   SubscribeNewsletterProps,
 } from "@src/entities/props";
 import { Component } from "@src/entities/enum.d";
+import { MountOptions, UnMountOptions } from "@src/entities/entities";
 
 import { App } from "@src/App";
 import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClothes";
@@ -53,12 +54,14 @@ export const getComponentById = (
 const mountComponent = (
   el: HTMLDivElement,
   idComponent: Component,
-  props: Record<string, unknown> = {},
-  debug: boolean = false
+  props?: Record<string, unknown>,
+  options?: MountOptions
 ) => {
   // console.log("Element:", el);
   // console.log("Id Componente a renderizar: ", idComponent);
   // console.log("Props: ", props);
+
+  const debug = options?.debug;
 
   if (!IS_DEV && idComponent === Component.AppTest) {
     throw new Error(
@@ -74,7 +77,7 @@ const mountComponent = (
     );
   }
 
-  const reactNode = getComponentById(idComponent, props);
+  const reactNode = getComponentById(idComponent, props!);
   const rootExists = roots[idRootComponent];
 
   if (rootExists) {
@@ -92,7 +95,8 @@ const mountComponent = (
   }
 };
 
-const unMountComponent = (idRoot: string, debug: boolean = false) => {
+const unMountComponent = (idRoot: string, options: UnMountOptions) => {
+  const debug = options?.debug;
   const rootExists = roots[idRoot];
 
   if (!rootExists) {
@@ -101,7 +105,7 @@ const unMountComponent = (idRoot: string, debug: boolean = false) => {
     );
   }
 
-  rootExists.unmount();
+  requestAnimationFrame(() => rootExists.unmount());
   delete roots[idRoot];
 
   if (IS_DEV === "development" && debug) {

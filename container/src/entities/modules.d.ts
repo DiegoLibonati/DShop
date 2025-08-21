@@ -1,6 +1,21 @@
+type Debug = boolean;
+
+type MountOptions = {
+  debug?: Debug;
+};
+
+type UnMountOptions = {
+  debug?: Debug;
+};
+
 declare module "home/HomeApp" {
-  export const mount: (el: HTMLElement) => void;
-  export const unMount: (debug: boolean = false) => void;
+  export const mount: (el: HTMLElement, options?: MountOptions) => void;
+  export const unMount: (options?: UnMountOptions) => void;
+}
+
+declare module "product_detail/ProductDetailApp" {
+  export const mount: (el: HTMLElement, options?: MountOptions) => void;
+  export const unMount: (options?: UnMountOptions) => void;
 }
 
 declare module "shared_react/SharedReact" {
@@ -9,9 +24,13 @@ declare module "shared_react/SharedReact" {
   export const mountComponent: (
     el: HTMLDivElement,
     idComponent: Component,
-    props: Record<string, unknown> = {}
+    props?: Record<string, unknown>,
+    options?: MountOptions
   ) => void;
-  export const unMountComponent: (idRoot: string) => void;
+  export const unMountComponent: (
+    idRoot: string,
+    options?: UnMountOptions
+  ) => void;
 }
 
 declare module "shared_react/SharedReactEnums" {
@@ -70,9 +89,13 @@ declare module "shared_angular/SharedAngular" {
   export const mountComponent: (
     el: HTMLElement,
     id: Component,
-    props: Record<string, unknown> = {}
+    props?: Record<string, unknown>,
+    options?: MountOptions
   ) => void;
-  export const unMountComponent: (idRoot: string) => void;
+  export const unMountComponent: (
+    idRoot: string,
+    options?: UnMountOptions
+  ) => void;
 }
 
 declare module "shared_angular/SharedAngularEnums" {
@@ -122,9 +145,13 @@ declare module "shared_core/SharedCore" {
   export const mountComponent: (
     el: HTMLDivElement,
     idComponent: Component,
-    props?: Record<string, unknown>
+    props?: Record<string, unknown>,
+    options?: MountOptions
   ) => void;
-  export const unMountComponent: (idRoot: string) => void;
+  export const unMountComponent: (
+    idRoot: string,
+    options?: UnMountOptions
+  ) => void;
   export const getIdsByLength: (length: number) => string[];
 }
 

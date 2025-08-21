@@ -1,3 +1,13 @@
+export type MountOptions = {
+  debug?: Debug;
+};
+
+export type UnMountOptions = {
+  debug?: Debug;
+};
+
+export type Debug = boolean;
+
 export type Brand = string;
 
 export type Clothes = {

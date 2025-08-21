@@ -1,17 +1,31 @@
+type Debug = boolean;
+
+type MountOptions = {
+  debug?: Debug;
+};
+
+type UnMountOptions = {
+  debug?: Debug;
+};
+
 declare module "shared_core/SharedCore" {
   import { Component } from "shared_core/SharedCoreEnums";
 
   export const mountComponent: (
     el: HTMLDivElement,
     idComponent: Component,
-    props: Record<string, unknown> = {}
+    props?: Record<string, unknown>,
+    options?: MountOptions
   ) => void;
-  export const unMountComponent: (idRoot: string) => void;
+  export const unMountComponent: (
+    idRoot: string,
+    options?: UnMountOptions
+  ) => void;
+  export const getIdsByLength: (length: number) => string[];
   export const getFinalPriceByDiscount: (
     price: number,
     discount: number
   ) => number;
-  export const getIdsByLength: (length: number) => string[];
 }
 
 declare module "shared_core/SharedCoreEntities" {

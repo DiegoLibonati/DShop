@@ -1,6 +1,8 @@
 import React from "react";
 import { createRoot, Root } from "react-dom/client";
 
+import { MountOptions, UnMountOptions } from "@src/entities/entities";
+
 import { App } from "@src/App";
 
 import { BrandsProvider } from "@src/contexts/Brands/BrandsContext";
@@ -14,7 +16,9 @@ import { IS_DEV } from "@src/constants/envs";
 const titleMfe: string = "Home";
 let root: Root | null = null;
 
-const mount = (el: HTMLElement, debug: boolean = false) => {
+const mount = (el: HTMLElement, options?: MountOptions) => {
+  const debug = options?.debug;
+
   if (!root) {
     root = createRoot(el);
   }
@@ -38,14 +42,16 @@ const mount = (el: HTMLElement, debug: boolean = false) => {
   }
 };
 
-const unMount = (debug: boolean = false) => {
+const unMount = (options?: UnMountOptions) => {
+  const debug = options?.debug;
+
   if (!root) {
     throw new Error(
       `[unMountComponent - ${titleMfe}] No MFE found ${titleMfe}`
     );
   }
 
-  root.unmount();
+  root!.unmount();
   root = null;
 
   if (IS_DEV === "development" && debug) {

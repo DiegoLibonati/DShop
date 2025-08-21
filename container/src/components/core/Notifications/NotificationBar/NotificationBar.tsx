@@ -46,7 +46,7 @@ const NotificationBar = ({
 
   const onDestroy = () => {
     cancelAnimationFrame(raf.current!);
-    slotRootChildren.current?.unmount();
+    requestAnimationFrame(() => slotRootChildren.current?.unmount());
     slotRootChildren.current = null;
     unMountComponent(idRoot);
   };

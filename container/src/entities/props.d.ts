@@ -13,6 +13,8 @@ interface DefaultProps {
 
 export interface AppHomeProps extends DefaultProps {}
 
+export interface AppProductDetailProps extends DefaultProps {}
+
 export interface LayoutPageProps extends DefaultProps {}
 
 export interface HeaderOptionProps extends DefaultProps {

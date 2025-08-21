@@ -11,6 +11,7 @@ import {
 } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
+import { MountOptions, UnMountOptions } from "@src/app/entities/entities";
 import { Component } from "@src/app/entities/enum";
 
 import { AppModule } from "@src/app/app.module";
@@ -40,16 +41,18 @@ const getComponentById = (idComponent: Component): Type<unknown> => {
 const mountComponent = async (
   el: HTMLElement,
   id: Component,
-  props: Record<string, unknown> = {},
-  debug: boolean = false
+  props?: Record<string, unknown>,
+  options?: MountOptions
 ): Promise<void> => {
+  const debug = options?.debug;
+
   if (!IS_DEV && id === Component.AppTest) {
     throw new Error(
       `[mountComponent - ${titleMfe}] You cannot render this component. Component: ${id}`
     );
   }
 
-  const idRoot = props.idRoot as string;
+  const idRoot = props?.idRoot as string;
 
   if (!idRoot) {
     throw new Error(
@@ -90,7 +93,8 @@ const mountComponent = async (
   }
 };
 
-const unMountComponent = (idRoot: string, debug: boolean = false): void => {
+const unMountComponent = (idRoot: string, options?: UnMountOptions): void => {
+  const debug = options?.debug;
   const compRef = componentsMap[idRoot];
 
   if (!compRef) {
