@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { Clothes } from "@src/entities/entities";
+
 import { SliderSnapX } from "@src/components/core/Sliders/SliderSnapX/SliderSnapX";
 import { ItemClothes } from "@src/components/core/Items/ItemClothes/ItemClothes";
 
 import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GallerySectionLayout";
 
+import { useConfigContext } from "@src/contexts/Config/ConfigContext";
 import { useTopSellingsContext } from "@src/contexts/TopSellings/TopSellingsContext";
 
 import { lang } from "@src/constants/lang";
@@ -20,6 +23,7 @@ export const TopSellingSection = () => {
 
   const idTopSellingSlider = useRef<string[]>(getIdsByLength(1));
 
+  const { callbacks } = useConfigContext();
   const { topSellings, handleSetTopSellings } = useTopSellingsContext();
 
   const handleClickViewAll = () => {
@@ -46,8 +50,10 @@ export const TopSellingSection = () => {
     setIdsClothesDesktop(getIdsByLength(topSellings!.length));
   };
 
-  const handleClickItem = () => {
-    alert("Not configured.");
+  const handleClickItem = (c: Clothes) => {
+    const id = c.id;
+
+    callbacks?.navigateToProductDetail(id);
   };
 
   useEffect(onInit, []);
@@ -77,7 +83,7 @@ export const TopSellingSection = () => {
                   name={c.name}
                   price={c.price}
                   rate={c.rate}
-                  onClick={handleClickItem}
+                  onClick={() => handleClickItem(c)}
                 ></ItemClothes>
               );
             })}
@@ -96,6 +102,7 @@ export const TopSellingSection = () => {
                 name={c.name}
                 price={c.price}
                 rate={c.rate}
+                onClick={() => handleClickItem(c)}
               ></ItemClothes>
             );
           })}

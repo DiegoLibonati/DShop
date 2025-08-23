@@ -8,12 +8,24 @@ services:
     env_file:
       - ./container/.env
     volumes:
-      - ./container/src:/home/app/src
+      - ./container:/home/app:rw
+      - ./shared_core-types:/home/shared_core-types:ro
+      - ./shared_react-types:/home/shared_react-types:ro
+      - ./shared_angular-types:/home/shared_angular-types:ro
+      - ./product_detail-types:/home/product_detail-types:ro
+      - ./home-types:/home/home-types:ro
+      - dshop_container_node_modules:/home/app/node_modules
     ports:
       - 8080:8080
     depends_on:
       dshop-home:
         condition: service_started
+    command: >
+      sh -c "
+        npm config set install-links true &&
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
@@ -25,7 +37,11 @@ services:
     env_file:
       - ./home/.env
     volumes:
-      - ./home/src:/home/app/src
+      - ./home:/home/app:rw
+      - ./shared_core-types:/home/shared_core-types:ro
+      - ./shared_react-types:/home/shared_react-types:ro
+      - ./shared_angular-types:/home/shared_angular-types:ro
+      - dshop_home_node_modules:/home/app/node_modules
     ports:
       - 8081:8081
     depends_on:
@@ -33,6 +49,12 @@ services:
         condition: service_started
       dshop-shared-angular:
         condition: service_started
+    command: >
+      sh -c "
+        npm config set install-links true &&
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
@@ -44,7 +66,9 @@ services:
     env_file:
       - ./product_detail/.env
     volumes:
-      - ./product_detail/src:/home/app/src
+      - ./product_detail:/home/app:rw
+      - ./shared_core-types:/home/shared_core-types:ro
+      - dshop_product_detail_node_modules:/home/app/node_modules
     ports:
       - 8085:8085
     depends_on:
@@ -52,6 +76,12 @@ services:
         condition: service_started
       dshop-shared-angular:
         condition: service_started
+    command: >
+      sh -c "
+        npm config set install-links true &&
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
@@ -63,12 +93,20 @@ services:
     env_file:
       - ./shared_react/.env
     volumes:
-      - ./shared_react/src:/home/app/src
+      - ./shared_react:/home/app:rw
+      - ./shared_core-types:/home/shared_core-types:ro
+      - dshop_shared_react_node_modules:/home/app/node_modules
     ports:
       - 8082:8082
     depends_on:
       dshop-shared-core:
         condition: service_started
+    command: >
+      sh -c "
+        npm config set install-links true &&
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
@@ -80,12 +118,20 @@ services:
     env_file:
       - ./shared_angular/.env
     volumes:
-      - ./shared_angular/src:/home/app/src
+      - ./shared_angular:/home/app:rw
+      - ./shared_core-types:/home/shared_core-types:ro
+      - dshop_shared_angular_node_modules:/home/app/node_modules
     ports:
       - 8083:8083
     depends_on:
       dshop-shared-core:
         condition: service_started
+    command: >
+      sh -c "
+        npm config set install-links true &&
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
@@ -97,11 +143,25 @@ services:
     env_file:
       - ./shared_core/.env
     volumes:
-      - ./shared_core/src:/home/app/src
+      - ./shared_core:/home/app:rw
+      - dshop_shared_core_node_modules:/home/app/node_modules
     ports:
       - 8084:8084
+    command: >
+      sh -c "
+        npm install &&
+        npm run start
+      "
     networks:
       - dshop-dev-net
 
 networks:
   dshop-dev-net:
+
+volumes:
+  dshop_shared_core_node_modules:
+  dshop_shared_react_node_modules:
+  dshop_shared_angular_node_modules:
+  dshop_product_detail_node_modules:
+  dshop_home_node_modules:
+  dshop_container_node_modules:

@@ -1,0 +1,14 @@
+**/node_modules
+node_modules
+
+**/dist
+**/build
+**/.next
+**/coverage
+**/.turbo
+**/.cache
+
+.git
+.gitignore
+.DS_Store
+*.log

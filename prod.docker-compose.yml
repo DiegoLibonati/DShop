@@ -2,8 +2,8 @@ name: dshop-prod
 services:
   dshop-container:
     build:
-      context: ./container
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./container/Dockerfile.production
     restart: always
     env_file:
       - ./container/.env
@@ -17,8 +17,8 @@ services:
 
   dshop-home:
     build:
-      context: ./home
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./home/Dockerfile.production
     restart: always
     env_file:
       - ./home/.env
@@ -34,8 +34,8 @@ services:
 
   dshop-product-detail:
     build:
-      context: ./product_detail
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./product_detail/Dockerfile.production
     restart: always
     env_file:
       - ./product_detail/.env
@@ -51,8 +51,8 @@ services:
 
   dshop-shared-react:
     build:
-      context: ./shared_react
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./shared_react/Dockerfile.production
     restart: always
     env_file:
       - ./shared_react/.env
@@ -66,8 +66,8 @@ services:
 
   dshop-shared-angular:
     build:
-      context: ./shared_angular
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./shared_angular/Dockerfile.production
     restart: always
     env_file:
       - ./shared_angular/.env
@@ -81,8 +81,8 @@ services:
 
   dshop-shared-core:
     build:
-      context: ./shared_core
-      dockerfile: Dockerfile.production
+      context: .
+      dockerfile: ./shared_core/Dockerfile.production
     restart: always
     env_file:
       - ./shared_core/.env

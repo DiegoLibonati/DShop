@@ -10,7 +10,12 @@ export const useRouter = (): UseRouter => {
     navigate("/");
   };
 
+  const navigateToProductDetail = (id: string) => {
+    navigate(`/product/${id}`);
+  };
+
   return {
     navigateToHome: navigateToHome,
+    navigateToProductDetail: navigateToProductDetail,
   };
 };

@@ -5,6 +5,7 @@ import { MountOptions, UnMountOptions } from "@src/entities/entities";
 
 import { App } from "@src/App";
 
+import { ConfigProvider } from "@src/contexts/Config/ConfigContext";
 import { BrandsProvider } from "@src/contexts/Brands/BrandsContext";
 import { NewArrivalsProvider } from "@src/contexts/NewArrivals/NewArrivalsContext";
 import { TopSellingsProvider } from "@src/contexts/TopSellings/TopSellingsContext";
@@ -16,7 +17,8 @@ import { IS_DEV } from "@src/constants/envs";
 const titleMfe: string = "Home";
 let root: Root | null = null;
 
-const mount = (el: HTMLElement, options?: MountOptions) => {
+const mount = (el: HTMLElement, options: MountOptions) => {
+  const callbacks = options.callbacks;
   const debug = options?.debug;
 
   if (!root) {
@@ -24,17 +26,19 @@ const mount = (el: HTMLElement, options?: MountOptions) => {
   }
 
   root.render(
-    <BrandsProvider>
-      <NewArrivalsProvider>
-        <TopSellingsProvider>
-          <DressStylesProvider>
-            <HappyCustomersProvider>
-              <App />
-            </HappyCustomersProvider>
-          </DressStylesProvider>
-        </TopSellingsProvider>
-      </NewArrivalsProvider>
-    </BrandsProvider>
+    <ConfigProvider>
+      <BrandsProvider>
+        <NewArrivalsProvider>
+          <TopSellingsProvider>
+            <DressStylesProvider>
+              <HappyCustomersProvider>
+                <App callbacks={callbacks} />
+              </HappyCustomersProvider>
+            </DressStylesProvider>
+          </TopSellingsProvider>
+        </NewArrivalsProvider>
+      </BrandsProvider>
+    </ConfigProvider>
   );
 
   if (IS_DEV === "development" && debug) {
@@ -64,7 +68,15 @@ if (IS_DEV === "development") {
   const devRoot = document.getElementById("_home-dev-root") as HTMLDivElement;
 
   if (devRoot) {
-    mount(devRoot);
+    const options = {
+      callbacks: {
+        navigateToProductDetail: (id: string) => {
+          console.log(id);
+        },
+      },
+    };
+
+    mount(devRoot, options);
   }
 }
 

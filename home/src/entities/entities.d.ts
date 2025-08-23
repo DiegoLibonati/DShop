@@ -1,4 +1,5 @@
 export type MountOptions = {
+  callbacks: Callbacks;
   debug?: Debug;
 };
 
@@ -8,9 +9,12 @@ export type UnMountOptions = {
 
 export type Debug = boolean;
 
+export type Callbacks = { navigateToProductDetail: (id: string) => void };
+
 export type Brand = string;
 
 export type Clothes = {
+  id: string;
   src: string;
   name: string;
   rate: number;

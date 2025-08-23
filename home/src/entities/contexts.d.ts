@@ -1,4 +1,19 @@
-import { Brand, Clothes, DressStyle, Review } from "@src/entities/entities";
+import {
+  Brand,
+  Callbacks,
+  Clothes,
+  DressStyle,
+  MountOptions,
+  Review,
+} from "@src/entities/entities";
+
+export type ConfigContext = {
+  callbacks: Callbacks | null;
+  handleSetInitialConfig: (options: Pick<MountOptions, "callbacks">) => void;
+};
+export interface ConfigProviderProps {
+  children: React.ReactNode;
+}
 
 export type BrandsContext = {
   brands: Brand[] | null;

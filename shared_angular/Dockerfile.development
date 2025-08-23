@@ -1,13 +1,9 @@
-FROM node:21.1.0-alpine3.18
+FROM node:22.0.0-alpine3.18
 
 WORKDIR /home/app
 
-COPY . .
+COPY package*.json ./
 
-RUN rm -rf node_modules && rm -rf package-lock.json
-
-RUN npm install
-
-EXPOSE 8082
+EXPOSE 8083
 
 CMD ["npm", "run", "start"]

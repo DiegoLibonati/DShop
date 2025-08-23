@@ -9,7 +9,7 @@ import { IS_DEV } from "@src/constants/envs";
 const titleMfe: string = "Product Detail";
 let app: VueApp | null = null;
 
-const mount = (el: HTMLElement, options: MountOptions = {}) => {
+const mount = (el: HTMLElement, options?: MountOptions) => {
   const debug = options?.debug;
 
   if (!app) app = createApp(App);
@@ -21,7 +21,7 @@ const mount = (el: HTMLElement, options: MountOptions = {}) => {
   }
 };
 
-const unMount = (options: UnMountOptions) => {
+const unMount = (options?: UnMountOptions) => {
   const debug = options?.debug;
 
   if (!app) {

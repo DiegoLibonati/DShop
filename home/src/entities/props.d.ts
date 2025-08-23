@@ -8,6 +8,12 @@ export interface DefaultProps {
   language?: Locale;
 }
 
+export interface AppProps {
+  callbacks: {
+    navigateToProductDetail: (id: string) => void;
+  };
+}
+
 export interface GallerySectionLayoutProps extends DefaultProps {
   title: string;
   btnText: string;

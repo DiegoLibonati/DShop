@@ -2,6 +2,7 @@ import { Clothes } from "@src/entities/entities";
 
 export const clothesList: Clothes[] = [
   {
+    id: "1c",
     src: "https://i.ibb.co/vYyPhqw/tshirt-transparent.png",
     name: "Basic White T-shirt",
     rate: 4.2,
@@ -9,6 +10,7 @@ export const clothesList: Clothes[] = [
     discount: 10,
   },
   {
+    id: "2c",
     src: "https://i.ibb.co/k3FMqXp/hoodie-transparent.png",
     name: "Black Hoodie",
     rate: 4.8,
@@ -16,6 +18,7 @@ export const clothesList: Clothes[] = [
     discount: 15,
   },
   {
+    id: "3c",
     src: "https://i.ibb.co/svW6Vv4/jeans-transparent.png",
     name: "Blue Denim Jeans",
     rate: 4.5,
@@ -23,6 +26,7 @@ export const clothesList: Clothes[] = [
     discount: 20,
   },
   {
+    id: "4c",
     src: "https://i.ibb.co/jg2rbTp/jacket-transparent.png",
     name: "Green Bomber Jacket",
     rate: 4.7,
@@ -30,6 +34,7 @@ export const clothesList: Clothes[] = [
     discount: 25,
   },
   {
+    id: "5c",
     src: "https://i.ibb.co/M5Ns5PW/shirt-transparent.png",
     name: "Plaid Shirt",
     rate: 4.1,
@@ -37,6 +42,7 @@ export const clothesList: Clothes[] = [
     discount: 5,
   },
   {
+    id: "6c",
     src: "https://i.ibb.co/3f1bKcq/sweater-transparent.png",
     name: "Wool Sweater",
     rate: 4.6,
@@ -44,6 +50,7 @@ export const clothesList: Clothes[] = [
     discount: 30,
   },
   {
+    id: "7c",
     src: "https://i.ibb.co/yVvMBGJ/shorts-transparent.png",
     name: "Khaki Shorts",
     rate: 4.0,
@@ -51,6 +58,7 @@ export const clothesList: Clothes[] = [
     discount: 10,
   },
   {
+    id: "8c",
     src: "https://i.ibb.co/6RBhvPw/skirt-transparent.png",
     name: "Black Midi Skirt",
     rate: 4.4,
@@ -58,6 +66,7 @@ export const clothesList: Clothes[] = [
     discount: 15,
   },
   {
+    id: "9c",
     src: "https://i.ibb.co/zPwRxpt/joggers-transparent.png",
     name: "Gray Joggers",
     rate: 4.3,
@@ -65,6 +74,7 @@ export const clothesList: Clothes[] = [
     discount: 20,
   },
   {
+    id: "10c",
     src: "https://i.ibb.co/s2GyTJY/coat-transparent.png",
     name: "Beige Trench Coat",
     rate: 4.9,
