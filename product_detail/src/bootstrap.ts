@@ -11,8 +11,9 @@ let app: VueApp | null = null;
 
 const mount = (el: HTMLElement, options?: MountOptions) => {
   const debug = options?.debug;
+  const props = options?.props || {};
 
-  if (!app) app = createApp(App);
+  if (!app) app = createApp(App, props);
 
   app.mount(el);
 
@@ -45,7 +46,7 @@ if (IS_DEV === "development") {
   ) as HTMLDivElement;
 
   if (devRoot) {
-    mount(devRoot);
+    mount(devRoot, { props: { idProduct: "constant" } });
   }
 }
 
