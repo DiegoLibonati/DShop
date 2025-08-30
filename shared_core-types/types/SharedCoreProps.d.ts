@@ -12,8 +12,8 @@ export interface DefaultProps {
 }
 
 export interface DefaultSvgProps {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 export interface ButtonBlackProps extends DefaultProps {
