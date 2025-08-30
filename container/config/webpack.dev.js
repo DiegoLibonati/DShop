@@ -16,6 +16,14 @@ module.exports = merge(commonConfig, {
     },
     hot: false,
     liveReload: true,
+    proxy: [
+      {
+        context: ["/api/v1"],
+        target: "https://api.escuelajs.co",
+        changeOrigin: true,
+        secure: true,
+      },
+    ],
   },
   plugins: [
     new ModuleFederationPlugin({
