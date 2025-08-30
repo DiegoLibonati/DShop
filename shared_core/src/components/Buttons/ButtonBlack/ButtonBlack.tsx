@@ -9,8 +9,22 @@ export const ButtonBlack = ({
   children,
   className,
   rounded,
+  html,
   onClick,
 }: ButtonBlackProps) => {
+  if (html)
+    return (
+      <button
+        type="button"
+        aria-label={ariaLabel}
+        className={`button-black ${className} ${
+          rounded && "button-black--rounded"
+        }`}
+        dangerouslySetInnerHTML={{ __html: html }}
+        onClick={onClick}
+      ></button>
+    );
+
   return (
     <button
       type="button"

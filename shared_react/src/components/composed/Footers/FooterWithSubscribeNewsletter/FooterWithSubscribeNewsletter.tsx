@@ -25,6 +25,7 @@ export const FooterWithSubscribeNewsletter = ({
   instagram,
   twitter,
   children,
+  html,
   onSubmitSubscribe,
 }: FooterWithSubscribeNewsletterProps) => {
   const rootIds = useRef<string[]>(getIdsByLength(6));
@@ -116,9 +117,18 @@ export const FooterWithSubscribeNewsletter = ({
           )}
         </div>
 
-        <div className="footer-with-subscribe-newsletter__content-links">
-          {children}
-        </div>
+        {html && (
+          <div
+            className="footer-with-subscribe-newsletter__content-links"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></div>
+        )}
+
+        {children && (
+          <div className="footer-with-subscribe-newsletter__content-links">
+            {children}
+          </div>
+        )}
       </div>
 
       <hr className="footer-with-subscribe-newsletter__separator"></hr>

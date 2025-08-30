@@ -11,8 +11,22 @@ export const ButtonWhite = ({
   type,
   children,
   className,
+  html,
   onClick,
 }: ButtonWhiteProps) => {
+  if (html)
+    return (
+      <button
+        type={type ?? "button"}
+        className={`button-white ${rounded && "button-white--rounded"} ${
+          borderGray && "button-white--border-gray"
+        } ${className}`}
+        aria-label={ariaLabel}
+        onClick={onClick ?? undefined}
+        dangerouslySetInnerHTML={{ __html: html }}
+      ></button>
+    );
+
   return (
     <button
       type={type ?? "button"}
