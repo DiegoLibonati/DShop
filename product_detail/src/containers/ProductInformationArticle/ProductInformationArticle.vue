@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref, watch } from "vue";
 
-import { Color, Size } from "@src/entities/entities";
 import { ProductInformationArticleProps } from "@src/entities/props";
 
 import InformationItemClothes from "@src/components/core/Informations/InformationItemClothes/InformationItemClothes.vue";
@@ -13,6 +12,7 @@ import ButtonBlack from "@src/components/core/Buttons/ButtonBlack/ButtonBlack.vu
 import { lang } from "@src/constants/lang";
 
 import { getIdsByLength } from "shared_core/SharedCore";
+import { Color, Size } from "shared_core/SharedCoreEntities";
 
 import "@src/containers/ProductInformationArticle/ProductInformationArticle.css"
 

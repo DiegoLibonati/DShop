@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/forms/form-search/form-search.compo
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { FormSearchProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "app-form-search",
@@ -33,13 +34,18 @@ export class FormSearchComponent implements AfterViewInit, OnDestroy {
   private componentName: string = "app-form-search";
 
   ngAfterViewInit(): void {
-    mountComponent(this.ref!.nativeElement, ComponentSharedCore.FormSearch, {
-      idRoot: this.idRoot,
-      placeholder: this.placeholder,
-      language: this.language,
-      className: this.className,
-      onSubmit: this.formSubmit,
-    });
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.FormSearch,
+      props: {
+        idRoot: this.idRoot,
+        placeholder: this.placeholder,
+        language: this.language,
+        className: this.className,
+        onSubmit: this.formSubmit,
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

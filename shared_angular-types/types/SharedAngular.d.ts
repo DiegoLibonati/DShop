@@ -3,6 +3,8 @@ import type { Component } from "./SharedAngularEnums.d";
 export type Debug = boolean;
 
 export type MountOptions = {
+  idComponent: Component;
+  props?: Record<string, unknown>;
   debug?: Debug;
 };
 
@@ -10,12 +12,7 @@ export type UnMountOptions = {
   debug?: Debug;
 };
 
-export type MountComponent = (
-  el: HTMLElement,
-  id: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
-) => void;
+export type MountComponent = (el: HTMLElement, options: MountOptions) => void;
 
 export type UnMountComponent = (
   idRoot: string,

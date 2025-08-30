@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from "react";
 
-import { mountComponent, unMountComponent } from "shared_angular/SharedAngular";
+import {
+  mountComponent,
+  MountOptions,
+  unMountComponent,
+} from "shared_angular/SharedAngular";
 import { Component } from "shared_angular/SharedAngularEnums";
 import { ReviewCustomerProps } from "shared_angular/SharedAngularProps";
 
@@ -17,15 +21,20 @@ export const ReviewCustomer = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.ReviewCustomer, {
-      idRoot: idRoot,
-      name: name,
-      description: description,
-      valueStars: valueStars,
-      maxStars: maxStars,
-      language: language,
-      className: className,
-    });
+    const options: MountOptions = {
+      idComponent: Component.ReviewCustomer,
+      props: {
+        idRoot: idRoot,
+        name: name,
+        description: description,
+        valueStars: valueStars,
+        maxStars: maxStars,
+        language: language,
+        className: className,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

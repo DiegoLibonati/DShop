@@ -40,11 +40,11 @@ const getComponentById = (idComponent: Component): Type<unknown> => {
 
 const mountComponent = async (
   el: HTMLElement,
-  id: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
+  options: MountOptions
 ): Promise<void> => {
   const debug = options?.debug;
+  const props = options?.props;
+  const id = options.idComponent;
 
   if (!IS_DEV && id === Component.AppTest) {
     throw new Error(
@@ -122,7 +122,12 @@ if (IS_DEV === "development") {
   ) as HTMLDivElement | null;
 
   if (devRoot) {
-    mountComponent(devRoot, Component.AppTest, { idRoot: "APP TEST" });
+    const options: MountOptions = {
+      idComponent: Component.AppTest,
+      props: { idRoot: "APP TEST" },
+    };
+
+    mountComponent(devRoot, options);
   }
 }
 

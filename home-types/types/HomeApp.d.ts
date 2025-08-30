@@ -1,8 +1,21 @@
+import { Clothes, Review } from "shared_core/SharedCoreEntities";
+
+interface AppProps {
+  callbacks: Callbacks;
+  content: Content;
+}
+
 export type Debug = boolean;
 export type Callbacks = { navigateToProductDetail: (id: string) => void };
+export type Content = {
+  brands: string[];
+  newArrivals: Clothes[];
+  topSellings: Clothes[];
+  reviews: Review[];
+};
 
 export type MountOptions = {
-  callbacks: Callbacks;
+  props: AppProps;
   debug?: Debug;
 };
 

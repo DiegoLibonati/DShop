@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import { Review } from "@src/entities/entities";
-
 import ReviewCustomer from "@src/components/core/Reviews/ReviewCustomer/ReviewCustomer";
 import { CarrouselWithTitleAndArrows } from "@src/components/composed/Carrousels/CarrouselWithTitleAndArrows/CarrouselWithTitleAndArrows";
 
 import { useHappyCustomersContext } from "@src/contexts/HappyCustomers/HappyCustomersContext";
-
-import { reviews as reviewsList } from "@src/constants/reviews";
 
 import { getIdsByLength } from "shared_core/SharedCore";
 
@@ -16,16 +12,10 @@ import "@src/containers/OurHappyCustomersSection/OurHappyCustomersSection.css";
 export const OurHappyCustomersSection = () => {
   const [idsReviews, setIdsReviews] = useState<string[]>([]);
 
-  const { reviews, handleSetReviews } = useHappyCustomersContext();
+  const { reviews } = useHappyCustomersContext();
 
   const clearIdsRoot = () => {
     setIdsReviews([]);
-  };
-
-  const onInit = () => {
-    const reviews: Review[] = reviewsList;
-
-    handleSetReviews(reviews);
   };
 
   const onReviewsChange = () => {
@@ -38,7 +28,6 @@ export const OurHappyCustomersSection = () => {
     setIdsReviews(getIdsByLength(reviews!.length));
   };
 
-  useEffect(onInit, []);
   useEffect(onReviewsChange, [reviews]);
 
   return (

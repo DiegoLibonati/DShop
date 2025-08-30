@@ -9,7 +9,6 @@ import { getIdsByLength } from "shared_core/SharedCore";
 import "@src/layouts/GallerySectionLayout/GallerySectionLayout.css";
 
 export const GallerySectionLayout = ({
-  title,
   btnText,
   children,
   className,
@@ -19,13 +18,11 @@ export const GallerySectionLayout = ({
 
   return (
     <section className={`gallery-section ${className}`}>
-      <h2 className="gallery-section__title">{title}</h2>
-
       {children}
 
       <ButtonWhite
         idRoot={idsGallerySection.current[0]}
-        ariaLabel={`${btnText} - ${title}`}
+        ariaLabel={`${btnText}-gallery-button`}
         borderGray={true}
         rounded={true}
         type="button"

@@ -7,6 +7,7 @@ import {
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component } from "shared_core/SharedCoreEnums";
 import type { ButtonBlackProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 const props = defineProps<ButtonBlackProps>();
 const slots = useSlots();
@@ -27,15 +28,20 @@ function init() {
     if (!containerRef.value) return;
     const childrenText = buildChildrenText();
 
-    mountComponent(containerRef.value, Component.ButtonBlack, {
-        idRoot: props.idRoot,
-        ariaLabel: props.ariaLabel,
-        rounded: props.rounded,
-        children: childrenText,
-        language: props.language,
-        className: props.className,
-        onClick: props.onClick,
-    });
+    const options: MountOptions = {
+        idComponent: Component.ButtonBlack,
+        props: {
+            idRoot: props.idRoot,
+            ariaLabel: props.ariaLabel,
+            rounded: props.rounded,
+            children: childrenText,
+            language: props.language,
+            className: props.className,
+            onClick: props.onClick,
+        },
+    };
+
+    mountComponent(containerRef.value, options);
 }
 function destroy() { unMountComponent(props.idRoot); }
 

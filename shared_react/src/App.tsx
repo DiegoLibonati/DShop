@@ -4,6 +4,9 @@ import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClot
 import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
 import { LoaderScreen } from "@src/components/composed/Loaders/LoaderScreen/LoaderScreen";
+import { GalleryClothes } from "@src/components/composed/Galleries/GalleryClothes/GalleryClothes";
+
+import { CLOTHES_1 } from "@src/constants/clothes";
 
 import "@src/App.css";
 
@@ -57,6 +60,17 @@ export const App = () => {
       <div className="component">
         <h2 className="component__title">Loader Screen</h2>
         <LoaderScreen className="loader-screen-app-test"></LoaderScreen>
+      </div>
+
+      <div className="component">
+        <h2 className="component__title">Gallery Clothes</h2>
+        <GalleryClothes
+          title="YOU MIGHT ALSO LIKE"
+          clothes={CLOTHES_1}
+          onClothesClick={(c) => {
+            console.log(c);
+          }}
+        ></GalleryClothes>
       </div>
 
       {/* Podés agregar más componentes aquí */}

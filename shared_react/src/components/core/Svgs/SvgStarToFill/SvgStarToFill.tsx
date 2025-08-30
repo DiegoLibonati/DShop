@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { SvgStarToFillProps } from "shared_core/SharedCoreProps";
 import { Component } from "shared_core/SharedCoreEnums";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 export const SvgStarToFill = ({
   idRoot,
@@ -15,13 +16,18 @@ export const SvgStarToFill = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.SvgStarToFill, {
-      idRoot: idRoot,
-      outColor: outColor,
-      inColor: inColor,
-      fill: fill,
-      className: className,
-    });
+    const options: MountOptions = {
+      idComponent: Component.SvgStarToFill,
+      props: {
+        idRoot: idRoot,
+        outColor: outColor,
+        inColor: inColor,
+        fill: fill,
+        className: className,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

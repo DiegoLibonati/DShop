@@ -4,9 +4,10 @@ import type {
   NewArrivalsContext as NewArrivalsContextT,
   NewArrivalsProviderProps,
 } from "@src/entities/contexts";
-import { Clothes } from "@src/entities/entities";
 
 import { NewArrivalsContext } from "@src/contexts/NewArrivals/NewArrivalsProvider";
+
+import { Clothes } from "shared_core/SharedCoreEntities";
 
 export const NewArrivalsProvider = ({ children }: NewArrivalsProviderProps) => {
   const [newArrivals, setNewArrivals] = useState<Clothes[] | null>(null);

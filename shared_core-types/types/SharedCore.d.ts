@@ -3,9 +3,7 @@ import type { Component } from "./SharedCoreEnums.d";
 
 export type MountComponent = (
   el: HTMLDivElement,
-  idComponent: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
+  options: MountOptions
 ) => void;
 
 export type UnMountComponent = (

@@ -1,12 +1,18 @@
+.browse-by-dress-style-wrapper {
+  width: 100%;
+  height: auto;
+  padding: 0rem 1rem 0rem 1rem;
+}
+
 .browse-by-dress-style {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--light-gray-neutral);
-  width: calc(100% - 2rem);
+  width: 100%;
   height: auto;
-  margin: 3.125rem 1rem 0rem 1rem;
+  margin: 3.125rem 0rem 0rem 0rem;
   padding: 2.5rem 1.5rem 1.688rem 1.5rem;
   border-radius: 1rem;
 }
@@ -27,9 +33,12 @@
 }
 
 @media screen and (width >= 1024px) {
+  .browse-by-dress-style-wrapper {
+    padding: 0rem 6.25rem 0rem 6.25rem;
+  }
+
   .browse-by-dress-style {
-    width: calc(100% - 12.625rem);
-    margin: 5.063rem 6.313rem 0rem 6.313rem;
+    margin: 5.063rem 0rem 0rem 0rem;
   }
 
   .browse-by-dress-style__title {

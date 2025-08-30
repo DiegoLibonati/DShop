@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/ratings/rate-stars/rate-stars.compo
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { RateStarsProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "app-rate-stars",
@@ -35,16 +36,21 @@ export class RateStarsComponent implements AfterViewInit, OnDestroy {
   private componentName: string = "app-rate-stars";
 
   ngAfterViewInit(): void {
-    mountComponent(this.ref!.nativeElement, ComponentSharedCore.RateStars, {
-      idRoot: this.idRoot,
-      max: this.max,
-      value: this.value,
-      inColor: this.inColor,
-      outColor: this.outColor,
-      language: this.language,
-      className: this.className,
-      classNameStar: this.classNameStar,
-    });
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.RateStars,
+      props: {
+        idRoot: this.idRoot,
+        max: this.max,
+        value: this.value,
+        inColor: this.inColor,
+        outColor: this.outColor,
+        language: this.language,
+        className: this.className,
+        classNameStar: this.classNameStar,
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

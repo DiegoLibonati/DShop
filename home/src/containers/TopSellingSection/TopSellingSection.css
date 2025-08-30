@@ -2,36 +2,13 @@
   margin-top: 3.125rem;
 }
 
-.top-sellings__slider-wrapper {
+.top-sellings__gallery-clothes {
   width: 100%;
-  overflow: hidden;
-}
-
-.top-sellings__slider {
-  gap: 1rem;
-}
-
-.top-sellings__clothes {
-  display: none;
+  height: 100%;
 }
 
 @media screen and (width >= 1024px) {
   .top-sellings {
     margin-top: 4.5rem;
-  }
-
-  .top-sellings__slider-wrapper {
-    display: none;
-  }
-
-  .top-sellings__clothes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem;
-    width: 100%;
-    height: auto;
   }
 }

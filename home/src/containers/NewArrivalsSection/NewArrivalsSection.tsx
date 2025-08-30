@@ -1,9 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 
-import { Clothes } from "@src/entities/entities";
-
-import { SliderSnapX } from "@src/components/core/Sliders/SliderSnapX/SliderSnapX";
-import { ItemClothes } from "@src/components/core/Items/ItemClothes/ItemClothes";
+import { GalleryClothes } from "@src/components/core/Galleries/GalleryClothes/GalleryClothes";
 
 import { GallerySectionLayout } from "@src/layouts/GallerySectionLayout/GallerySectionLayout";
 
@@ -11,43 +8,20 @@ import { useConfigContext } from "@src/contexts/Config/ConfigContext";
 import { useNewArrivalsContext } from "@src/contexts/NewArrivals/NewArrivalsContext";
 
 import { lang } from "@src/constants/lang";
-import { clothesList } from "@src/constants/clothes";
 
+import { Clothes } from "shared_core/SharedCoreEntities";
 import { getIdsByLength } from "shared_core/SharedCore";
 
 import "@src/containers/NewArrivalsSection/NewArrivalsSection.css";
 
 export const NewArrivalsSection = () => {
-  const [idsClothesMobile, setIdsClothesMobile] = useState<string[]>([]);
-  const [idsClothesDesktop, setIdsClothesDesktop] = useState<string[]>([]);
-
-  const idArrivalSlider = useRef<string[]>(getIdsByLength(1));
+  const idRootGalleryClothes = useRef<string[]>(getIdsByLength(1));
 
   const { callbacks } = useConfigContext();
-  const { newArrivals, handleSetNewArrivals } = useNewArrivalsContext();
+  const { newArrivals } = useNewArrivalsContext();
 
   const handleClickViewAll = () => {
     alert("Not configured.");
-  };
-
-  const clearIdsRoot = () => {
-    setIdsClothesMobile([]);
-    setIdsClothesDesktop([]);
-  };
-
-  const onInit = () => {
-    handleSetNewArrivals(clothesList);
-  };
-
-  const onNewArrivalsChange = () => {
-    if (newArrivals?.length === 0 || !newArrivals) return;
-
-    if (idsClothesMobile.length > 0 || idsClothesDesktop.length > 0) {
-      clearIdsRoot();
-    }
-
-    setIdsClothesMobile(getIdsByLength(newArrivals!.length));
-    setIdsClothesDesktop(getIdsByLength(newArrivals!.length));
   };
 
   const handleClickItem = (c: Clothes) => {
@@ -56,57 +30,19 @@ export const NewArrivalsSection = () => {
     callbacks?.navigateToProductDetail(id);
   };
 
-  useEffect(onInit, []);
-  useEffect(onNewArrivalsChange, [newArrivals]);
-
   return (
     <GallerySectionLayout
-      title={lang["en"].new_arrivals.title}
       btnText={lang["en"].new_arrivals.button_view_all}
       onClick={handleClickViewAll}
       className="new-arrivals"
     >
-      {idArrivalSlider.current.length > 0 && (
-        <SliderSnapX
-          idRoot={idArrivalSlider.current[0]}
-          className="new-arrivals__slider"
-          classNameWrapper="new-arrivals__slider-wrapper"
-        >
-          {idsClothesMobile.length > 0 &&
-            newArrivals?.map((c, i) => {
-              return (
-                <ItemClothes
-                  key={idsClothesMobile[i]}
-                  idRoot={idsClothesMobile[i]}
-                  src={c.src}
-                  discount={c.discount}
-                  name={c.name}
-                  price={c.price}
-                  rate={c.rate}
-                  onClick={() => handleClickItem(c)}
-                ></ItemClothes>
-              );
-            })}
-        </SliderSnapX>
-      )}
-
-      <article className="new-arrivals__clothes">
-        {idsClothesDesktop.length > 0 &&
-          newArrivals?.slice(0, 4)?.map((c, i) => {
-            return (
-              <ItemClothes
-                key={idsClothesDesktop[i]}
-                idRoot={idsClothesDesktop[i]}
-                src={c.src}
-                discount={c.discount}
-                name={c.name}
-                price={c.price}
-                rate={c.rate}
-                onClick={() => handleClickItem(c)}
-              ></ItemClothes>
-            );
-          })}
-      </article>
+      <GalleryClothes
+        idRoot={idRootGalleryClothes.current[0]}
+        clothes={newArrivals!}
+        title={lang["en"].new_arrivals.title}
+        classNameWrapper="new-arrivals__gallery-clothes"
+        onClothesClick={(c) => handleClickItem(c)}
+      ></GalleryClothes>
     </GallerySectionLayout>
   );
 };

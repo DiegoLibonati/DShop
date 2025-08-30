@@ -4,9 +4,10 @@ import type {
   TopSellingsContext as TopSellingsContextT,
   TopSellingsProviderProps,
 } from "@src/entities/contexts";
-import { Clothes } from "@src/entities/entities";
 
 import { TopSellingsContext } from "@src/contexts/TopSellings/TopSellingsProvider";
+
+import { Clothes } from "shared_core/SharedCoreEntities";
 
 export const TopSellingsProvider = ({ children }: TopSellingsProviderProps) => {
   const [topSellings, setTopSellings] = useState<Clothes[] | null>(null);

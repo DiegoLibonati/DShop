@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/svgs/svg-close/svg-close.component.
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { SvgCloseProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "svg-close",
@@ -29,10 +30,15 @@ export class SvgCloseComponent implements AfterViewInit, OnDestroy {
   @Input() classNameWrapper: SvgCloseProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
-    mountComponent(this.ref!.nativeElement, ComponentSharedCore.SvgClose, {
-      idRoot: this.idRoot,
-      className: this.className,
-    });
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.SvgClose,
+      props: {
+        idRoot: this.idRoot,
+        className: this.className,
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

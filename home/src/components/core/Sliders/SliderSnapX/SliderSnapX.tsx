@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 import { Component } from "shared_core/SharedCoreEnums";
 import { SliderSnapXProps } from "shared_core/SharedCoreProps";
 
@@ -14,21 +15,31 @@ export const SliderSnapX = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.SliderSnapX, {
-      idRoot: idRoot,
-      children: children,
-      language: language,
-      className: className,
-    });
+    const options: MountOptions = {
+      idComponent: Component.ButtonWhite,
+      props: {
+        idRoot: idRoot,
+        children: children,
+        language: language,
+        className: className,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onChildrenChange = () => {
-    mountComponent(ref.current!, Component.SliderSnapX, {
-      idRoot: idRoot,
-      children: children,
-      language: language,
-      className: className,
-    });
+    const options: MountOptions = {
+      idComponent: Component.ButtonWhite,
+      props: {
+        idRoot: idRoot,
+        children: children,
+        language: language,
+        className: className,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

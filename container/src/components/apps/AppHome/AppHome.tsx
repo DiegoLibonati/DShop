@@ -4,7 +4,10 @@ import { AppHomeProps } from "@src/entities/props";
 
 import { useRouter } from "@src/hooks/useRouter";
 
-import { mount, unMount } from "home/HomeApp";
+import { CLOTHES_1 } from "@src/constants/clothes";
+import { reviews } from "@src/constants/reviews";
+
+import { mount, MountOptions, unMount } from "home/HomeApp";
 
 const AppHome = ({ classNameWrapper }: AppHomeProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -12,8 +15,16 @@ const AppHome = ({ classNameWrapper }: AppHomeProps) => {
   const { navigateToProductDetail } = useRouter();
 
   const onInit = () => {
-    const options = {
-      callbacks: { navigateToProductDetail: navigateToProductDetail },
+    const options: MountOptions = {
+      props: {
+        callbacks: { navigateToProductDetail: navigateToProductDetail },
+        content: {
+          brands: ["VERSACE", "ZARA", "GUCCI", "PRADA", "Calvin Klein"],
+          newArrivals: CLOTHES_1,
+          topSellings: CLOTHES_1,
+          reviews: reviews,
+        },
+      },
     };
 
     mount(ref.current!, options);

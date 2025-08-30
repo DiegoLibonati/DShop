@@ -47,7 +47,7 @@ export const InformationItemClothes = ({
       <div className="information-item-clothes__price">
         <h3 className="information-item-clothes__price-final">${finalPrice}</h3>
 
-        {discount && (
+        {discount !== 0 && (
           <Fragment>
             <h3 className="information-item-clothes__price-current">
               ${price}

@@ -7,13 +7,6 @@
   padding: 0rem 1rem 0 1rem;
 }
 
-.gallery-section__title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 2rem;
-}
-
 .gallery-section__btn-wrapper {
   width: calc(100% - 2rem);
   margin-top: 1.5rem;
@@ -28,11 +21,6 @@
 @media screen and (width >= 1024px) {
   .gallery-section {
     padding: 0rem 6.25rem 0 6.25rem;
-  }
-
-  .gallery-section__title {
-    font-size: 3rem;
-    margin-bottom: 3.438rem;
   }
 
   .gallery-section__btn-wrapper {

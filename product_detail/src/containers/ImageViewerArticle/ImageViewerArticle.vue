@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, defineProps, ref, toRef, watch } from "vue";
 
-import { Image } from "@src/entities/entities";
 import { ImageViewerArticleProps } from "@src/entities/props";
 
 import ImageWithBackgroundColor from "@src/components/core/Images/ImageWithBackgroundColor/ImageWithBackgroundColor.vue";
 
 import { getIdsByLength } from "shared_core/SharedCore";
+import { Image } from "shared_core/SharedCoreEntities";
 
 import "@src/containers/ImageViewerArticle/ImageViewerArticle.css"
 

@@ -68,6 +68,8 @@ services:
     volumes:
       - ./product_detail:/home/app:rw
       - ./shared_core-types:/home/shared_core-types:ro
+      - ./shared_react-types:/home/shared_react-types:ro
+      - ./shared_angular-types:/home/shared_angular-types:ro
       - dshop_product_detail_node_modules:/home/app/node_modules
     ports:
       - 8085:8085

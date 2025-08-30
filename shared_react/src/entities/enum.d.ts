@@ -4,4 +4,5 @@ export enum Component {
   FooterWithSubscribeNewsletter = "footer-with-subscribe-newsletter",
   SubscribeNewsletter = "subscribe-newsletter",
   LoaderScreen = "loader-screen",
+  GalleryClothes = "gallery-clothes",
 }

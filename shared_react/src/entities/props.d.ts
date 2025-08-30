@@ -1,12 +1,21 @@
 import { SVGProps } from "react";
 
-import { Locale } from "shared_core/SharedCoreEntities";
+import { Clothes, Locale } from "shared_core/SharedCoreEntities";
+
+export type GetComponentByIdProps =
+  | Record<string, unknown>
+  | ItemClothesProps
+  | FooterWithSubscribeNewsletterProps
+  | SubscribeNewsletterProps
+  | LoaderScreenProps
+  | GalleryClothesProps;
 
 export interface DefaultProps {
   idRoot?: string;
   className?: string;
   children?: React.ReactNode;
   language?: Locale;
+  html?: string;
 }
 
 export interface ItemClothesProps extends DefaultProps {
@@ -34,3 +43,9 @@ export interface SubscribeNewsletterProps extends DefaultProps {
 }
 
 export interface LoaderScreenProps extends DefaultProps {}
+
+export interface GalleryClothesProps extends DefaultProps {
+  title: string;
+  clothes: Clothes[];
+  onClothesClick: (c: Clothes) => void;
+}

@@ -2,11 +2,40 @@ import { SVGProps } from "react";
 
 import { Locale } from "@src/entities/entities";
 
+export type GetComponentIdProps =
+  | Record<string, unknown>
+  | SvgStarToFillProps
+  | SvgSearchProps
+  | SvgCartShoppingProps
+  | SvgSkyStarProps
+  | SvgArrowLeftProps
+  | SvgArrowRightProps
+  | SvgTwitterProps
+  | SvgFacebookProps
+  | SvgInstagramProps
+  | SvgCloseProps
+  | SvgCheckProps
+  | ButtonBlackProps
+  | ButtonWhiteProps
+  | ImageWithBackgroundColorProps
+  | InformationItemClothesProps
+  | RateStarsProps
+  | SliderSnapXProps
+  | AnchorCircularProps
+  | MenuScreenWhiteProps
+  | FormSearchProps
+  | ColorCircleProps
+  | TagSimpleProps
+  | CounterWithActionsProps
+  | SkeletonShimmerProps
+  | LoaderCircularProps;
+
 export interface DefaultProps {
   idRoot?: string;
   className?: string;
   children?: React.ReactNode;
   language?: Locale;
+  html?: string;
 }
 
 export interface ButtonBlackProps extends DefaultProps {
@@ -89,7 +118,7 @@ export interface SvgStarToFillProps
     DefaultProps {
   outColor: string;
   inColor: string;
-  fill: number;
+  fill: string;
 }
 
 export interface SvgSearchProps extends SVGProps<SVGSVGElement>, DefaultProps {}

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { IllustrationType } from "@src/entities/entities";
+import { DressStyle } from "@src/entities/entities";
 import { IllustrationWithTitleProps } from "@src/entities/props";
 
 import { IllustrationWithTitle } from "@src/components/composed/Illustrations/IllustrationWithTitle/IllustrationWithTitle";
@@ -10,7 +10,7 @@ type RenderComponent = {
   container: HTMLElement;
 };
 
-const renderComponent = (type: IllustrationType): RenderComponent => {
+const renderComponent = (type: DressStyle): RenderComponent => {
   const props: IllustrationWithTitleProps & { onClick: jest.Mock } = {
     className: "test-props",
     type: type,
@@ -33,7 +33,7 @@ const renderComponent = (type: IllustrationType): RenderComponent => {
 
 describe("IllustrationWithTitle.tsx", () => {
   describe("General Tests.", () => {
-    const type: IllustrationType = "casual";
+    const type: DressStyle = "casual";
 
     test("It must render the component.", () => {
       const { props } = renderComponent(type);
@@ -55,7 +55,7 @@ describe("IllustrationWithTitle.tsx", () => {
   });
 
   describe("Casual illustration.", () => {
-    const type: IllustrationType = "casual";
+    const type: DressStyle = "casual";
 
     test("It must render the illustration of type Casual.", () => {
       const { props } = renderComponent(type);
@@ -67,7 +67,7 @@ describe("IllustrationWithTitle.tsx", () => {
   });
 
   describe("Formal illustration.", () => {
-    const type: IllustrationType = "formal";
+    const type: DressStyle = "formal";
 
     test("It must render the illustration of type Formal.", () => {
       const { props } = renderComponent(type);
@@ -79,7 +79,7 @@ describe("IllustrationWithTitle.tsx", () => {
   });
 
   describe("Gym illustration.", () => {
-    const type: IllustrationType = "gym";
+    const type: DressStyle = "gym";
 
     test("It must render the illustration of type Gym.", () => {
       const { props } = renderComponent(type);
@@ -91,7 +91,7 @@ describe("IllustrationWithTitle.tsx", () => {
   });
 
   describe("Party illustration.", () => {
-    const type: IllustrationType = "party";
+    const type: DressStyle = "party";
 
     test("It must render the illustration of type Party.", () => {
       const { props } = renderComponent(type);

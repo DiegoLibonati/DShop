@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { MenuScreenWhiteProps } from "shared_core/SharedCoreProps";
 import { Component } from "shared_core/SharedCoreEnums";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 export const MenuScreenWhite = ({
   idRoot,
@@ -13,11 +14,16 @@ export const MenuScreenWhite = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.MenuScreenWhite, {
-      idRoot: idRoot,
-      className: className,
-      children: children,
-    });
+    const options: MountOptions = {
+      idComponent: Component.MenuScreenWhite,
+      props: {
+        idRoot: idRoot,
+        className: className,
+        children: children,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {
@@ -25,11 +31,16 @@ export const MenuScreenWhite = ({
   };
 
   const onPropsChange = () => {
-    mountComponent(ref.current!, Component.MenuScreenWhite, {
-      idRoot: idRoot,
-      className: className,
-      children: children,
-    });
+    const options: MountOptions = {
+      idComponent: Component.MenuScreenWhite,
+      props: {
+        idRoot: idRoot,
+        className: className,
+        children: children,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   useEffect(() => {

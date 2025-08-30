@@ -1,4 +1,4 @@
-import { Clothes } from "@src/entities/entities";
+import { Clothes } from "shared_core/SharedCoreEntities";
 
 export const clothesList: Clothes[] = [
   {

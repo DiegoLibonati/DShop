@@ -26,22 +26,24 @@ export const BrowseByDressStyleSection = () => {
   useEffect(onInit, []);
 
   return (
-    <div className="browse-by-dress-style">
-      <h2 className="browse-by-dress-style__title">
-        {lang["en"].browseByDressStyle.title}
-      </h2>
+    <div className="browse-by-dress-style-wrapper">
+      <div className="browse-by-dress-style">
+        <h2 className="browse-by-dress-style__title">
+          {lang["en"].browseByDressStyle.title}
+        </h2>
 
-      <div className="browse-by-dress-style__styles">
-        {dressStyles &&
-          dressStyles.map((ds) => {
-            return (
-              <IllustrationWithTitle
-                key={`style-${ds}`}
-                type={ds}
-                onClick={() => handleClickStyle(ds)}
-              ></IllustrationWithTitle>
-            );
-          })}
+        <div className="browse-by-dress-style__styles">
+          {dressStyles &&
+            dressStyles.map((ds) => {
+              return (
+                <IllustrationWithTitle
+                  key={`style-${ds}`}
+                  type={ds}
+                  onClick={() => handleClickStyle(ds)}
+                ></IllustrationWithTitle>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

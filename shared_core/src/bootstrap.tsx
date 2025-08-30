@@ -9,6 +9,7 @@ import {
   ColorCircleProps,
   CounterWithActionsProps,
   FormSearchProps,
+  GetComponentIdProps,
   ImageWithBackgroundColorProps,
   InformationItemClothesProps,
   LoaderCircularProps,
@@ -74,33 +75,7 @@ const titleMfe: string = "Shared Core";
 
 export const getComponentById = (
   idComponent: Component,
-  props:
-    | Record<string, unknown>
-    | SvgStarToFillProps
-    | SvgSearchProps
-    | SvgCartShoppingProps
-    | SvgSkyStarProps
-    | SvgArrowLeftProps
-    | SvgArrowRightProps
-    | SvgTwitterProps
-    | SvgFacebookProps
-    | SvgInstagramProps
-    | SvgCloseProps
-    | SvgCheckProps
-    | ButtonBlackProps
-    | ButtonWhiteProps
-    | ImageWithBackgroundColorProps
-    | InformationItemClothesProps
-    | RateStarsProps
-    | SliderSnapXProps
-    | AnchorCircularProps
-    | MenuScreenWhiteProps
-    | FormSearchProps
-    | ColorCircleProps
-    | TagSimpleProps
-    | CounterWithActionsProps
-    | SkeletonShimmerProps
-    | LoaderCircularProps
+  props: GetComponentIdProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App></App>,
@@ -167,17 +142,10 @@ export const getComponentById = (
   }[idComponent];
 };
 
-const mountComponent = (
-  el: HTMLDivElement,
-  idComponent: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
-) => {
-  // console.log("Element:", el);
-  // console.log("Id Componente a renderizar: ", idComponent);
-  // console.log("Props: ", props);
-
+const mountComponent = (el: HTMLDivElement, options: MountOptions) => {
   const debug = options?.debug;
+  const props = options?.props;
+  const idComponent = options.idComponent;
 
   if (!IS_DEV && idComponent === Component.AppTest) {
     throw new Error(
@@ -236,7 +204,12 @@ if (IS_DEV === "development") {
   ) as HTMLDivElement;
 
   if (devRoot) {
-    mountComponent(devRoot, Component.AppTest, { idRoot: "Rootcito APP" });
+    const options: MountOptions = {
+      props: { idRoot: "Rootcito APP" },
+      idComponent: Component.AppTest,
+    };
+
+    mountComponent(devRoot, options);
   }
 }
 

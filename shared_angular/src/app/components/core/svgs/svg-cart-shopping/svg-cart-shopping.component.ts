@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/svgs/svg-cart-shopping/svg-cart-sho
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { SvgCartShoppingProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "svg-cart-shopping",
@@ -29,14 +30,15 @@ export class SvgCartShoppingComponent implements AfterViewInit, OnDestroy {
   @Input() classNameWrapper: SvgCartShoppingProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
-    mountComponent(
-      this.ref!.nativeElement,
-      ComponentSharedCore.SvgCartShopping,
-      {
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.SvgCartShopping,
+      props: {
         idRoot: this.idRoot,
         className: this.className,
-      }
-    );
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

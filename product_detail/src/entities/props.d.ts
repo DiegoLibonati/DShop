@@ -1,14 +1,22 @@
-import { Color, Image, Size } from "@src/entities/entities";
+import { Content } from "@src/entities/entities";
 
-import { Locale } from "shared_core/SharedCoreEntities";
+import {
+  Locale,
+  Clothes,
+  Color,
+  Image,
+  Product,
+  Size,
+} from "shared_core/SharedCoreEntities";
 
 export interface DefaultProps {
   className?: string;
   language?: Locale;
+  html?: string;
 }
 
 export interface AppProps extends DefaultProps {
-  idProduct: string;
+  content: Content;
 }
 
 export interface ImageViewerArticleProps extends DefaultProps {

@@ -4,6 +4,7 @@ import { defineProps, ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { CounterWithActionsProps } from "shared_core/SharedCoreProps";
 import { Component } from "shared_core/SharedCoreEnums";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 const props = defineProps<CounterWithActionsProps>();
 
@@ -12,13 +13,18 @@ const containerRef = ref<HTMLDivElement | null>(null);
 function init() {
     if (!containerRef.value) return;
 
-    mountComponent(containerRef.value, Component.CounterWithActions, {
-        idRoot: props.idRoot,
-        limit: props.limit,
-        language: props.language,
-        className: props.className,
-        onChange: props.onChange,
-    });
+    const options: MountOptions = {
+        idComponent: Component.CounterWithActions,
+        props: {
+            idRoot: props.idRoot,
+            limit: props.limit,
+            language: props.language,
+            className: props.className,
+            onChange: props.onChange,
+        }
+    };
+
+    mountComponent(containerRef.value, options);
 }
 
 function destroy() {

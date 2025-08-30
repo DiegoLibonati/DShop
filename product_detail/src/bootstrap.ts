@@ -5,6 +5,8 @@ import { MountOptions, UnMountOptions } from "@src/entities/entities";
 import App from "@src/App.vue";
 
 import { IS_DEV } from "@src/constants/envs";
+import { PRODUCT_1 } from "@src/constants/products";
+import { CLOTHES_1 } from "@src/constants/clothes";
 
 const titleMfe: string = "Product Detail";
 let app: VueApp | null = null;
@@ -46,7 +48,10 @@ if (IS_DEV === "development") {
   ) as HTMLDivElement;
 
   if (devRoot) {
-    mount(devRoot, { props: { idProduct: "constant" } });
+    const options: MountOptions = {
+      props: { content: { product: PRODUCT_1, clothesAlsoLike: CLOTHES_1 } },
+    };
+    mount(devRoot, options);
   }
 }
 

@@ -11,5 +11,11 @@ export const lang: LangC = {
       },
       addCart: "Add to Cart",
     },
+    reviews: {
+      title: "All Reviews",
+    },
+    youMightAlsoLike: {
+      title: "YOU MIGHT ALSO LIKE",
+    },
   },
 };

@@ -1,6 +1,6 @@
 import type React from "react";
 
-import type { Locale } from "shared_core/SharedCoreEntities";
+import type { Locale, Clothes } from "shared_core/SharedCoreEntities";
 
 export interface DefaultProps {
   idRoot: string;
@@ -8,6 +8,7 @@ export interface DefaultProps {
   classNameWrapper?: string;
   children?: React.ReactNode;
   language?: Locale;
+  html?: string;
 }
 
 export interface ItemClothesProps extends DefaultProps {
@@ -35,3 +36,9 @@ export interface SubscribeNewsletterProps extends DefaultProps {
 }
 
 export interface LoaderScreenProps extends DefaultProps {}
+
+export interface GalleryClothesProps extends DefaultProps {
+  title: string;
+  clothes: Clothes[];
+  onClothesClick: (c: Clothes) => void;
+}

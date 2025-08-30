@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
-import { mountComponent, unMountComponent } from "shared_react/SharedReact";
+import {
+  mountComponent,
+  MountOptions,
+  unMountComponent,
+} from "shared_react/SharedReact";
 import { LoaderScreenProps } from "shared_react/SharedReactProps";
 import { Component } from "shared_react/SharedReactEnums";
 
@@ -13,11 +17,16 @@ export const LoaderScreen = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.LoaderScreen, {
-      idRoot: idRoot,
-      className: className,
-      children: children,
-    });
+    const options: MountOptions = {
+      idComponent: Component.LoaderScreen,
+      props: {
+        idRoot: idRoot,
+        className: className,
+        children: children,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

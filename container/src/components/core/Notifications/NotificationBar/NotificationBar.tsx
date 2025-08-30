@@ -1,7 +1,11 @@
 import React, { Fragment, useEffect, useRef } from "react";
 import { createRoot, Root } from "react-dom/client";
 
-import { mountComponent, unMountComponent } from "shared_angular/SharedAngular";
+import {
+  mountComponent,
+  MountOptions,
+  unMountComponent,
+} from "shared_angular/SharedAngular";
 import { NotificationBarProps } from "shared_angular/SharedAngularProps";
 import { Component } from "shared_angular/SharedAngularEnums";
 
@@ -29,12 +33,17 @@ const NotificationBar = ({
   };
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.NotificationBar, {
-      idRoot: idRoot,
-      text: children,
-      className: className,
-      onClose: onClose,
-    });
+    const options: MountOptions = {
+      idComponent: Component.NotificationBar,
+      props: {
+        idRoot: idRoot,
+        text: children,
+        className: className,
+        onClose: onClose,
+      },
+    };
+
+    mountComponent(ref.current!, options);
 
     const tryAttach = () => {
       const ok = attachReactToSlot();
@@ -52,12 +61,17 @@ const NotificationBar = ({
   };
 
   const onPropsChange = () => {
-    mountComponent(ref.current!, Component.NotificationBar, {
-      idRoot: idRoot,
-      text: children,
-      className: className,
-      onClose: onClose,
-    });
+    const options: MountOptions = {
+      idComponent: Component.NotificationBar,
+      props: {
+        idRoot: idRoot,
+        text: children,
+        className: className,
+        onClose: onClose,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onChildrenChange = () => {

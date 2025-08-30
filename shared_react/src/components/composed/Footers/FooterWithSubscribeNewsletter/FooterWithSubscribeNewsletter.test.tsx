@@ -26,7 +26,6 @@ const renderComponent = (
   } = {
     title: "title",
     description: "description",
-    links: footerLinks,
     language: language ?? "en",
     facebook: facebook ?? "",
     instagram: instagram ?? "",
@@ -39,7 +38,6 @@ const renderComponent = (
     <FooterWithSubscribeNewsletter
       title={props.title}
       description={props.description}
-      links={props.links}
       facebook={props.facebook}
       instagram={props.instagram}
       twitter={props.twitter}
@@ -80,9 +78,6 @@ describe("FooterWithSubscribeNewsletter.tsx", () => {
       ) as HTMLDivElement;
       const title = screen.getByRole("heading", { name: props.title });
       const description = screen.getByText(props.description);
-      const links = container.querySelector(
-        ".footer-with-subscribe-newsletter__content-links"
-      ) as HTMLDivElement;
       const cr = screen.getByText(`${props.title} © All Rights Reserved`);
       const payments = screen.getByAltText("payments");
 
@@ -90,7 +85,6 @@ describe("FooterWithSubscribeNewsletter.tsx", () => {
       expect(subscribeNewsletter).toBeInTheDocument();
       expect(title).toBeInTheDocument();
       expect(description).toBeInTheDocument();
-      expect(links.children).toHaveLength(props.links.length);
       expect(cr).toBeInTheDocument();
       expect(payments).toBeInTheDocument();
     });

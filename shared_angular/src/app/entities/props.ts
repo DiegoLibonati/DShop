@@ -5,6 +5,7 @@ interface DefaultProps {
   language?: Locale;
   className?: string;
   children?: string;
+  html?: string;
 }
 
 export interface HeaderProps extends DefaultProps {

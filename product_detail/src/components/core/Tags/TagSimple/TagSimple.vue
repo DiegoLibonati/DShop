@@ -7,6 +7,7 @@ import {
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component } from "shared_core/SharedCoreEnums";
 import type { TagSimpleProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 const props = defineProps<TagSimpleProps>();
 const slots = useSlots();
@@ -27,13 +28,18 @@ function init() {
     if (!containerRef.value) return;
     const childrenText = buildChildrenText();
 
-    mountComponent(containerRef.value, Component.TagSimple, {
-        idRoot: props.idRoot,
-        children: childrenText,
-        language: props.language,
-        className: props.className,
-        onClick: props.onClick,
-    });
+    const options: MountOptions = {
+        idComponent: Component.TagSimple,
+        props: {
+            idRoot: props.idRoot,
+            children: childrenText,
+            language: props.language,
+            className: props.className,
+            onClick: props.onClick,
+        }
+    };
+
+    mountComponent(containerRef.value, options);
 }
 function destroy() { unMountComponent(props.idRoot); }
 

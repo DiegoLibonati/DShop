@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { inject, Ref } from "vue";
-
-import { Product } from "@src/entities/entities";
+import { inject } from "vue";
 
 import ImageViewerArticle from "@src/containers/ImageViewerArticle/ImageViewerArticle.vue";
 import ProductInformationArticle from "@src/containers/ProductInformationArticle/ProductInformationArticle.vue";
 
 import { PRODUCT_CONTEXT_KEY } from "@src/constants/keys";
 
+import { Product } from "shared_core/SharedCoreEntities";
+
 import "@src/containers/ProductSection/ProductSection.css"
 
 
-const product = inject(PRODUCT_CONTEXT_KEY) as Ref<Product>;
-
+const product = inject(PRODUCT_CONTEXT_KEY) as Product
 </script>
 
 <template>

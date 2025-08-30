@@ -1,11 +1,11 @@
+import { Callbacks, MountOptions } from "@src/entities/entities";
+
 import {
   Brand,
-  Callbacks,
   Clothes,
   DressStyle,
-  MountOptions,
   Review,
-} from "@src/entities/entities";
+} from "shared_core/SharedCoreEntities";
 
 export type ConfigContext = {
   callbacks: Callbacks | null;

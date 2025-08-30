@@ -3,6 +3,8 @@ import type { Component } from "./SharedReactEnums.d";
 export type Debug = boolean;
 
 export type MountOptions = {
+  idComponent: Component;
+  props?: Record<string, unknown>;
   debug?: Debug;
 };
 
@@ -12,9 +14,7 @@ export type UnMountOptions = {
 
 export type MountComponent = (
   el: HTMLDivElement,
-  idComponent: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
+  options: MountOptions
 ) => void;
 
 export type UnMountComponent = (

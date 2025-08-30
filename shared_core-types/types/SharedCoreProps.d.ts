@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-import { Locale } from "@src/entities/entities";
+import { Locale } from "shared_core/SharedCoreEntities";
 
 export interface DefaultProps {
   idRoot: string;
@@ -8,6 +8,12 @@ export interface DefaultProps {
   classNameWrapper?: string;
   children?: React.ReactNode;
   language?: Locale;
+  html?: string;
+}
+
+export interface DefaultSvgProps {
+  width: number;
+  height: number;
 }
 
 export interface ButtonBlackProps extends DefaultProps {
@@ -87,54 +93,74 @@ export interface LoaderCircularProps extends DefaultProps {}
 
 export interface SvgStarToFillProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {
+    DefaultProps,
+    DefaultSvgProps {
   outColor: string;
   inColor: string;
-  fill: number;
+  fill: string;
 }
 
-export interface SvgSearchProps extends SVGProps<SVGSVGElement>, DefaultProps {}
+export interface SvgSearchProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgHamburgerMenuProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgChevronUpProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgChevronDownProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgCartShoppingProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgSkyStarProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgArrowLeftProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgArrowRightProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgTwitterProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgFacebookProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
 export interface SvgInstagramProps
   extends SVGProps<SVGSVGElement>,
-    DefaultProps {}
+    DefaultProps,
+    DefaultSvgProps {}
 
-export interface SvgCloseProps extends SVGProps<SVGSVGElement>, DefaultProps {}
+export interface SvgCloseProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps,
+    DefaultSvgProps {}
 
-export interface SvgCheckProps extends SVGProps<SVGSVGElement>, DefaultProps {}
+export interface SvgCheckProps
+  extends SVGProps<SVGSVGElement>,
+    DefaultProps,
+    DefaultSvgProps {}

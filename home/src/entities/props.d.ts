@@ -1,4 +1,4 @@
-import { DressStyle } from "@src/entities/entities";
+import { Callbacks, Content, DressStyle } from "@src/entities/entities";
 
 import { Locale } from "shared_core/SharedCoreEntities";
 
@@ -6,16 +6,15 @@ export interface DefaultProps {
   className?: string;
   children?: React.ReactNode;
   language?: Locale;
+  html?: string;
 }
 
 export interface AppProps {
-  callbacks: {
-    navigateToProductDetail: (id: string) => void;
-  };
+  callbacks: Callbacks;
+  content: Content;
 }
 
 export interface GallerySectionLayoutProps extends DefaultProps {
-  title: string;
   btnText: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }

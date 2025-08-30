@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/svgs/svg-hamburger-menu/svg-hamburg
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { SvgHamburgerMenuProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "svg-hamburger-menu",
@@ -29,14 +30,15 @@ export class SvgHamburgerMenuComponent implements AfterViewInit, OnDestroy {
   @Input() classNameWrapper: SvgHamburgerMenuProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
-    mountComponent(
-      this.ref!.nativeElement,
-      ComponentSharedCore.SvgHamburgerMenu,
-      {
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.SvgHamburgerMenu,
+      props: {
         idRoot: this.idRoot,
         className: this.className,
-      }
-    );
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

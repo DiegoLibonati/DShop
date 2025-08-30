@@ -9,6 +9,7 @@ interface DefaultProps {
   language?: Locale;
   className?: string;
   classNameWrapper?: string;
+  html?: string;
 }
 
 export interface AppHomeProps extends DefaultProps {}

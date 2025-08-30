@@ -13,12 +13,15 @@ import { DressStylesProvider } from "@src/contexts/DressStyles/DressStylesContex
 import { HappyCustomersProvider } from "@src/contexts/HappyCustomers/HappyCustomersContext";
 
 import { IS_DEV } from "@src/constants/envs";
+import { clothesList } from "@src/constants/clothes";
+import { reviews } from "@src/constants/reviews";
 
 const titleMfe: string = "Home";
 let root: Root | null = null;
 
 const mount = (el: HTMLElement, options: MountOptions) => {
-  const callbacks = options.callbacks;
+  const callbacks = options.props.callbacks;
+  const content = options.props.content;
   const debug = options?.debug;
 
   if (!root) {
@@ -32,7 +35,7 @@ const mount = (el: HTMLElement, options: MountOptions) => {
           <TopSellingsProvider>
             <DressStylesProvider>
               <HappyCustomersProvider>
-                <App callbacks={callbacks} />
+                <App callbacks={callbacks} content={content} />
               </HappyCustomersProvider>
             </DressStylesProvider>
           </TopSellingsProvider>
@@ -68,10 +71,18 @@ if (IS_DEV === "development") {
   const devRoot = document.getElementById("_home-dev-root") as HTMLDivElement;
 
   if (devRoot) {
-    const options = {
-      callbacks: {
-        navigateToProductDetail: (id: string) => {
-          console.log(id);
+    const options: MountOptions = {
+      props: {
+        callbacks: {
+          navigateToProductDetail: (id: string) => {
+            console.log(id);
+          },
+        },
+        content: {
+          brands: ["VERSACE", "ZARA", "GUCCI", "PRADA", "Calvin Klein"],
+          newArrivals: clothesList,
+          topSellings: clothesList,
+          reviews: reviews,
         },
       },
     };

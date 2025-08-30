@@ -10,14 +10,26 @@ import { BrowseByDressStyleSection } from "@src/containers/BrowseByDressStyleSec
 import { OurHappyCustomersSection } from "@src/containers/OurHappyCustomersSection/OurHappyCustomersSection";
 
 import { useConfigContext } from "@src/contexts/Config/ConfigContext";
+import { useBrandsContext } from "@src/contexts/Brands/BrandsContext";
+import { useNewArrivalsContext } from "@src/contexts/NewArrivals/NewArrivalsContext";
+import { useTopSellingsContext } from "@src/contexts/TopSellings/TopSellingsContext";
+import { useHappyCustomersContext } from "@src/contexts/HappyCustomers/HappyCustomersContext";
 
 import "@src/App.css";
 
-export const App = ({ callbacks }: AppProps) => {
+export const App = ({ callbacks, content }: AppProps) => {
   const { handleSetInitialConfig } = useConfigContext();
+  const { handleSetBrands } = useBrandsContext();
+  const { handleSetNewArrivals } = useNewArrivalsContext();
+  const { handleSetTopSellings } = useTopSellingsContext();
+  const { handleSetReviews } = useHappyCustomersContext();
 
   const onInit = () => {
     handleSetInitialConfig({ callbacks: callbacks });
+    handleSetBrands(content.brands);
+    handleSetNewArrivals(content.newArrivals);
+    handleSetTopSellings(content.topSellings);
+    handleSetReviews(content.reviews);
   };
 
   useEffect(() => {

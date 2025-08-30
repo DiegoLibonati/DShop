@@ -13,6 +13,7 @@ import styles from "@src/app/components/core/svgs/svg-chevron-down/svg-chevron-d
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { Component as ComponentSharedCore } from "shared_core/SharedCoreEnums";
 import { SvgChevronDownProps } from "shared_core/SharedCoreProps";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 @Component({
   selector: "svg-chevron-down",
@@ -29,14 +30,15 @@ export class SvgChevronDownComponent implements AfterViewInit, OnDestroy {
   @Input() classNameWrapper: SvgChevronDownProps["classNameWrapper"] = "";
 
   ngAfterViewInit(): void {
-    mountComponent(
-      this.ref!.nativeElement,
-      ComponentSharedCore.SvgChevronDown,
-      {
+    const options: MountOptions = {
+      idComponent: ComponentSharedCore.SvgChevronDown,
+      props: {
         idRoot: this.idRoot,
         className: this.className,
-      }
-    );
+      },
+    };
+
+    mountComponent(this.ref!.nativeElement, options);
   }
 
   ngOnDestroy(): void {

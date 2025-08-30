@@ -3,6 +3,8 @@ import { createRoot, Root } from "react-dom/client";
 
 import {
   FooterWithSubscribeNewsletterProps,
+  GalleryClothesProps,
+  GetComponentByIdProps,
   ItemClothesProps,
   LoaderScreenProps,
   SubscribeNewsletterProps,
@@ -15,6 +17,7 @@ import { ItemClothes } from "@src/components/composed/Items/ItemClothes/ItemClot
 import { FooterWithSubscribeNewsletter } from "@src/components/composed/Footers/FooterWithSubscribeNewsletter/FooterWithSubscribeNewsletter";
 import { SubscribeNewsletter } from "@src/components/composed/Subscribes/SubscribeNewsletter/SubscribeNewsletter";
 import { LoaderScreen } from "@src/components/composed/Loaders/LoaderScreen/LoaderScreen";
+import { GalleryClothes } from "@src/components/composed/Galleries/GalleryClothes/GalleryClothes";
 
 import { IS_DEV } from "@src/constants/envs";
 
@@ -23,12 +26,7 @@ const titleMfe: string = "Shared React";
 
 export const getComponentById = (
   idComponent: Component,
-  props:
-    | Record<string, unknown>
-    | ItemClothesProps
-    | FooterWithSubscribeNewsletterProps
-    | SubscribeNewsletterProps
-    | LoaderScreenProps
+  props: GetComponentByIdProps
 ): React.ReactNode => {
   return {
     [Component.AppTest]: <App {...(props as Record<string, unknown>)} />,
@@ -48,20 +46,16 @@ export const getComponentById = (
     [Component.LoaderScreen]: (
       <LoaderScreen {...(props as LoaderScreenProps)}></LoaderScreen>
     ),
+    [Component.GalleryClothes]: (
+      <GalleryClothes {...(props as GalleryClothesProps)}></GalleryClothes>
+    ),
   }[idComponent];
 };
 
-const mountComponent = (
-  el: HTMLDivElement,
-  idComponent: Component,
-  props?: Record<string, unknown>,
-  options?: MountOptions
-) => {
-  // console.log("Element:", el);
-  // console.log("Id Componente a renderizar: ", idComponent);
-  // console.log("Props: ", props);
-
+const mountComponent = (el: HTMLDivElement, options: MountOptions) => {
   const debug = options?.debug;
+  const props = options?.props;
+  const idComponent = options.idComponent;
 
   if (!IS_DEV && idComponent === Component.AppTest) {
     throw new Error(
@@ -95,7 +89,7 @@ const mountComponent = (
   }
 };
 
-const unMountComponent = (idRoot: string, options: UnMountOptions) => {
+const unMountComponent = (idRoot: string, options?: UnMountOptions) => {
   const debug = options?.debug;
   const rootExists = roots[idRoot];
 
@@ -120,7 +114,12 @@ if (IS_DEV === "development") {
   ) as HTMLDivElement;
 
   if (devRoot) {
-    mountComponent(devRoot, Component.AppTest, { idRoot: "Rootcito APP" });
+    const options: MountOptions = {
+      idComponent: Component.AppTest,
+      props: { idRoot: "Rootcito APP" },
+    };
+
+    mountComponent(devRoot, options);
   }
 }
 

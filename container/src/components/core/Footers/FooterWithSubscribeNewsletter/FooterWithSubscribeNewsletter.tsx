@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from "react";
 
-import { mountComponent, unMountComponent } from "shared_react/SharedReact";
+import {
+  mountComponent,
+  MountOptions,
+  unMountComponent,
+} from "shared_react/SharedReact";
 import { Component } from "shared_react/SharedReactEnums";
 import { FooterWithSubscribeNewsletterProps } from "shared_react/SharedReactProps";
 
@@ -20,18 +24,23 @@ const FooterWithSubscribeNewsletter = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.FooterWithSubscribeNewsletter, {
-      idRoot: idRoot,
-      title: title,
-      description: description,
-      facebook: facebook,
-      instagram: instagram,
-      twitter: twitter,
-      language: language,
-      className: className,
-      children: children,
-      onSubmitSubscribe: onSubmitSubscribe,
-    });
+    const options: MountOptions = {
+      idComponent: Component.FooterWithSubscribeNewsletter,
+      props: {
+        idRoot: idRoot,
+        title: title,
+        description: description,
+        facebook: facebook,
+        instagram: instagram,
+        twitter: twitter,
+        language: language,
+        className: className,
+        children: children,
+        onSubmitSubscribe: onSubmitSubscribe,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

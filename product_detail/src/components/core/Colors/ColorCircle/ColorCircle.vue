@@ -4,6 +4,7 @@ import { defineProps, ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { ColorCircleProps } from "shared_core/SharedCoreProps";
 import { Component } from "shared_core/SharedCoreEnums";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 const props = defineProps<ColorCircleProps>();
 
@@ -12,14 +13,19 @@ const containerRef = ref<HTMLDivElement | null>(null);
 function init() {
     if (!containerRef.value) return;
 
-    mountComponent(containerRef.value, Component.ColorCircle, {
-        idRoot: props.idRoot,
-        color: props.color,
-        isActive: props.isActive,
-        language: props.language,
-        className: props.className,
-        onClick: props.onClick,
-    });
+    const options: MountOptions = {
+        idComponent: Component.ColorCircle,
+        props: {
+            idRoot: props.idRoot,
+            color: props.color,
+            isActive: props.isActive,
+            language: props.language,
+            className: props.className,
+            onClick: props.onClick,
+        }
+    };
+
+    mountComponent(containerRef.value, options);
 }
 
 function destroy() {

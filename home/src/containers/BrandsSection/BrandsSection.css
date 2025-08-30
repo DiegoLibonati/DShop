@@ -17,7 +17,8 @@
 
 @media screen and (width >= 1024px) {
   .brands {
-    padding: 2.75rem 1rem 2.75rem 1rem;
+    justify-content: space-between;
+    padding: 2.75rem 6.25rem 2.75rem 6.25rem;
   }
 
   .brands-brand__text {

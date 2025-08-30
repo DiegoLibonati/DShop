@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { mountComponent, unMountComponent } from "shared_core/SharedCore";
 import { SvgSkyStarProps } from "shared_core/SharedCoreProps";
 import { Component } from "shared_core/SharedCoreEnums";
+import { MountOptions } from "shared_core/SharedCoreEntities";
 
 export const SvgSkyStar = ({
   idRoot,
@@ -14,12 +15,17 @@ export const SvgSkyStar = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onInit = () => {
-    mountComponent(ref.current!, Component.SvgSkyStar, {
-      idRoot: idRoot,
-      width: width,
-      height: height,
-      className: className,
-    });
+    const options: MountOptions = {
+      idComponent: Component.SvgSkyStar,
+      props: {
+        idRoot: idRoot,
+        width: width,
+        height: height,
+        className: className,
+      },
+    };
+
+    mountComponent(ref.current!, options);
   };
 
   const onDestroy = () => {

@@ -40,6 +40,8 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^6.0.1",
-    "shared_core": "file:../shared_core-types"
+    "shared_core": "file:../shared_core-types",
+    "shared_react": "file:../shared_react-types",
+    "shared_angular": "file:../shared_angular-types"
   }
 }
