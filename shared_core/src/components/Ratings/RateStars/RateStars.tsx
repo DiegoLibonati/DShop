@@ -30,7 +30,7 @@ export const RateStars = ({
             idRoot={uuidsRef.current[i]}
             key={`star_${i}_ratestars`}
             className={`rate-stars__star ${classNameStar}`}
-            fill={fillPercentage}
+            fill={String(fillPercentage)}
             inColor={inColor}
             outColor={outColor}
           ></SvgStarToFill>

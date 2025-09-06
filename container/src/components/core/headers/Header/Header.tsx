@@ -35,7 +35,7 @@ export const Header = ({
     if (!slotRootChildren.current) {
       slotRootChildren.current = createRoot(slotEl);
     }
-    slotRootChildren.current.render(<Fragment>{children}</Fragment>);
+    slotRootChildren.current.render(<Fragment>{children as string}</Fragment>);
     return true;
   };
 

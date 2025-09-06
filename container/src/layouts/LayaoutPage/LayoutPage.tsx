@@ -87,6 +87,7 @@ const LayoutPage = ({ children }: LayoutPageProps) => {
           onClickSearch={handleClickSearch}
           onSubmitSearch={handleSubmitSearch}
         >
+          {/* @ts-ignore */}
           {headerOptions.map((ho) => {
             return (
               <HeaderOption

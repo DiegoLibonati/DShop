@@ -4,7 +4,7 @@ module.exports = {
   setupFilesAfterEnv: ["<rootDir>/tests/jest.setup.ts"],
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    ".*\\.(vue)$": "@vue/vue3-jest",
+    // ".*\\.(vue)$": "@vue/vue3-jest",
   },
   moduleNameMapper: {
     "\\.(css|scss|sass|less)$": "<rootDir>/tests/mocks/css.js",

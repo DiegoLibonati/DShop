@@ -1,6 +1,7 @@
 // ### GENERALES ###
 
 // ### CONTAINER MFE ###
+// TODO: Arreglar tipado Header
 
 // ### HOME MFE ###
 
@@ -13,8 +14,3 @@
 
 // ### SHARED CORE MFE ###
 
-// ### OTROS ###
-// TODO: Revision packages jsons - carpetas de tests. En proyectos front/back js/ts
-// TODO: Subir
-// TODO: Readme - Certificado portfolio / linkdin
-// TODO: Ver en sv consumos de servicios recursos asignar recursos.

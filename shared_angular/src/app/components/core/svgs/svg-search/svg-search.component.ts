@@ -31,7 +31,7 @@ export class SvgSearchComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     const options: MountOptions = {
-      idComponent: ComponentSharedCore.SvgHamburgerMenu,
+      idComponent: ComponentSharedCore.SvgSearch,
       props: {
         idRoot: this.idRoot,
         className: this.className,

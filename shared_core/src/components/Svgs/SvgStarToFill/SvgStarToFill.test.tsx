@@ -11,7 +11,7 @@ type RenderComponent = {
 
 const renderComponent = (): RenderComponent => {
   const props: SvgStarToFillProps = {
-    fill: 50,
+    fill: "50",
     inColor: "red",
     outColor: "black",
     className: "test-svg",
@@ -76,7 +76,7 @@ describe("SvgStarToFill.tsx", () => {
         const { container } = render(
           <SvgStarToFill
             className="test-svg"
-            fill={fill}
+            fill={String(fill)}
             inColor="green"
             outColor="yellow"
           />
