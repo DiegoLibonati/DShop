@@ -311,6 +311,10 @@ This project is a fun project that allowed me to learn `MicroFrontends (MFEs)` w
 
 [`https://diegolibonati.com.ar/#/project/DShop`](https://diegolibonati.com.ar/#/project/DShop)
 
+## App Link
+
+[`https://dshop.libonatis.com.ar/#/`](https://dshop.libonatis.com.ar/#/)
+
 ## Video
 
 https://github.com/user-attachments/assets/2758b45c-2699-4e52-b604-2be29c70346b
