@@ -16,7 +16,7 @@ COPY shared_angular-types /home/app/shared_angular-types
 COPY product_detail-types /home/app/product_detail-types
 COPY home-types /home/app/home-types
 
-RUN npm config set install-links true && npm ci
+RUN npm config set install-links true && npm install
 
 COPY container /home/app/container
 RUN npm run build

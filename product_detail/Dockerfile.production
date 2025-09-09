@@ -12,7 +12,7 @@ COPY shared_core-types /home/app/shared_core-types
 COPY shared_react-types /home/app/shared_react-types
 COPY shared_angular-types /home/app/shared_angular-types
 
-RUN npm config set install-links true && npm ci
+RUN npm config set install-links true && npm install
 
 COPY product_detail /home/app/product_detail
 RUN npm run build

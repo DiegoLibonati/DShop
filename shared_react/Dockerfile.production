@@ -8,7 +8,7 @@ COPY shared_react/package*.json      /home/app/shared_react/
 
 COPY shared_core-types /home/app/shared_core-types
 
-RUN npm config set install-links true && npm ci
+RUN npm config set install-links true && npm install
 
 COPY shared_react /home/app/shared_react
 RUN npm run build

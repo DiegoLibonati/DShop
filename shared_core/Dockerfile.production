@@ -4,7 +4,7 @@ WORKDIR /home/app/shared_core
 
 COPY shared_core/package*.json      /home/app/shared_core/
 
-RUN npm ci
+RUN npm install
 
 COPY shared_core /home/app/shared_core
 RUN npm run build
