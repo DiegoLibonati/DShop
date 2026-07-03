@@ -83,3 +83,10 @@ export interface SharedMfeMountProps<P> {
   wrapperClass?: string | undefined;
   loadingClass?: string | undefined;
 }
+
+export interface SeoProps {
+  title: string;
+  description: string;
+  path: string;
+  jsonLd?: Record<string, unknown> | null;
+}

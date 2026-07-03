@@ -1,16 +1,19 @@
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { Fragment, useEffect, useState, useCallback, useMemo } from "react";
 import { useParams } from "react-router";
 
 import type { JSX } from "react";
 import type { Clothes, Product } from "shared-core/sdk";
 import type { ProductDetailAppProps } from "@container/types/props";
+import type { SeoProps } from "@container/types/props";
 
 import RemoteMfe from "@container/components/RemoteMfe/RemoteMfe";
+import Seo from "@container/components/Seo/Seo";
 
 import { useLoadable } from "@container/hooks/useLoadable";
 
 import productService from "@container/services/productService";
 
+import { buildProductSeo } from "@container/helpers/buildProductSeo";
 import { getParseClothes } from "@container/helpers/getParseClothes";
 import { getParseProduct } from "@container/helpers/getParseProduct";
 
@@ -49,6 +52,7 @@ const ProductDetailApp = ({ callbacks }: ProductDetailAppProps): JSX.Element => 
     () => ({ product, clothesAlsoLike: clothes ?? [] }),
     [product, clothes]
   );
+  const seoTags = useMemo<SeoProps>(() => buildProductSeo(id, product), [id, product]);
 
   useLoadable(loading);
 
@@ -65,22 +69,23 @@ const ProductDetailApp = ({ callbacks }: ProductDetailAppProps): JSX.Element => 
     };
   }, [loadData]);
 
-  if (error || !product || !clothes) {
-    return (
-      <div className="product-detail-app-error" role="alert">
-        <h2 className="product-detail-app-error__title">Error loading product</h2>
-        <p className="product-detail-app-error__message">Please try again later.</p>
-      </div>
-    );
-  }
-
   return (
-    <RemoteMfe
-      loadModule={loadModule}
-      callbacks={callbacks}
-      mountData={mountData}
-      wrapperClass="product-detail-wrapper"
-    />
+    <Fragment>
+      <Seo {...seoTags} />
+      {error || !product || !clothes ? (
+        <div className="product-detail-app-error" role="alert">
+          <h2 className="product-detail-app-error__title">Error loading product</h2>
+          <p className="product-detail-app-error__message">Please try again later.</p>
+        </div>
+      ) : (
+        <RemoteMfe
+          loadModule={loadModule}
+          callbacks={callbacks}
+          mountData={mountData}
+          wrapperClass="product-detail-wrapper"
+        />
+      )}
+    </Fragment>
   );
 };
 

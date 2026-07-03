@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { SkeletonShimmer } from "shared-core/sdk";
 
 import type { JSX } from "react";
@@ -38,10 +38,10 @@ const SharedMfeMount = <P extends object>({
   }, []);
 
   return (
-    <React.Fragment>
+    <Fragment>
       {!mounted && <SkeletonShimmer className={loadingClass!} />}
       <div ref={containerRef} className={wrapperClass} hidden={!mounted} />
-    </React.Fragment>
+    </Fragment>
   );
 };
 

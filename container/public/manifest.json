@@ -1,11 +1,14 @@
 {
-  "name": "Container",
-  "short_name": "Container",
+  "name": "DShop — Fashion & Clothing Store",
+  "short_name": "DShop",
   "description": "DShop is a fully responsive fashion / clothing e-commerce storefront built as a hands-on showcase of a polyglot micro-frontend (MFE) architecture.",
+  "lang": "en",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "theme_color": "#000000",
+  "categories": ["shopping"],
   "icons": [
     { "src": "/favicon.ico", "sizes": "64x64", "type": "image/x-icon" },
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },

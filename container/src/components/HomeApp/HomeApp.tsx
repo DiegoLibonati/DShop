@@ -1,10 +1,12 @@
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { Fragment, useEffect, useState, useCallback, useMemo } from "react";
 
 import type { JSX } from "react";
 import type { Clothes } from "shared-core/sdk";
 import type { HomeAppProps } from "@container/types/props";
+import type { SeoProps } from "@container/types/props";
 
 import RemoteMfe from "@container/components/RemoteMfe/RemoteMfe";
+import Seo from "@container/components/Seo/Seo";
 
 import { useLoadable } from "@container/hooks/useLoadable";
 
@@ -18,6 +20,13 @@ import { reviews } from "@container/constants/reviews";
 import "@container/components/HomeApp/HomeApp.css";
 
 const BRANDS = ["VERSACE", "ZARA", "GUCCI", "PRADA", "Calvin Klein"];
+
+const HOME_SEO: SeoProps = {
+  title: "DShop — Fashion & Clothing Store | Micro-Frontend Demo",
+  description:
+    "Shop clothing that matches your style at DShop — a responsive fashion storefront and open micro-frontend demo built with React, Vue and Angular.",
+  path: "/",
+};
 
 const HomeApp = ({ callbacks }: HomeAppProps): JSX.Element => {
   const [clothes, setClothes] = useState<Clothes[] | null>(null);
@@ -61,22 +70,23 @@ const HomeApp = ({ callbacks }: HomeAppProps): JSX.Element => {
     };
   }, [loadProducts]);
 
-  if (error) {
-    return (
-      <div className="home-app-error" role="alert">
-        <h2 className="home-app-error__title">Error loading home</h2>
-        <p className="home-app-error__message">Please try again later.</p>
-      </div>
-    );
-  }
-
   return (
-    <RemoteMfe
-      loadModule={loadModule}
-      callbacks={callbacks}
-      mountData={mountData}
-      wrapperClass="home-wrapper"
-    />
+    <Fragment>
+      <Seo {...HOME_SEO} />
+      {error ? (
+        <div className="home-app-error" role="alert">
+          <h2 className="home-app-error__title">Error loading home</h2>
+          <p className="home-app-error__message">Please try again later.</p>
+        </div>
+      ) : (
+        <RemoteMfe
+          loadModule={loadModule}
+          callbacks={callbacks}
+          mountData={mountData}
+          wrapperClass="home-wrapper"
+        />
+      )}
+    </Fragment>
   );
 };
 

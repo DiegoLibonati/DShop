@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { Fragment } from "react";
 
 import type { RenderResult } from "@testing-library/react";
 import type { SliderSnapXProps } from "@shared-core/types/props";
@@ -19,10 +20,10 @@ describe("SliderSnapX", () => {
     it("should render its children", () => {
       renderComponent({
         children: (
-          <>
+          <Fragment>
             <span>slide one</span>
             <span>slide two</span>
-          </>
+          </Fragment>
         ),
       });
 

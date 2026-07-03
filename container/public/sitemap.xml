@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap. Only lists stable, indexable URLs.
+  Product pages (/product/:id) are rendered from the external Platzi Fake Store
+  API at runtime, so they are not enumerated here. If you want them indexed,
+  generate this file dynamically from the product catalog at build/deploy time.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dshop.libonatis.com.ar/</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
