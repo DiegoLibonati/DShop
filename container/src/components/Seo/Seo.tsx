@@ -5,14 +5,15 @@ import type { SeoProps } from "@container/types/props";
 
 import { SITE_URL } from "@container/constants/vars";
 
-const Seo = ({ title, description, path, jsonLd }: SeoProps): JSX.Element => {
-  const canonical = `${SITE_URL}${path}`;
+const Seo = ({ title, description, path, noindex, jsonLd }: SeoProps): JSX.Element => {
+  const canonical = noindex || path === undefined ? null : `${SITE_URL}${path}`;
 
   return (
     <Fragment>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
+      {noindex ? <meta name="robots" content="noindex, follow" /> : null}
+      {canonical ? <link rel="canonical" href={canonical} /> : null}
       {jsonLd ? (
         <script
           type="application/ld+json"

@@ -3,8 +3,20 @@ import type { SeoProps } from "@container/types/props";
 
 import { SITE_URL } from "@container/constants/vars";
 
-export const buildProductSeo = (id: string | undefined, product: Product | null): SeoProps => {
+export const buildProductSeo = (
+  id: string | undefined,
+  product: Product | null,
+  notFound = false
+): SeoProps => {
   const path = `/product/${product?.id ?? id ?? ""}`;
+
+  if (notFound) {
+    return {
+      title: "Product not found — DShop",
+      description: "This product is not available on DShop.",
+      noindex: true,
+    };
+  }
 
   if (!product) {
     return {

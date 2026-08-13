@@ -14,7 +14,6 @@ export interface FooterSection {
 export type FooterSectionId = "company" | "help" | "faq" | "resources";
 export interface FooterContent {
   title: string;
-  link: string;
 }
 
 export interface ProductAPI {

@@ -8,10 +8,7 @@ import FooterSection from "@container/components/Footers/FooterSection/FooterSec
 const renderComponent = (props: Partial<FooterSectionProps> = {}): RenderResult => {
   const defaultProps: FooterSectionProps = {
     title: "Company",
-    content: [
-      { title: "About", link: "/about" },
-      { title: "Careers", link: "/careers" },
-    ],
+    content: [{ title: "About" }, { title: "Careers" }],
     ...props,
   };
 
@@ -26,26 +23,26 @@ describe("FooterSection", () => {
       expect(screen.getByRole("heading", { name: "Resources" })).toBeInTheDocument();
     });
 
-    it("should render one link per content item", () => {
+    it("should render the text of every content item", () => {
       renderComponent();
 
-      expect(screen.getAllByRole("link")).toHaveLength(2);
+      expect(screen.getByText("About")).toBeInTheDocument();
+      expect(screen.getByText("Careers")).toBeInTheDocument();
     });
 
-    it("should render each link with its href, text and accessible label", () => {
-      renderComponent({ content: [{ title: "Blog", link: "/resources/blog" }] });
+    it("should not render the items as links", () => {
+      renderComponent({ content: [{ title: "Blog" }] });
 
-      const link = screen.getByRole("link", { name: "link-Blog" });
-
-      expect(link).toHaveAttribute("href", "/resources/blog");
-      expect(link).toHaveTextContent("Blog");
+      expect(screen.queryByRole("link")).not.toBeInTheDocument();
+      expect(screen.getByText("Blog")).toBeInTheDocument();
     });
   });
 
   describe("edge cases", () => {
-    it("should render no links when the content is empty", () => {
+    it("should render no items when the content is empty", () => {
       renderComponent({ content: [] });
 
+      expect(screen.getByRole("heading", { name: "Company" })).toBeInTheDocument();
       expect(screen.queryByRole("link")).not.toBeInTheDocument();
     });
   });

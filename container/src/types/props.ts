@@ -87,6 +87,7 @@ export interface SharedMfeMountProps<P> {
 export interface SeoProps {
   title: string;
   description: string;
-  path: string;
+  path?: string;
+  noindex?: boolean;
   jsonLd?: Record<string, unknown> | null;
 }

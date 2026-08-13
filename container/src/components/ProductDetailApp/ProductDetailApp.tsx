@@ -52,7 +52,10 @@ const ProductDetailApp = ({ callbacks }: ProductDetailAppProps): JSX.Element => 
     () => ({ product, clothesAlsoLike: clothes ?? [] }),
     [product, clothes]
   );
-  const seoTags = useMemo<SeoProps>(() => buildProductSeo(id, product), [id, product]);
+  const seoTags = useMemo<SeoProps>(
+    () => buildProductSeo(id, product, !loading && (error || !product)),
+    [id, product, loading, error]
+  );
 
   useLoadable(loading);
 

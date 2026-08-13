@@ -39,6 +39,26 @@ describe("buildProductSeo", () => {
     });
   });
 
+  describe("when the product could not be resolved", () => {
+    it("should mark the page noindex and drop the canonical path", () => {
+      const seo = buildProductSeo("5", null, true);
+
+      expect(seo).toEqual({
+        title: "Product not found — DShop",
+        description: "This product is not available on DShop.",
+        noindex: true,
+      });
+    });
+
+    it("should not attach structured data", () => {
+      expect(buildProductSeo("5", null, true)).not.toHaveProperty("jsonLd");
+    });
+
+    it("should stay indexable while the request is still in flight", () => {
+      expect(buildProductSeo("5", null, false)).not.toHaveProperty("noindex");
+    });
+  });
+
   describe("when the product is loaded", () => {
     it("should build the title and prefer the product id over the route id for the path", () => {
       const seo = buildProductSeo("999", makeProduct({ id: "1" }));

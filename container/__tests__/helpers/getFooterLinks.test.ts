@@ -2,7 +2,6 @@ import type { FooterSectionId } from "@container/types/app";
 
 import { getFooterLinks } from "@container/helpers/getFooterLinks";
 
-import { FOOTER_LINKS } from "@container/constants/components";
 import { lang } from "@container/constants/lang";
 
 describe("getFooterLinks", () => {
@@ -26,32 +25,25 @@ describe("getFooterLinks", () => {
     ]);
   });
 
-  it("should pair each content title with its configured link", () => {
+  it("should map each content title from the language config", () => {
     const sections = getFooterLinks("en");
 
     const company = sections.find((section) => section.id === "company");
 
     expect(company?.content).toEqual([
-      {
-        title: lang.en.footer.sections.company.items.whoWeAre,
-        link: FOOTER_LINKS.company.whoWeAre,
-      },
-      { title: lang.en.footer.sections.company.items.ourTeam, link: FOOTER_LINKS.company.ourTeam },
-      { title: lang.en.footer.sections.company.items.careers, link: FOOTER_LINKS.company.careers },
-      {
-        title: lang.en.footer.sections.company.items.newsroom,
-        link: FOOTER_LINKS.company.newsroom,
-      },
+      { title: lang.en.footer.sections.company.items.whoWeAre },
+      { title: lang.en.footer.sections.company.items.ourTeam },
+      { title: lang.en.footer.sections.company.items.careers },
+      { title: lang.en.footer.sections.company.items.newsroom },
     ]);
   });
 
-  it("should expose a non-empty link for every content item", () => {
-    const sections = getFooterLinks("en");
+  it("should not expose a destination for any content item", () => {
+    const items = getFooterLinks("en").flatMap((section) => section.content);
 
-    const everyLinkPresent = sections.every((section) =>
-      section.content.every((item) => item.link.length > 0)
-    );
-
-    expect(everyLinkPresent).toBe(true);
+    expect(items.length).toBeGreaterThan(0);
+    items.forEach((item) => {
+      expect(item).toEqual({ title: expect.any(String) });
+    });
   });
 });

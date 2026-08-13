@@ -9,14 +9,9 @@ const FooterSection = ({ title, content }: FooterSectionProps): JSX.Element => {
       <h2 className="footer-section__title">{title}</h2>
 
       {content.map((c) => (
-        <a
-          key={`footer-link-content-anchor-${c.title}`}
-          href={c.link}
-          aria-label={`link-${c.title}`}
-          className="footer-section__link"
-        >
+        <p key={`footer-link-content-item-${c.title}`} className="footer-section__item">
           {c.title}
-        </a>
+        </p>
       ))}
     </div>
   );

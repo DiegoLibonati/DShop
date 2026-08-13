@@ -1,8 +1,9 @@
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 
 import type { JSX } from "react";
 
 import HomeApp from "@container/components/HomeApp/HomeApp";
+import NotFound from "@container/components/NotFound/NotFound";
 import ProductDetailApp from "@container/components/ProductDetailApp/ProductDetailApp";
 
 import { PublicRoute } from "@container/router/PublicRoute";
@@ -20,9 +21,9 @@ export const ContainerRouter = (): JSX.Element => {
           path="/product/:id"
           element={<ProductDetailApp callbacks={callbacks}></ProductDetailApp>}
         ></Route>
-      </Route>
 
-      <Route path="/*" element={<Navigate to="/" replace={true}></Navigate>}></Route>
+        <Route path="/*" element={<NotFound></NotFound>}></Route>
+      </Route>
     </Routes>
   );
 };
